@@ -84,7 +84,7 @@
                 <?php endif; ?>
               <?php else: ?>
                 <li>
-                  <a href="<?php echo e(route('account')); ?>">
+                  <a href="<?php echo e(route('profile-user')); ?>">
                     <span class="text"><?php echo e(__('Profile')); ?></span>
                   </a>
                 </li>

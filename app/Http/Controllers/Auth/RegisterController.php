@@ -15,7 +15,7 @@ class RegisterController extends Controller
       $request->validate([
           'nama_lengkap' => 'required|string|max:255',
           'email' => 'required|string|email|max:255|unique:users',
-          'username' => 'required|string|max:100',
+          'username' => 'required|string|max:100|regex:/^\S*$/u',
           'nomer_hp' => 'required|string|max:15',
           'alamat' => 'required|string|max:255',
           'password' => 'required|string|min:8|confirmed',

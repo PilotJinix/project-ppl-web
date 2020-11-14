@@ -6,13 +6,16 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use DB;
 use App\AjuanUser;
+use App\User;
 
 class UpgradeMitraController extends Controller
 {
     public function upgradeMitra(Request $request){
 		$user = $request->session()->get('username');
-		$akun = DB::table('users')->where('username',$user)->first();
-		return view('upgrade-mitra',compact('akun'));
+        $akun = DB::table('users')->where('username',$user)->first();
+        
+        $status = $akun->status;
+		return view('upgrade-mitra',compact('akun','status'));
     }
     
     public function createMitra(Request $request){
@@ -35,19 +38,24 @@ class UpgradeMitraController extends Controller
         $nama_file = time()."_".$file->getClientOriginalName();
 
         $tujuan_upload = "assets/images/ktp";
-        $file->move($tujuan_upload,$nama_file);
 
         AjuanUser::create([
             'nama_lengkap' => $request->nama_lengkap,
             'email' => $request->email,
             'nik' => $request->nik,
-            'no_hp' => $request->nomer_hp,
+            'nomer_hp' => $request->nomer_hp,
             'alamat' => $request->alamat,
             'ktp' => $nama_file,
             'no_rekening' => $request->rekening,
             'user_id' => $user_id,
         ]);
+
+        DB::table('users')->where('id', $user_id)->update([
+            'status' => 'proses',
+        ]);
         
-        return redirect('account')->with('success','Pengajuan Berhasil');
+        $file->move($tujuan_upload,$nama_file);
+        
+        return redirect('account')->with('mitra-success','Pengajuan Berhasil');
     }
 }

@@ -15,16 +15,30 @@ class EditProfileController extends Controller
 		return view('edit-profile',compact('akun'));
     }
 
-    public function edit(Request $request){
+    public function editUser(Request $request){
         $user = $request->session()->get('username');
         $akun = DB::table('users')->where('username',$user)->first();
+        $id = $akun->id;
         
         $request->validate([
             'nama_lengkap' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
-            'username' => 'required|string|max:100',
+            'email' => 'required|string|email|max:255|',
+            'username' => 'required|string|max:100|regex:/^\S*$/u',
             'nomer_hp' => 'required|string|max:15',
             'alamat' => 'required|string|max:255',
         ]);
+
+        DB::table('users')->where('id',$id)->update([
+            'nama_lengkap' => $request->nama_lengkap,
+            'email' => $request->email,
+            'username' => $request->username,
+            'nomer_hp' => $request->nomer_hp,
+            'alamat' => $request->alamat,
+        ]);
+        
+        /* merubah nilai username pada session */
+        $request->session()->put('username', $request->username);
+
+        return redirect('account')->with('edit-success','Edit profile berhasil!');
     }
 }

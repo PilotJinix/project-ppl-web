@@ -33,7 +33,19 @@
                 finalDate = $(this).data("time"),
                 e = $(this).data("labels");
             $this.countdown(finalDate, function (event) {
-                $this.html(event.strftime('<div class="countdown-item"><div class="countdown-value">%D</div><div class="countdown-label">' + e["label-day"] + '</div></div><div class="countdown-item"><div class="countdown-value">%H</div><div class="countdown-label">' + e["label-hour"] + '</div></div><div class="countdown-item"><div class="countdown-value">%M</div><div class="countdown-label">' + e["label-minute"] + '</div></div><div class="countdown-item"><div class="countdown-value">%S</div><div class="countdown-label">' + e["label-second"] + "</div></div>"));
+                $this.html(
+                    event.strftime(
+                        '<div class="countdown-item"><div class="countdown-value">%D</div><div class="countdown-label">' +
+                            e["label-day"] +
+                            '</div></div><div class="countdown-item"><div class="countdown-value">%H</div><div class="countdown-label">' +
+                            e["label-hour"] +
+                            '</div></div><div class="countdown-item"><div class="countdown-value">%M</div><div class="countdown-label">' +
+                            e["label-minute"] +
+                            '</div></div><div class="countdown-item"><div class="countdown-value">%S</div><div class="countdown-label">' +
+                            e["label-second"] +
+                            "</div></div>"
+                    )
+                );
             });
         });
     };
@@ -102,9 +114,13 @@
             e.preventDefault();
             sidenav.addClass("active");
         });
-        sidenav.on("click", ".button-close-sidenav, .sidenav-close", function () {
-            sidenav.removeClass("active");
-        });
+        sidenav.on(
+            "click",
+            ".button-close-sidenav, .sidenav-close",
+            function () {
+                sidenav.removeClass("active");
+            }
+        );
     };
 
     /*====== Sidenav ======*/
@@ -116,15 +132,21 @@
             e.preventDefault();
             sidenav.toggleClass("active");
         });
-        sidenav.on("click", ".button-close-sidenav, .sidebar-close", function () {
-            sidenav.removeClass("active");
-        });
+        sidenav.on(
+            "click",
+            ".button-close-sidenav, .sidebar-close",
+            function () {
+                sidenav.removeClass("active");
+            }
+        );
     };
 
     /*====== Megamenu ======*/
     AFRA.Megamenu = function () {
         var headerLink = $(".app-header .el-megamenu");
-        var sidenavLink = $(".app-sidenav .el-megamenu > a, .app-sidenav .el-dropdown > a");
+        var sidenavLink = $(
+            ".app-sidenav .el-megamenu > a, .app-sidenav .el-dropdown > a"
+        );
 
         headerLink.on({
             mouseenter: function () {
@@ -153,9 +175,13 @@
             e.preventDefault();
             sidenav.addClass("active");
         });
-        sidenav.on("click", ".button-close-sidenav, .sidenav-close", function () {
-            sidenav.removeClass("active");
-        });
+        sidenav.on(
+            "click",
+            ".button-close-sidenav, .sidenav-close",
+            function () {
+                sidenav.removeClass("active");
+            }
+        );
     };
 
     /*====== Default Tabs ======*/
@@ -169,7 +195,12 @@
             var data = $(this).data("tab-link");
             var links = $(this).siblings("li");
             var item = $("[data-tab-content=" + data + "]");
-            var items = $(this).parent().parent().siblings(".el-tabs-content").children("ul").children("li");
+            var items = $(this)
+                .parent()
+                .parent()
+                .siblings(".el-tabs-content")
+                .children("ul")
+                .children("li");
 
             links.removeClass(className);
             items.removeClass(className);
@@ -186,7 +217,12 @@
         link.on("click", "li", function () {
             var links = $(this).siblings("li");
             var filter = $(this).attr("data-filter");
-            var items = $(this).parent().parent().siblings(".el-data-filters-content").children("ul").children("li");
+            var items = $(this)
+                .parent()
+                .parent()
+                .siblings(".el-data-filters-content")
+                .children("ul")
+                .children("li");
 
             console.log($(this).parent().parent());
 
@@ -230,7 +266,7 @@
                 1200: {
                     slidesPerView: 3,
                     spaceBetween: 18,
-                }
+                },
             },
         });
         var mySwiper = new Swiper(".el-swiper-hero-2", {
@@ -285,7 +321,7 @@
                 1200: {
                     slidesPerView: 3,
                     spaceBetween: 18,
-                }
+                },
             },
         });
         var mySwiper = new Swiper(".el-swiper-products-3", {
@@ -314,7 +350,7 @@
                 1200: {
                     slidesPerView: 4,
                     spaceBetween: 18,
-                }
+                },
             },
         });
         var mySwiper = new Swiper(".swiper-testimonial", {
@@ -411,11 +447,17 @@
             var row = $(".row[data-switch-grid-id='" + gridId + "']");
 
             if (gridType === "grid-card") {
-                row.removeClass("grid-list").removeClass("grid-large").addClass("grid-card");
+                row.removeClass("grid-list")
+                    .removeClass("grid-large")
+                    .addClass("grid-card");
             } else if (gridType === "grid-list") {
-                row.removeClass("grid-card").removeClass("grid-large").addClass("grid-list");
+                row.removeClass("grid-card")
+                    .removeClass("grid-large")
+                    .addClass("grid-list");
             } else if (gridType === "grid-large") {
-                row.removeClass("grid-card").removeClass("grid-list").addClass("grid-large");
+                row.removeClass("grid-card")
+                    .removeClass("grid-list")
+                    .addClass("grid-large");
             }
 
             $(this).siblings().removeClass("active");
@@ -435,7 +477,17 @@
                 effect: "fade",
                 clickable: true,
                 renderBullet: function (index, className) {
-                    return '<div class="el-swiper-pagination-image el-swiper-pagination-image-' + index + " " + className + '">' + "<img src='assets/images/product/" + number + "-" + (index + 1) + ".jpg' alt='alternative'/>" + "</div>";
+                    return (
+                        '<div class="el-swiper-pagination-image el-swiper-pagination-image-' +
+                        index +
+                        " " +
+                        className +
+                        '">' +
+                        "<img src='assets/images/products/." +
+                        "$product->gambar'" +
+                        "alt='alternative'/>" +
+                        "</div>"
+                    );
                 },
             },
         });
@@ -461,20 +513,35 @@
         }
 
         var value = $(t).siblings("input").val();
-        var price = $(t).parent().parent().siblings(".item-price").attr("data-price");
-        var total = $(t).parent().parent().siblings(".item-total").children(".val");
+        var price = $(t)
+            .parent()
+            .parent()
+            .siblings(".item-price")
+            .attr("data-price");
+        var total = $(t)
+            .parent()
+            .parent()
+            .siblings(".item-total")
+            .children(".val");
 
         total.text("$" + parseInt(value * price).toFixed(2));
 
         var product = $(".el-math-product-price");
-        var input = product.children(".item-quantity").children(".el-counter").children("input");
+        var input = product
+            .children(".item-quantity")
+            .children(".el-counter")
+            .children("input");
 
         // total.text("$" + parseInt(price * quantity).toFixed(2));
 
         input.on("change", function (e) {
             var newValue = e.target.value;
             var newTotal = $(this).parent().parent().siblings(".item-total");
-            var newPrice = $(this).parent().parent().siblings(".item-price").attr("data-price");
+            var newPrice = $(this)
+                .parent()
+                .parent()
+                .siblings(".item-price")
+                .attr("data-price");
             newTotal.text("$" + parseInt(newPrice * newValue).toFixed(2));
         });
     };
@@ -501,6 +568,24 @@
 
     // Document.Ready
     $(document).ready(function () {
-        AFRA.StickyHeader(), AFRA.Accordion(), AFRA.Dropdown(), AFRA.Sidenav(), AFRA.SidebarFilterProducts(), AFRA.Megamenu(), AFRA.ShoppingCart(), AFRA.Countdown(), AFRA.Counter(), AFRA.Carousel(), AFRA.Masonry(), AFRA.DefaultTabs(), AFRA.DataFilters(), AFRA.ShowPassword(), AFRA.SwitchGrid(), AFRA.ProductImages(), AFRA.ProductImageZoom(), AFRA.MathProductsPrice(), AFRA.RemoveItemFromShoppingCart();
+        AFRA.StickyHeader(),
+            AFRA.Accordion(),
+            AFRA.Dropdown(),
+            AFRA.Sidenav(),
+            AFRA.SidebarFilterProducts(),
+            AFRA.Megamenu(),
+            AFRA.ShoppingCart(),
+            AFRA.Countdown(),
+            AFRA.Counter(),
+            AFRA.Carousel(),
+            AFRA.Masonry(),
+            AFRA.DefaultTabs(),
+            AFRA.DataFilters(),
+            AFRA.ShowPassword(),
+            AFRA.SwitchGrid(),
+            AFRA.ProductImages(),
+            AFRA.ProductImageZoom(),
+            AFRA.MathProductsPrice(),
+            AFRA.RemoveItemFromShoppingCart();
     });
 })(jQuery);

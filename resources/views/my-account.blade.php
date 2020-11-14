@@ -45,17 +45,25 @@
       <div class="display-spacing">
         <div class="container " style="min-height: 50vh">
           <div class="row">
-            @if (session()->get('success'))
-              <div id="message" class="w-100 position-absolute" style="z-index: 5">
-                <div class="bg-success w-25 pl-4 p-2 text-light d-flex align-items-center" style="border-top-left-radius: 5px;border-bottom-right-radius: 5px ">
-                  <i class="fa fa-check-circle" aria-hidden="true"></i>
-                  <span class="ml-2">message</span>
-                </div>
-              </div>
-            @endif
             <div class="card w-100 rounded p-5 h-100">
               <div class="container">
                 <div class="row">
+                  @if (session()->has('mitra-success'))
+                    <div id="message" class="w-100 position-absolute" style="z-index: 5;margin-top: -2.5rem;left:40%">
+                      <div class="bg-success w-25 pl-4 p-2 text-light d-flex align-items-center text-center" style="border-radius: 5px">
+                        <i class="fa fa-check-circle" aria-hidden="true"></i>
+                        <span class="ml-2">{{session()->get('mitra-success')}}</span>
+                      </div>
+                    </div>
+                  @endif
+                  @if (session()->has('edit-success'))
+                    <div id="message" class="w-100 position-absolute" style="z-index: 5;margin-top: -2.5rem;left:40%">
+                      <div class="bg-success w-25 pl-4 p-2 text-light d-flex align-items-center text-center" style="border-radius: 5px">
+                        <i class="fa fa-check-circle" aria-hidden="true"></i>
+                        <span class="ml-2">{{session()->get('edit-success')}}</span>
+                      </div>
+                    </div>
+                  @endif
                   <div class="col-md-6 col-lg-4 text-center">
                     <div class="card card-shadow border-0 rounded bg-secondary w-100">
                       <a href="#" class="text-center"><img src="{{asset('assets/images/images/no-image.png')}}" class="card-img-top w-auto" alt="__FOTO__"></a>
@@ -63,7 +71,7 @@
                         <a href="#" class="text-light"><h5 class="card-title text-center h5">{{$akun->nama_lengkap}}</h5></a>
                       </div>
                     </div>
-                    <a href="{{route('edit-profile',$akun->id)}}" class="link">
+                    <a href="{{route('edit-profile')}}" class="link">
                       <button class="rounded button-primary mt-2 p-2 pl-4 pr-4 w-100">
                         <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                         <span role="button">Edit Profile</span>

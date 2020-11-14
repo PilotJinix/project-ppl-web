@@ -25,7 +25,7 @@ class LoginController extends Controller
 
         if (Auth::attempt($credentials)) {
           $request->session()->put('username', $request->username);
-          return redirect()->intended('home');
+          return redirect()->intended('/');
         }
 
         return redirect('login')->with('error', 'Oppes! You have entered invalid credentials');
@@ -35,12 +35,5 @@ class LoginController extends Controller
       Auth::logout();
 
       return redirect('login');
-    }
-
-    public function home(Request $request)
-    {
-      $user = $request->session()->get('username');
-		  $akun = DB::table('users')->where('username',$user)->first();
-      return view('home', compact('akun'));
     }
 }

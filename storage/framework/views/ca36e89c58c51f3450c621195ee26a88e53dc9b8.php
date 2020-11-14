@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
+    <?php $__env->startSection('title','Product Detail'); ?>
     <?php echo $__env->make('layouts.head', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
   </head>
 
@@ -47,7 +48,7 @@
                 <div class="row row-sm">
                   <div class="col-4">
                     <div class="image">
-                      <img src="assets/images/products/2-3.jpg" alt="--Alt--" />
+                      <img src="assets/images/products/jeruk.jpg" alt="--Alt--" />
                     </div>
                   </div>
                   <div class="col-8">
@@ -70,7 +71,7 @@
                 <div class="row row-sm">
                   <div class="col-4">
                     <div class="image">
-                      <img src="assets/images/products/2-2.jpg" alt="--Alt--" />
+                      <img src="assets/images/products/strawberry.jpg" alt="--Alt--" />
                     </div>
                   </div>
                   <div class="col-8">
@@ -92,7 +93,7 @@
                 <div class="row row-sm">
                   <div class="col-4">
                     <div class="image">
-                      <img src="assets/images/products/3-2.jpg" alt="--Alt--" />
+                      <img src="assets/images/products/jeruk.jpg" alt="--Alt--" />
                     </div>
                   </div>
                   <div class="col-8">
@@ -159,8 +160,8 @@
                       <div class="swiper-slide">
                         <div class="el-product-image">
                           <img
-                            src="assets/images/product/4-1.jpg"
-                            data-zoom-image="assets/images/product/4-1.jpg"
+                            src="<?php echo e(asset('assets/images/products/'.$product->gambar)); ?>"
+                            data-zoom-image="<?php echo e(asset('assets/images/products/'.$product->gambar)); ?>"
                             class="el-image-zoom"
                             alt="--Alternative--"
                           />
@@ -169,8 +170,8 @@
                       <div class="swiper-slide">
                         <div class="el-product-image">
                           <img
-                            src="assets/images/product/4-2.jpg"
-                            data-zoom-image="assets/images/product/4-2.jpg"
+                            src="<?php echo e(asset('assets/images/products/'.$product->gambar)); ?>"
+                            data-zoom-image="<?php echo e(asset('assets/images/products/'.$product->gambar)); ?>"
                             class="el-image-zoom"
                             alt="--Alternative--"
                           />
@@ -179,8 +180,8 @@
                       <div class="swiper-slide">
                         <div class="el-product-image">
                           <img
-                            src="assets/images/product/4-3.jpg"
-                            data-zoom-image="assets/images/product/4-3.jpg"
+                            src="<?php echo e(asset('assets/images/products/'.$product->gambar)); ?>"
+                            data-zoom-image="<?php echo e(asset('assets/images/products/'.$product->gambar)); ?>"
                             class="el-image-zoom"
                             alt="--Alternative--"
                           />
@@ -189,8 +190,8 @@
                       <div class="swiper-slide">
                         <div class="el-product-image">
                           <img
-                            src="assets/images/product/4-4.jpg"
-                            data-zoom-image="assets/images/product/4-4.jpg"
+                            src="<?php echo e(asset('assets/images/products/'.$product->gambar)); ?>"
+                            data-zoom-image="<?php echo e(asset('assets/images/products/'.$product->gambar)); ?>"
                             class="el-image-zoom"
                             alt="--Alternative--"
                           />
@@ -201,11 +202,6 @@
                     <div class="el-swiper-dots"></div>
                   </div>
                 </div>
-                <ul class="icons icons-left">
-                  <li class="icon icon-1">
-                    <span class="text">Fresh</span>
-                  </li>
-                </ul>
               </div>
             </div>
             <!--/-->
@@ -213,73 +209,38 @@
             <div class="col-lg-6">
               <div class="product-detail social">
                 <h1>
-                  Driscoll's Limited Edition Fresh & Sweetest Batch Strawberries
+                  <?php echo e(__($product->nama)); ?>
+
                 </h1>
                 <div class="price">
-                  <span class="title">Price:</span>
-                  <span class="old-price">$48.00</span>
-                  <span class="new-price">$36.00</span>
+                  <span class="title"><?php echo e(__('Harga:')); ?></span>
+                  <span class="new-price"><?php echo e(__('Rp '.$product->harga)); ?></span>
                 </div>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
-                  nibh ligula, faucibus sit amet aliquet ac, molestie a massa.
-                  Fusce vitae feugiat enim, id fermentum magna. Aenean convallis
-                  egestas massa ac rhoncus. Integer iaculis et erat id
-                  auctor.morbi tristique vitae, ultricies eget, tempor sit amet,
-                  ante. Donec eu libero sit amet quam egestas semper.
+                  <?php echo e(__($product->deskripsi)); ?>
+
                 </p>
                 <div class="product-table">
                   <ul>
                     <li>
-                      <span class="var">Weight</span>
-                      <span class="val">6 kg</span>
+                      <span class="var"><?php echo e(__('Berat')); ?></span>
+                      <span class="val"><?php echo e(__($product->berat.'Kg')); ?></span>
                     </li>
                     <li>
-                      <span class="var">Brand</span>
-                      <span class="val">Great Wall</span>
+                      <span class="var"><?php echo e(__('Kondisi')); ?></span>
+                      <span class="val"><?php echo e(__($product->kondisi)); ?></span>
                     </li>
                     <li>
-                      <span class="var">Category</span>
-                      <span class="val">Fresh Fruit</span>
-                    </li>
-                    <li>
-                      <span class="var">Delivery</span>
-                      <span class="val">in next 2 days</span>
-                    </li>
-                    <li>
-                      <span class="var">Dimensions</span>
-                      <span class="val">10 × 10 × 30 cm</span>
-                    </li>
-                    <li>
-                      <span class="var">Compositions</span>
-                      <span class="val">Polyester</span>
+                      <span class="var"><?php echo e(__('Kategori')); ?></span>
+                      <span class="val"><?php echo e(__($product->kategori)); ?></span>
                     </li>
                   </ul>
                 </div>
                 <div class="row row-0">
-                  <div class="col-12 col-sm-6">
-                    <div class="el-counter el-counter-3 d-block">
-                      <button class="button button-minus">
-                        <i class="ti-minus"></i>
-                      </button>
-                      <input
-                        type="number"
-                        value="1"
-                        min="1"
-                        max="10"
-                        step="1"
-                      />
-                      <button class="button button-plus">
-                        <i class="ti-plus"></i>
-                      </button>
-                    </div>
-                  </div>
-                  <div class="col-12 col-sm-6">
-                    <button
-                      class="button button-md button-block button-dark button-with-icon"
-                    >
-                      <i class="ti-bag"></i>
-                      <span class="text">ADD TO CART</span>
+                  <div class="col-12">
+                    <button class="button button-md button-block button-dark text-center">
+                      <span class="ti-bag"></span>
+                      <span class="text">BELI</span>
                     </button>
                   </div>
                 </div>
@@ -325,9 +286,6 @@
                 <li class="active" data-tab-link="tab-1">
                   <span class="text">Description</span>
                 </li>
-                <li data-tab-link="tab-2">
-                  <span class="text">Specification</span>
-                </li>
                 <li data-tab-link="tab-3">
                   <span class="text">Reviews (2)</span>
                 </li>
@@ -341,116 +299,9 @@
                   <div class="content">
                     <h2>Product Infomation</h2>
                     <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Etiam nibh ligula, faucibus sit amet aliquet ac, molestie
-                      a massa. Fusce vitae feugiat enim, id fermentum magna.
-                      Aenean convallis egestas massa ac rhoncus. Integer iaculis
-                      et erat id auctor. Vivamus porta, mi a porttitor
-                      imperdiet, purus metus tempus elit, ut dictum mauris dui a
-                      tellus. Integer at ipsum sit amet sem vulputate ultricies
-                      in vel orci. Aliquam feugiat vulputate ligula, quis
-                      posuere tortor condimentum eget. Sed consequat ante sed
-                      congue pellentesque. Cras massa purus, venenatis in eros
-                      at, vestibulum finibus sapien. Nunc sodales facilisis
-                      tortor, sit amet scelerisque metus pharetra at. Proin
-                      efficitur consequat ipsum quis scelerisque. Quisque ac
-                      venenatis purus.
+                      <?php echo e(__($product->deskripsi)); ?>
+
                     </p>
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Etiam nibh ligula, faucibus sit amet aliquet ac, molestie
-                      a massa. Fusce vitae feugiat enim, id fermentum magna.
-                      Aenean convallis egestas massa ac rhoncus. Integer iaculis
-                      et erat id auctor. Vivamus porta, mi a porttitor
-                      imperdiet, purus metus tempus elit, ut dictum mauris dui a
-                      tellus. Integer at ipsum sit amet sem vulputate ultricies
-                      in vel orci. Aliquam feugiat vulputate ligula, quis
-                      posuere tortor condimentum eget. Sed consequat ante sed
-                      congue pellentesque. Cras massa purus, venenatis in eros
-                      at, vestibulum finibus sapien. Nunc sodales facilisis
-                      tortor, sit amet scelerisque metus pharetra at. Proin
-                      efficitur consequat ipsum quis scelerisque. Quisque ac
-                      venenatis purus.
-                    </p>
-                    <hr />
-                    <img
-                      src="assets/images/product/desc-1.jpg"
-                      alt="--Alternative--"
-                    />
-                    <h3 class="mt-45">Material used</h3>
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Etiam nibh ligula, faucibus sit amet aliquet ac, molestie
-                      a massa. Fusce vitae feugiat enim, id fermentum magna.
-                      Aenean convallis egestas massa ac rhoncus. Integer iaculis
-                      et erat id auctor. Vivamus porta, mi a porttitor
-                      imperdiet, purus metus tempus elit, ut dictum mauris dui a
-                      tellus. Integer at ipsum sit amet sem vulputate ultricies
-                      in vel orci. Aliquam feugiat vulputate ligula, quis
-                      posuere tortor condimentum eget. Sed consequat ante sed
-                      congue pellentesque. Cras massa purus, venenatis in eros
-                      at, vestibulum finibus sapien. Nunc sodales facilisis
-                      tortor, sit amet scelerisque metus pharetra at. Proin
-                      efficitur consequat ipsum quis scelerisque. Quisque ac
-                      venenatis purus.
-                    </p>
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Etiam nibh ligula, faucibus sit amet aliquet ac, molestie
-                      a massa. Fusce vitae feugiat enim, id fermentum magna.
-                      Aenean convallis egestas massa ac rhoncus. Integer iaculis
-                      et erat id auctor. Vivamus porta, mi a porttitor
-                      imperdiet, purus metus tempus elit, ut dictum mauris dui a
-                      tellus. Integer at ipsum sit amet sem vulputate ultricies
-                      in vel orci. Aliquam feugiat vulputate ligula, quis
-                      posuere tortor condimentum eget. Sed consequat ante sed
-                      congue pellentesque. Cras massa purus, venenatis in eros
-                      at, vestibulum finibus sapien. Nunc sodales facilisis
-                      tortor, sit amet scelerisque metus pharetra at. Proin
-                      efficitur consequat ipsum quis scelerisque. Quisque ac
-                      venenatis purus.
-                    </p>
-                  </div>
-                </li>
-                <li data-tab-content="tab-2">
-                  <div class="content">
-                    <h2>Additional Info</h2>
-                    <table class="el-table">
-                      <tbody>
-                        <tr>
-                          <td class="a-right specname">Size</td>
-                          <td class="a-left specvalue">XL</td>
-                        </tr>
-                        <tr>
-                          <td class="a-right specname">Tags</td>
-                          <td class="a-left specvalue">Food, Healthy</td>
-                        </tr>
-                        <tr>
-                          <td class="a-right specname">Color</td>
-                          <td class="a-left specvalue">Light Blue</td>
-                        </tr>
-                        <tr>
-                          <td class="a-right specname">Weight</td>
-                          <td class="a-left specvalue">3 kg</td>
-                        </tr>
-                        <tr>
-                          <td class="a-right specname">Category</td>
-                          <td class="a-left specvalue">Vegetables</td>
-                        </tr>
-                        <tr>
-                          <td class="a-right specname">Delivery</td>
-                          <td class="a-left specvalue">in 2 days</td>
-                        </tr>
-                        <tr>
-                          <td class="a-right specname">Dimensions</td>
-                          <td class="a-left specvalue">10 × 10 × 30 cm</td>
-                        </tr>
-                        <tr>
-                          <td class="a-right specname">Compositions</td>
-                          <td class="a-left specvalue">Polyester</td>
-                        </tr>
-                      </tbody>
-                    </table>
                   </div>
                 </li>
                 <li data-tab-content="tab-3">
@@ -1559,11 +1410,11 @@
       </div>
     </div>
     <!--Scripts-->
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/plugins.min.js"></script>
-    <script src="assets/js/main-scripts.js"></script>
-    <script src="assets/js/custom.js"></script>
-    <script src="assets/js/demo.js"></script>
+    <script src="<?php echo e(asset('assets/js/jquery.min.js')); ?>"></script>
+    <script src="<?php echo e(asset('assets/js/plugins.min.js')); ?>"></script>
+    <script src="<?php echo e(asset('assets/js/main-scripts.js')); ?>"></script>
+    <script src="<?php echo e(asset('assets/js/custom.js')); ?>"></script>
+    <script src="<?php echo e(asset('assets/js/demo.js')); ?>"></script>
     <!--/-->
   </body>
 </html>

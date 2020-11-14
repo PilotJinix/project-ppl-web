@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="id" dir="ltr">
   <head>
     @section('title','Edit Profile')
     @include('layouts.head')
@@ -49,13 +49,19 @@
                     </div>
                     <div class="col-sm pt-1">
                       <h5 class="h5 font-weight-bold">Ubah Data Diri</h5>
-                      <form method="POST" class="mt-3 form-1">
+                      <form method="POST" class="mt-3 form-1" action="{{route('edit-user')}}">
+                        @csrf
                         <div class="form-group row">
                           <div class="col-sm-3 col-form-label">
                             <label>Nama Lengkap</label>
                           </div>
                           <div class="col-sm-9">
-                            <input class="form-control" type="text" name="nama_lengkap" required value="{{$akun->nama_lengkap}}">
+                            <input class="form-control @error('nama_lengkap') is invail @enderror" type="text" name="nama_lengkap" value="{{$akun->nama_lengkap}}">
+                            @error('nama_lengkap')
+                              <span class="text-danger">
+                                <strong>{{ $message }}</strong>
+                              </span>
+                            @enderror
                           </div>
                         </div>
                         <div class="form-group row">
@@ -63,7 +69,12 @@
                             <label>Username</label>
                           </div>
                           <div class="col-sm-9">
-                            <input class="form-control" type="text" name="username" required value="{{$akun->username}}">
+                            <input class="form-control @error('username') is invail @enderror" type="text" name="username" value="{{$akun->username}}">
+                            @error('username')
+                              <span class="text-danger">
+                                <strong>{{ $message }}</strong>
+                              </span>
+                            @enderror
                           </div>
                         </div>
                         <div class="form-group row">
@@ -71,7 +82,12 @@
                             <label>Email</label>
                           </div>
                           <div class="col-sm-9">
-                            <input class="form-control" type="email" name="email" required value="{{$akun->email}}">
+                            <input class="form-control @error('email') is invail @enderror" type="email" name="email" value="{{$akun->email}}">
+                            @error('email')
+                              <span class="text-danger">
+                                <strong>{{ $message }}</strong>
+                              </span>
+                            @enderror
                           </div>
                         </div>
                         <div class="form-group row">
@@ -80,22 +96,32 @@
                           </div>
                           <div class="col-sm-9">
                             <div class="form-item">
-                              <input class="input-icon pt-2 pb-2" type="number" name="nomer_hp" required value="{{$akun->nomer_hp}}">
+                              <input class="input-icon pt-2 pb-2 @error('nomer_hp') is invail @enderror" type="number" name="nomer_hp"  value="{{$akun->nomer_hp}}">
                               <div class="icon mb-1 ml-3">
                                 <span>+62</span>
                               </div>
                             </div>
                           </div>
+                          @error('nomer_hp')
+                            <span class="text-danger">
+                              <strong>{{ $message }}</strong>
+                            </span>
+                          @enderror
                         </div>
                         <div class="form-group row">
                           <div class="col-sm-3 col-form-label">
                             <label>Alamat</label>
                           </div>
                           <div class="col-sm-9">
-                            <input class="form-control" type="text" name="alamat" required value="{{$akun->alamat}}">
+                            <input class="form-control @error('alamat') is invail @enderror" type="text" name="alamat" value="{{$akun->alamat}}">
+                            @error('alamat')
+                              <span class="text-danger" >
+                                <strong>{{ $message }}</strong>
+                              </span>
+                            @enderror
                           </div>
                         </div>
-                        <button class="float-right button-primary rounded pl-5 pr-5 p-2" type="submit">{{__('Simpan')}}</button>
+                        <input class="float-right button-primary rounded pl-5 pr-5 p-2" type="submit" value="Simpan">
                       </form>
                     </div>
                   </div>

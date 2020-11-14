@@ -9,6 +9,6 @@ class AjuanUser extends Model
     protected $table = 'ajuan_user';
 
     protected $fillable = [
-        'nama_lengkap','email','alamat','nik','ktp','no_rekening','no_hp','user_id',
+        'nama_lengkap','email','alamat','nik','ktp','no_rekening','nomer_hp','user_id',
     ];
 }

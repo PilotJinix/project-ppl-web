@@ -84,7 +84,7 @@
                 @endif
               @else
                 <li>
-                  <a href="{{route('account')}}">
+                  <a href="{{route('profile-user')}}">
                     <span class="text">{{__('Profile')}}</span>
                   </a>
                 </li>

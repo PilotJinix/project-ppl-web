@@ -262,6 +262,22 @@
         </div>
       </div>
     </footer>
+    <!--/--->
+    @if ($status == 'proses')
+      <div class="pos-fixed">
+        <div class="option">
+          <div class="option-header">
+            <span class="text-title">Ooppps!</span>
+          </div>
+          <div class="option-body">
+            <p>Kamu sudah mengirim ajuan!</p>
+          </div>
+          <div class="btn-option">
+            <a class="button button-primary rounded" href="{{url()->previous()}}" style="padding: 0 20px"><span>OK</span></a>
+          </div>
+        </div>
+      </div>
+    @endif
     <!--/-->
     <div class="afra-demo">
       <div class="afra-demo-panel">
