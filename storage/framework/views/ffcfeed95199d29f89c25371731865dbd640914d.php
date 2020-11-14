@@ -5,18 +5,18 @@
       <ul class="menu">
         <li class="el-megamenu el-megamenu-xs">
           <a href="/">
-            <span class="text">Home</span>
+            <span class="text text-light">Home</span>
           </a>
         </li>
         <li class="el-megamenu el-megamenu-lg">
-        <a href="<?php echo e(url('/shop')); ?>">
-            <span class="text">Shop</span>
+        <a href="<?php echo e(url('shop')); ?>">
+            <span class="text text-light">Shop</span>
             <i class="ti-angle-down hidden-lg-up"></i>
           </a>
         </li>
         <li class="el-megamenu el-megamenu-lg">
-        <a href="<?php echo e(url('/about')); ?>">
-            <span class="text">About Us</span>
+        <a href="<?php echo e(url('about')); ?>">
+            <span class="text text-light">About Us</span>
             <i class="ti-angle-right hidden-lg-up"></i>
           </a>
         </li>
@@ -33,7 +33,7 @@
         >
           <img
             class="icon"
-            src="<?php echo e(asset("/assets/images/icons/search-light.svg")); ?>"
+            src="<?php echo e(asset("assets/images/icons/search-light.svg")); ?>"
             alt="--Alternative--"
           />
         </button>
@@ -52,36 +52,40 @@
       >
         <img
           class="icon"
-          src="<?php echo e(asset("/assets/images/icons/shopping-cart-light.svg")); ?>"
+          src="<?php echo e(asset("assets/images/icons/shopping-cart-light.svg")); ?>"
           alt="--Alternative--"
         />
         <span class="count">3</span>
       </button>
       <ul class="log-in-out" style="height: 100%;">
-        <li class="el-megamenu el-megamenu-xs" style="line-height: 0!important; height: 60px;">
+        <li class="el-megamenu el-megamenu-xs align-content-center" style="line-height: 0!important; height: 60px;">
           <button class="button button-icon">
-            <img class="icon log-svg" src="<?php echo e(asset('/assets/images/icons/login.png')); ?>" alt="">
+            <img class="icon log-svg" src="<?php echo e(asset('assets/images/icons/login.png')); ?>" alt="">
+            <?php if(auth()->guard()->guest()): ?>
+            <?php else: ?>
+            <label style="cursor: pointer" class="text-light font-weight-normal"><?php echo e($akun->username); ?></label>
+            <?php endif; ?>
           </button>
           <i class="ti-angle-down hidden-lg-up"></i>
           <div class="el-megamenu-box">
             <ul class="el-list text-left">
               <?php if(auth()->guard()->guest()): ?>
                 <li>
-                  <a href="<?php echo e(url('/login')); ?>">
+                  <a href="<?php echo e(route('login')); ?>">
                         <span class="text">Login</span>
                     </a>
                 </li>
                 <?php if(Route::has('register')): ?>
                   <li>
-                    <a href="<?php echo e(url('/register')); ?>">
+                    <a href="<?php echo e(route('register')); ?>">
                         <span class="text">Register</span>
                     </a>
                   </li>
                 <?php endif; ?>
               <?php else: ?>
                 <li>
-                  <a href="<?php echo e(url('/account')); ?>">
-                      <span class="text">My Account</span>
+                  <a href="<?php echo e(route('account')); ?>">
+                    <span class="text"><?php echo e(__('Profile')); ?></span>
                   </a>
                 </li>
                 <li>

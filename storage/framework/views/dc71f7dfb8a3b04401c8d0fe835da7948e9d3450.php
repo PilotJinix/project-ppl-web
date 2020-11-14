@@ -1,5 +1,5 @@
-<title>Orwell</title>
 <meta charset="UTF-8" />
+<title><?php echo $__env->yieldContent('title'); ?> - WG Farm</title>
 <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
 <meta name="keywords" content="" />
 <meta name="description" content="" />
@@ -15,4 +15,5 @@
 <link rel="stylesheet" href="assets/css/styles.css" />
 <link rel="stylesheet" href="assets/css/skin-1.css" />
 <link rel="stylesheet" href="assets/css/custom.css" />
-<link rel="stylesheet" href="assets/css/demo.css" /><?php /**PATH /home/witsudi/LaravelProject/project-ppl/resources/views/layouts/head.blade.php ENDPATH**/ ?>
+<link rel="stylesheet" href="assets/css/demo.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><?php /**PATH /home/witsudi/LaravelProject/project-ppl/resources/views/layouts/head.blade.php ENDPATH**/ ?>

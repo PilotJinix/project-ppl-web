@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
+    <?php $__env->startSection('title','Login'); ?>
     <?php echo $__env->make('layouts.head', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+    <link rel="stylesheet" href="<?php echo e(asset('css/app.css')); ?>">
   </head>
 
   <body>
@@ -45,18 +47,24 @@
           <header class="el-heading el-heading-1 center">
             <h2>Member login</h2>
             <p>Sign in to your account to continue.</p>
+            <?php if(session()->get('success')): ?>
+              <div class="bg-success p-2 rounded">
+                <i class="fa fa-check-circle" aria-hidden="true"></i>
+                <label class="m-0">Register Berhasil! Silahkan Login</label>
+              </div>
+            <?php endif; ?>
           </header>
           <form class="form form-1" method="POST" action="<?php echo e(route('login')); ?>">
             <?php echo csrf_field(); ?>
             <div class="row row-sm">
               <div class="col-12">
                 <div class="form-item">
-                  <label>Email address</label>
-                  <input type="email" class="input-icon <?php if ($errors->has('email')) :
+                  <label>Username</label>
+                  <input type="text" class="input-icon <?php if ($errors->has('email')) :
 if (isset($message)) { $messageCache = $message; }
 $message = $errors->first('email'); ?> is invalid <?php unset($message);
 if (isset($messageCache)) { $message = $messageCache; }
-endif; ?>" name='email'/>
+endif; ?>" name='username'/>
                   <div class="icon">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -130,6 +138,12 @@ endif; ?>
                   <input type="submit" class="button button-lg button-block button-primary" value="Login">
                 </div>
               </div>
+              <?php if(session()->has('error')): ?>
+                  <div class="ml-3 mr-3 w-100  alert alert-danger">
+                    <?php echo e(session()->get('error')); ?>
+
+                  </div>
+              <?php endif; ?>
             </div>
           </form>
           <div class="pt-20 text-center">

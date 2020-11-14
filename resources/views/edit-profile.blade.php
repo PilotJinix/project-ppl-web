@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    @section('title','Login')
+    @section('title','Edit Profile')
     @include('layouts.head')
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
   </head>
 
-  <body>
+  <body style="background-color: #eeeeee">
     <!--Preloader-->
     <div id="preloader" class="preloader">
       <div class="preloader-inner">
@@ -22,116 +22,86 @@
         </div>
       </div>
     </div>
-    <!--/-->
-    <!--Header-->
-    <header class="app-header app-header-1 boxed light">
-      <div class="header-nav bg-primary">
-        @include('layouts.mainmenu')
+    <header class="app-header app-header-1 bg-dark">
+      <div class="container">
+        <a href="{{url()->previous()}}"><span class="text-light p-1">&laquo; Back</span></a>
       </div>
     </header>
-    <!--/-->
-    <!--Sidenav-->
-    <div class="app-sidenav app-sidenav-1">
-      @include('layouts.sidemainmenu')
-      <span class="sidenav-close"></span>
-    </div>
-    <!--Shopping Cart-->
-    <div class="app-shopping-cart app-shopping-cart-1">
-      @include('layouts.cartlist')
-    </div>
-    <!--/-->
     <!--Auth-->
     <section class="section section-auth section-auth-login">
       <div class="display-spacing">
-        <div class="container">
-          <header class="el-heading el-heading-1 center">
-            <h2>Member login</h2>
-            <p>Sign in to your account to continue.</p>
-            @if (session()->get('success'))
-              <div class="bg-success p-2 rounded">
-                <i class="fa fa-check-circle" aria-hidden="true"></i>
-                <label class="m-0">Register Berhasil! Silahkan Login</label>
+        <div class="container" >
+          <div class="row">
+            <div class="card w-100">
+              <div class="card-header text-center">
+                <span>Data Akun</span>
               </div>
-            @endif
-          </header>
-          <form class="form form-1" method="POST" action="{{route('login')}}">
-            @csrf
-            <div class="row row-sm">
-              <div class="col-12">
-                <div class="form-item">
-                  <label>Username</label>
-                  <input type="text" class="input-icon @error('email') is invalid @enderror" name='username'/>
-                  <div class="icon">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="1em"
-                      height="1em"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      class="feather feather-user"
-                    >
-                      <path
-                        d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"
-                      ></path>
-                      <circle cx="12" cy="7" r="4"></circle>
-                    </svg>
+              <div class="card-body">
+                <div class="container ">
+                  <div class="row">
+                    <div class="col-md-6 col-lg-4 text-center">
+                      <div class="card card-shadow border-0 rounded bg-secondary w-100">
+                        <a href="#" class="text-center"><img src="{{asset('assets/images/images/no-image.png')}}" class="card-img-top w-auto" alt="__FOTO__"></a>
+                        <div class="card-body bg-primary rounded">
+                          <a href="#" class="text-light"><h5 class="card-title text-center h5">{{$akun->nama_lengkap}}</h5></a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm pt-1">
+                      <h5 class="h5 font-weight-bold">Ubah Data Diri</h5>
+                      <form method="POST" class="mt-3 form-1">
+                        <div class="form-group row">
+                          <div class="col-sm-3 col-form-label">
+                            <label>Nama Lengkap</label>
+                          </div>
+                          <div class="col-sm-9">
+                            <input class="form-control" type="text" name="nama_lengkap" required value="{{$akun->nama_lengkap}}">
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                          <div class="col-sm-3 col-form-label">
+                            <label>Username</label>
+                          </div>
+                          <div class="col-sm-9">
+                            <input class="form-control" type="text" name="username" required value="{{$akun->username}}">
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                          <div class="col-sm-3 col-form-label">
+                            <label>Email</label>
+                          </div>
+                          <div class="col-sm-9">
+                            <input class="form-control" type="email" name="email" required value="{{$akun->email}}">
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                          <div class="col-sm-3 col-form-label">
+                            <label>Nomer HP</label>
+                          </div>
+                          <div class="col-sm-9">
+                            <div class="form-item">
+                              <input class="input-icon pt-2 pb-2" type="number" name="nomer_hp" required value="{{$akun->nomer_hp}}">
+                              <div class="icon mb-1 ml-3">
+                                <span>+62</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                          <div class="col-sm-3 col-form-label">
+                            <label>Alamat</label>
+                          </div>
+                          <div class="col-sm-9">
+                            <input class="form-control" type="text" name="alamat" required value="{{$akun->alamat}}">
+                          </div>
+                        </div>
+                        <button class="float-right button-primary rounded pl-5 pr-5 p-2" type="submit">{{__('Simpan')}}</button>
+                      </form>
+                    </div>
                   </div>
                 </div>
-                @error('email')
-                  <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                  </span>
-                @enderror
               </div>
-              <div class="col-12">
-                <div class="form-item">
-                  <label>Password</label>
-                  <span class="label-side el-show-password">Show password</span>
-                  <input type="password" class="input-icon @error('password') is invalid @enderror" name="password"/>
-                  <div class="icon">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="1em"
-                      height="1em"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      class="feather feather-key"
-                    >
-                      <path
-                        d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"
-                      ></path>
-                    </svg>
-                  </div>
-                </div>
-                @error('password')
-                  <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                  </span>
-                @enderror
-              </div>
-              <div class="col-12">
-                <div class="form-item">
-                  <input type="submit" class="button button-lg button-block button-primary" value="Login">
-                </div>
-              </div>
-              @if (session()->has('error'))
-                  <div class="ml-3 mr-3 w-100  alert alert-danger">
-                    {{session()->get('error')}}
-                  </div>
-              @endif
             </div>
-          </form>
-          <div class="pt-20 text-center">
-            <span class="text-color">Not registered?</span>
-            <a href="{{route('register')}}" class="text-primary">Create account</a>
           </div>
         </div>
       </div>
@@ -147,7 +117,7 @@
             <div class="hidden-lg-down col-lg-6">
               <ul class="menu">
                 <li>
-                <a href="{{url('/')}}">
+                  <a href="home-1.html">
                     <span class="text">Home</span>
                   </a>
                 </li>
@@ -228,4 +198,6 @@
     <script src="assets/js/demo.js"></script>
     <!--/-->
   </body>
+
+  <!-- Mirrored from demo.afracode.com/orwell/sign-up.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 03 Nov 2020 04:08:43 GMT -->
 </html>

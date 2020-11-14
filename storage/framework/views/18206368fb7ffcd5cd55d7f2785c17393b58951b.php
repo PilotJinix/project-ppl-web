@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
+    <?php $__env->startSection('title','Register'); ?>
     <?php echo $__env->make('layouts.head', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
   </head>
 
@@ -48,13 +49,13 @@
             <div class="row row-sm">
               <div class="col-12">
                 <div class="form-item">
-                  <label>Name</label>
+                  <label>Nama Lengkap</label>
                   <input
                     type="text"
-                    name="name"
-                    class="input-icon <?php if ($errors->has('name')) :
+                    name="nama_lengkap"
+                    class="input-icon <?php if ($errors->has('nama_lengkap')) :
 if (isset($message)) { $messageCache = $message; }
-$message = $errors->first('name'); ?> is invalid <?php unset($message);
+$message = $errors->first('nama_lengkap'); ?> is invalid <?php unset($message);
 if (isset($messageCache)) { $message = $messageCache; }
 endif; ?>"
                     placeholder="Name"
@@ -79,10 +80,53 @@ endif; ?>"
                     </svg>
                   </div>
                 </div>
-                <?php if ($errors->has('name')) :
+                <?php if ($errors->has('nama_lengkap')) :
 if (isset($message)) { $messageCache = $message; }
-$message = $errors->first('name'); ?>
-                  <span class="invalid-feedback" role="alert">
+$message = $errors->first('nama_lengkap'); ?>
+                  <span class="text-danger invalid-feedback" role="alert">
+                    <strong><?php echo e($message); ?></strong>
+                  </span>
+                <?php unset($message);
+if (isset($messageCache)) { $message = $messageCache; }
+endif; ?>
+              </div>
+              <div class="col-12">
+                <div class="form-item">
+                  <label>Username</label>
+                  <input
+                    type="text"
+                    name="username"
+                    class="input-icon <?php if ($errors->has('username')) :
+if (isset($message)) { $messageCache = $message; }
+$message = $errors->first('username'); ?> is invalid <?php unset($message);
+if (isset($messageCache)) { $message = $messageCache; }
+endif; ?>"
+                    placeholder="Username"
+                  />
+                  <div class="icon">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="1em"
+                      height="1em"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="feather feather-user"
+                    >
+                      <path
+                        d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"
+                      ></path>
+                      <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                  </div>
+                </div>
+                <?php if ($errors->has('username')) :
+if (isset($message)) { $messageCache = $message; }
+$message = $errors->first('username'); ?>
+                  <span class="text-danger invalid-feedback" role="alert">
                     <strong><?php echo e($message); ?></strong>
                   </span>
                 <?php unset($message);
@@ -125,7 +169,67 @@ endif; ?>"
                 <?php if ($errors->has('email')) :
 if (isset($message)) { $messageCache = $message; }
 $message = $errors->first('email'); ?>
-                  <span class="invalid-feedback" role="alert">
+                  <span class="text-danger invalid-feedback" role="alert">
+                    <strong><?php echo e($message); ?></strong>
+                  </span>
+                <?php unset($message);
+if (isset($messageCache)) { $message = $messageCache; }
+endif; ?>
+              </div>
+              <div class="col-12">
+                <div class="form-item">
+                  <label>Nomor HP</label>
+                  <input
+                    type="number"
+                    name="nomer_hp"
+                    class="input-icon <?php if ($errors->has('nomer_hp')) :
+if (isset($message)) { $messageCache = $message; }
+$message = $errors->first('nomer_hp'); ?> is invalid <?php unset($message);
+if (isset($messageCache)) { $message = $messageCache; }
+endif; ?>"
+                    placeholder="85***"
+                    style="padding-left: 72px"
+                  />
+                  <div class="icon d-flex">
+                    <div>
+                      <i style="font-size:24px" class="fa">&#xf095;</i>
+                    </div>
+                    <div style="margin-left: 7px; padding: 0 5px;margin-top: 1px">
+                      <i class="fa">+62</i>
+                    </div>
+                  </div>
+                </div>
+                <?php if ($errors->has('nomer_hp')) :
+if (isset($message)) { $messageCache = $message; }
+$message = $errors->first('nomer_hp'); ?>
+                  <span class="text-danger invalid-feedback" role="alert">
+                    <strong><?php echo e($message); ?></strong>
+                  </span>
+                <?php unset($message);
+if (isset($messageCache)) { $message = $messageCache; }
+endif; ?>
+              </div>
+              <div class="col-12">
+                <div class="form-item">
+                  <label>Alamat</label>
+                  <input
+                    type="text"
+                    name="alamat"
+                    class="input-icon <?php if ($errors->has('alamat')) :
+if (isset($message)) { $messageCache = $message; }
+$message = $errors->first('alamat'); ?> is invalid <?php unset($message);
+if (isset($messageCache)) { $message = $messageCache; }
+endif; ?>"
+                    placeholder="Alamat"
+                  />
+                  <div class="icon">
+                    <i class="fa fa-address-card" aria-hidden="true"></i>
+                  </div>
+                </div>
+                <?php if ($errors->has('alamat')) :
+if (isset($message)) { $messageCache = $message; }
+$message = $errors->first('alamat'); ?>
+                  <span class="text-danger invalid-feedback" role="alert">
                     <strong><?php echo e($message); ?></strong>
                   </span>
                 <?php unset($message);
@@ -167,7 +271,7 @@ endif; ?>"
                 <?php if ($errors->has('password')) :
 if (isset($message)) { $messageCache = $message; }
 $message = $errors->first('password'); ?>
-                  <span class="invalid-feedback" role="alert">
+                  <span class="text-danger invalid-feedback" role="alert">
                     <strong><?php echo e($message); ?></strong>
                   </span>
                 <?php unset($message);
@@ -209,7 +313,7 @@ endif; ?>"
                 <?php if ($errors->has('password_confirmation')) :
 if (isset($message)) { $messageCache = $message; }
 $message = $errors->first('password_confirmation'); ?>
-                  <span class="invalid-feedback" role="alert">
+                  <span class="text-danger invalid-feedback" role="alert">
                     <strong><?php echo e($message); ?></strong>
                   </span>
                 <?php unset($message);

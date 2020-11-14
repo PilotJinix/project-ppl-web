@@ -1,5 +1,5 @@
-<title>Orwell</title>
 <meta charset="UTF-8" />
+<title>@yield('title') - WG Farm</title>
 <meta name="csrf-token" content="{{ csrf_token() }}">
 <meta name="keywords" content="" />
 <meta name="description" content="" />
@@ -16,3 +16,4 @@
 <link rel="stylesheet" href="assets/css/skin-1.css" />
 <link rel="stylesheet" href="assets/css/custom.css" />
 <link rel="stylesheet" href="assets/css/demo.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">

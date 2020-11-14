@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
+    @section('title','Home')
     @include('layouts.head')
   </head>
 
@@ -1342,6 +1343,4 @@
     <script src="assets/js/demo.js"></script>
     <!--/-->
   </body>
-
-  <!-- Mirrored from demo.afracode.com/orwell/home-1.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 03 Nov 2020 04:06:41 GMT -->
 </html>

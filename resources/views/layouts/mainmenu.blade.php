@@ -5,18 +5,18 @@
       <ul class="menu">
         <li class="el-megamenu el-megamenu-xs">
           <a href="/">
-            <span class="text">Home</span>
+            <span class="text text-light">Home</span>
           </a>
         </li>
         <li class="el-megamenu el-megamenu-lg">
-        <a href="{{url('/shop')}}">
-            <span class="text">Shop</span>
+        <a href="{{url('shop')}}">
+            <span class="text text-light">Shop</span>
             <i class="ti-angle-down hidden-lg-up"></i>
           </a>
         </li>
         <li class="el-megamenu el-megamenu-lg">
-        <a href="{{url('/about')}}">
-            <span class="text">About Us</span>
+        <a href="{{url('about')}}">
+            <span class="text text-light">About Us</span>
             <i class="ti-angle-right hidden-lg-up"></i>
           </a>
         </li>
@@ -33,7 +33,7 @@
         >
           <img
             class="icon"
-            src="{{asset("/assets/images/icons/search-light.svg")}}"
+            src="{{asset("assets/images/icons/search-light.svg")}}"
             alt="--Alternative--"
           />
         </button>
@@ -52,36 +52,40 @@
       >
         <img
           class="icon"
-          src="{{asset("/assets/images/icons/shopping-cart-light.svg")}}"
+          src="{{asset("assets/images/icons/shopping-cart-light.svg")}}"
           alt="--Alternative--"
         />
         <span class="count">3</span>
       </button>
       <ul class="log-in-out" style="height: 100%;">
-        <li class="el-megamenu el-megamenu-xs" style="line-height: 0!important; height: 60px;">
+        <li class="el-megamenu el-megamenu-xs align-content-center" style="line-height: 0!important; height: 60px;">
           <button class="button button-icon">
-            <img class="icon log-svg" src="{{asset('/assets/images/icons/login.png')}}" alt="">
+            <img class="icon log-svg" src="{{asset('assets/images/icons/login.png')}}" alt="">
+            @guest
+            @else
+            <label style="cursor: pointer" class="text-light font-weight-normal">{{$akun->username}}</label>
+            @endguest
           </button>
           <i class="ti-angle-down hidden-lg-up"></i>
           <div class="el-megamenu-box">
             <ul class="el-list text-left">
               @guest
                 <li>
-                  <a href="{{url('/login')}}">
+                  <a href="{{route('login')}}">
                         <span class="text">Login</span>
                     </a>
                 </li>
                 @if (Route::has('register'))
                   <li>
-                    <a href="{{url('/register')}}">
+                    <a href="{{route('register')}}">
                         <span class="text">Register</span>
                     </a>
                   </li>
                 @endif
               @else
                 <li>
-                  <a href="{{url('/account')}}">
-                      <span class="text">My Account</span>
+                  <a href="{{route('account')}}">
+                    <span class="text">{{__('Profile')}}</span>
                   </a>
                 </li>
                 <li>

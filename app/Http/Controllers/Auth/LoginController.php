@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Auth;
+use DB;
 
 class LoginController extends Controller
 {
@@ -16,14 +17,15 @@ class LoginController extends Controller
     public function authenticate(Request $request)
     {
         $request->validate([
-            'email' => 'required|string|email',
+            'username' => 'required|string',
             'password' => 'required|string',
         ]);
 
-        $credentials = $request->only('email', 'password');
+        $credentials = $request->only('username', 'password');
 
         if (Auth::attempt($credentials)) {
-            return redirect()->intended('home');
+          $request->session()->put('username', $request->username);
+          return redirect()->intended('home');
         }
 
         return redirect('login')->with('error', 'Oppes! You have entered invalid credentials');
@@ -35,9 +37,10 @@ class LoginController extends Controller
       return redirect('login');
     }
 
-    public function home()
+    public function home(Request $request)
     {
-
-      return view('home');
+      $user = $request->session()->get('username');
+		  $akun = DB::table('users')->where('username',$user)->first();
+      return view('home', compact('akun'));
     }
 }

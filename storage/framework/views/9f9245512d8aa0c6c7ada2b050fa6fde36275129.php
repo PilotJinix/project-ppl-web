@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
+    <?php $__env->startSection('title','Home'); ?>
     <?php echo $__env->make('layouts.head', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
   </head>
 
@@ -1342,7 +1343,5 @@
     <script src="assets/js/demo.js"></script>
     <!--/-->
   </body>
-
-  <!-- Mirrored from demo.afracode.com/orwell/home-1.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 03 Nov 2020 04:06:41 GMT -->
 </html>
 <?php /**PATH /home/witsudi/LaravelProject/project-ppl/resources/views/home.blade.php ENDPATH**/ ?>

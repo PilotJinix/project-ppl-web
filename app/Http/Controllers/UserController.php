@@ -3,25 +3,33 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DB;
 
 class UserController extends Controller
 {
-	public function index(){
-		return view('home');
+	public function index(Request $request){
+		$user = $request->session()->get('username');
+		$akun = DB::table('users')->where('username',$user)->first();
+		return view('home', compact('akun'));
 	}
-	public function productDetail(){
-		return view('product-detail');
+	public function productDetail(Request $request){
+		$user = $request->session()->get('username');
+		$akun = DB::table('users')->where('username',$user)->first();
+		return view('product-detail', compact('akun'));
 	}
-	public function about(){
-		return view('about');
+	public function about(Request $request){
+		$user = $request->session()->get('username');
+		$akun = DB::table('users')->where('username',$user)->first();
+		return view('about', compact('akun'));
 	}
-	public function login(){
-		return view('auth.login');
+	public function shop(Request $request){
+		$user = $request->session()->get('username');
+		$akun = DB::table('users')->where('username',$user)->first();
+		return view('shop', compact('akun'));
 	}
-	public function register(){
-		return view('register');
-	}
-	public function shop(){
-		return view('shop');
+	public function my_account(Request $request){
+		$user = $request->session()->get('username');
+		$akun = DB::table('users')->where('username',$user)->first();
+		return view('my-account', compact('akun'));
 	}
 }
