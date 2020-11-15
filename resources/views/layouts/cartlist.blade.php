@@ -10,7 +10,7 @@
           <div class="row row-sm">
             <div class="col-4">
               <div class="image">
-                <img src="assets/images/products/3-2.jpg" alt="--Alt--" />
+                <img src="{{asset('assets/images/products/apel.jpg')}}" alt="--Alt--" />
               </div>
             </div>
             <div class="col-8">
