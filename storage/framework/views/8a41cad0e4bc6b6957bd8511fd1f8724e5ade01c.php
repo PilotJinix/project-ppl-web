@@ -1,55 +1,42 @@
+<?php if(auth()->guard()->guest()): ?>
+<?php else: ?>
 <div class="sidenav-menu">
   <div class="sidenav-head">
-    <span class="title">Your Cart</span>
+    <span class="title">Riwayat Pembelian</span>
     <button class="button button-close-sidenav"></button>
   </div>
   <div class="sidenav-body">
     <div class="sidenav-body-inner">
       <ul class="items">
-        <li>
-          <div class="row row-sm">
-            <div class="col-4">
-              <div class="image">
-                <img src="assets/images/products/3-2.jpg" alt="--Alt--" />
+        <?php $__currentLoopData = $riwayat_pembelian; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+          <li>
+            <div class="row row-sm">
+              <div class="col-4">
+                <div class="image">
+                  <a href="<?php echo e(route('info-payment',$item->id)); ?>"><img src="<?php echo e(asset('assets/images/products/'.$item->gambar)); ?>" alt="--Alt--" /></a>
+                </div>
+              </div>
+              <div class="col-8">
+                <div class="details">
+                  <a href="<?php echo e(route('info-payment',$item->id)); ?>"><p><?php echo e(__($item->nama)); ?></p></a>
+                  <a href="<?php echo e(route('info-payment',$item->id)); ?>"><span><?php echo e(__('Rp'.$item->total_harga)); ?></span><br></a>
+                  <?php if($item->status_checkout == 'Menunggu Pembayaran'): ?>
+                    <a href="<?php echo e(route('info-payment',$item->id)); ?>"><small class="text-danger"><?php echo e(_($item->status_checkout)); ?></small></a>
+                  <?php endif; ?>
+                  <?php if($item->status_checkout == 'Proses Pengiriman'): ?>
+                  <a href="<?php echo e(route('info-payment',$item->id)); ?>"><small class="text-warning"><?php echo e(_($item->status_checkout)); ?></small></a>
+                  <?php endif; ?>
+                  <?php if($item->status_checkout == 'Diterima'): ?>
+                    <a href="<?php echo e(route('info-payment',$item->id)); ?>"><small class="text-success"><?php echo e(_($item->status_checkout)); ?></small></a>
+                  <?php endif; ?>
+                </div>
               </div>
             </div>
-            <div class="col-8">
-              <div class="details">
-                <p>Mexican special black bean salad</p>
-                <span class="price">$66.00</span>
-                <ul class="actions">
-                  <li>
-                    <a href="#" title="Remove">
-                      <i class="ti-trash"></i>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </li>
+          </li>
+        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
       </ul>
     </div>
   </div>
-  <div class="sidenav-down">
-    <div class="subtotal">
-      <div class="row">
-        <div class="col-6">
-          <span class="title">Subtotal</span>
-        </div>
-        <div class="col-6 text-right">
-          <span class="price">$240.33</span>
-        </div>
-      </div>
-    </div>
-    <div class="checkout">
-      <button
-        type="button"
-        class="button button-lg button-block button-dark"
-      >
-        <span class="text">Checkout Now</span>
-      </button>
-    </div>
-  </div>
 </div>
-<span class="sidenav-close"></span><?php /**PATH /home/witsudi/LaravelProject/project-ppl/resources/views/layouts/cartlist.blade.php ENDPATH**/ ?>
+<span class="sidenav-close"></span>
+<?php endif; ?><?php /**PATH /home/witsudi/LaravelProject/project-ppl/resources/views/layouts/cartlist.blade.php ENDPATH**/ ?>

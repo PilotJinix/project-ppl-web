@@ -93,26 +93,7 @@
     </main>
     <!--Footer-->
     <footer class="app-footer app-footer-1">
-      <div class="section-cta section-cta-9 bg-primary text-light">
-        <div class="container">
-          <div class="row">
-            <div class="col-12 col-sm-12 col-md-6">
-              <span class="title">Do You Have Questions?</span>
-              <p>We'll help you to grow your career and growth.</p>
-            </div>
-            <div class="col-12 col-sm-12 col-md-6 text-right">
-              <div class="form-4">
-                <div class="form-item">
-                  <input type="text" placeholder="Subscribe here..." />
-                  <button class="button button-circle button-circle-sm">
-                    <i class="ti-email"></i>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      
       <div class="footer-copyright">
         <div class="container">
           <p><span class="text-bold">WG Farm</span> organic and wellness.</p>
@@ -174,7 +155,6 @@
     <script>
       $(document).ready(function(){
         setTimeout(function(){
-          // $("#message").fadeIn(2000);
           $("#message").fadeOut(3000);
         },3000);
       });

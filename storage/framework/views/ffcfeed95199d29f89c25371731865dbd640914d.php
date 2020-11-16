@@ -4,9 +4,15 @@
       <div class="header-logo"><span>LOGO</span></div>
       <ul class="menu">
         <li class="el-megamenu el-megamenu-xs">
-          <a href="/">
-            <span class="text text-light">Home</span>
-          </a>
+          <?php if(auth()->guard()->guest()): ?>
+            <a href="<?php echo e(route('home')); ?>">
+              <span class="text text-light">Home</span>
+            </a>
+          <?php else: ?>
+            <a href="<?php echo e(route('dashboard')); ?>">
+              <span class="text text-light">Home</span>
+            </a>
+          <?php endif; ?>
         </li>
         <li class="el-megamenu el-megamenu-lg">
         <a href="<?php echo e(url('shop')); ?>">
@@ -46,24 +52,26 @@
           </div>
         </div>
       </div>
-      <button
-        type="button"
-        class="button button-icon button-icon-cart button-display-shopping-cart"
-      >
-        <img
-          class="icon"
-          src="<?php echo e(asset("assets/images/icons/shopping-cart-light.svg")); ?>"
-          alt="--Alternative--"
-        />
-        <span class="count">3</span>
-      </button>
+      <?php if(auth()->guard()->guest()): ?>
+      <?php else: ?>
+        <button
+          type="button"
+          class="button button-icon button-icon-cart button-display-shopping-cart"
+        >
+          <img
+            class="icon"
+            src="<?php echo e(asset("assets/images/icons/shopping-cart-light.svg")); ?>"
+            alt="--Alternative--"
+          />
+        </button>
+      <?php endif; ?>
       <ul class="log-in-out" style="height: 100%;">
         <li class="el-megamenu el-megamenu-xs align-content-center" style="line-height: 0!important; height: 60px;">
           <button class="button button-icon">
             <img class="icon log-svg" src="<?php echo e(asset('assets/images/icons/login.png')); ?>" alt="">
             <?php if(auth()->guard()->guest()): ?>
             <?php else: ?>
-            <label style="cursor: pointer" class="text-light font-weight-normal"><?php echo e($akun->username); ?></label>
+              <label style="cursor: pointer" class="text-light font-weight-normal"><?php echo e($akun->username); ?></label>
             <?php endif; ?>
           </button>
           <i class="ti-angle-down hidden-lg-up"></i>

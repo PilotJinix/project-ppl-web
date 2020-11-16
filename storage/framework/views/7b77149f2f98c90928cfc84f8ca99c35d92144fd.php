@@ -161,27 +161,6 @@
               </ul>
             </div>
           </div>
-          <div class="el-pagination text-center pt-space-half">
-            <ul>
-              <li><a href="#">1</a></li>
-              <li class="active">
-                <a href="#">2</a>
-              </li>
-              <li>
-                <a href="#">3</a>
-              </li>
-              <li class="more">...</li>
-              <li>
-                <a href="#">25</a>
-              </li>
-              <li>
-                <a href="#">26</a>
-              </li>
-              <li class="next">
-                <a href="#">NEXT <i class="ti-control-forward"></i></a>
-              </li>
-            </ul>
-          </div>
         </div>
       </div>
     <!--Footer-->

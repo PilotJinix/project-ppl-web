@@ -187,7 +187,7 @@
                   <div class="display-center">
                     <div class="inner">
                       <h3 class="title title-2 text-light">
-                        50% OFF<br />
+                        5% OFF<br />
                         Vegetables &<br />Herbs
                       </h3>
                     </div>

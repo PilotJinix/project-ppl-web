@@ -6,16 +6,21 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use DB;
 use App\AjuanUser;
-use App\User;
 
 class UpgradeMitraController extends Controller
 {
     public function upgradeMitra(Request $request){
 		$user = $request->session()->get('username');
         $akun = DB::table('users')->where('username',$user)->first();
+        $user_id = $akun->id;
+
+        $riwayat_pembelian = DB::table('detail_checkout')
+		->join('produk', 'detail_checkout.produk_id','=','produk.id')
+		->where('detail_checkout.user_id','=',$user_id)->select('detail_checkout.*','produk.nama','produk.harga','produk.gambar')->latest()
+		->get();
         
         $status = $akun->status;
-		return view('upgrade-mitra',compact('akun','status'));
+		return view('upgrade-mitra',compact('akun','status','riwayat_pembelian'));
     }
     
     public function createMitra(Request $request){

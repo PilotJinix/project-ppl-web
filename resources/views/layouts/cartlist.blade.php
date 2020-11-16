@@ -1,55 +1,42 @@
+@guest
+@else
 <div class="sidenav-menu">
   <div class="sidenav-head">
-    <span class="title">Your Cart</span>
+    <span class="title">Riwayat Pembelian</span>
     <button class="button button-close-sidenav"></button>
   </div>
   <div class="sidenav-body">
     <div class="sidenav-body-inner">
       <ul class="items">
-        <li>
-          <div class="row row-sm">
-            <div class="col-4">
-              <div class="image">
-                <img src="{{asset('assets/images/products/apel.jpg')}}" alt="--Alt--" />
+        @foreach ($riwayat_pembelian as $item)
+          <li>
+            <div class="row row-sm">
+              <div class="col-4">
+                <div class="image">
+                  <a href="{{route('info-payment',$item->id)}}"><img src="{{asset('assets/images/products/'.$item->gambar)}}" alt="--Alt--" /></a>
+                </div>
+              </div>
+              <div class="col-8">
+                <div class="details">
+                  <a href="{{route('info-payment',$item->id)}}"><p>{{__($item->nama)}}</p></a>
+                  <a href="{{route('info-payment',$item->id)}}"><span>{{__('Rp'.$item->total_harga)}}</span><br></a>
+                  @if ($item->status_checkout == 'Menunggu Pembayaran')
+                    <a href="{{route('info-payment',$item->id)}}"><small class="text-danger">{{_($item->status_checkout)}}</small></a>
+                  @endif
+                  @if ($item->status_checkout == 'Proses Pengiriman')
+                  <a href="{{route('info-payment',$item->id)}}"><small class="text-warning">{{_($item->status_checkout)}}</small></a>
+                  @endif
+                  @if ($item->status_checkout == 'Diterima')
+                    <a href="{{route('info-payment',$item->id)}}"><small class="text-success">{{_($item->status_checkout)}}</small></a>
+                  @endif
+                </div>
               </div>
             </div>
-            <div class="col-8">
-              <div class="details">
-                <p>Mexican special black bean salad</p>
-                <span class="price">$66.00</span>
-                <ul class="actions">
-                  <li>
-                    <a href="#" title="Remove">
-                      <i class="ti-trash"></i>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </li>
+          </li>
+        @endforeach
       </ul>
-    </div>
-  </div>
-  <div class="sidenav-down">
-    <div class="subtotal">
-      <div class="row">
-        <div class="col-6">
-          <span class="title">Subtotal</span>
-        </div>
-        <div class="col-6 text-right">
-          <span class="price">$240.33</span>
-        </div>
-      </div>
-    </div>
-    <div class="checkout">
-      <button
-        type="button"
-        class="button button-lg button-block button-dark"
-      >
-        <span class="text">Checkout Now</span>
-      </button>
     </div>
   </div>
 </div>
 <span class="sidenav-close"></span>
+@endguest

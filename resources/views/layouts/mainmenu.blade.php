@@ -4,9 +4,15 @@
       <div class="header-logo"><span>LOGO</span></div>
       <ul class="menu">
         <li class="el-megamenu el-megamenu-xs">
-          <a href="/">
-            <span class="text text-light">Home</span>
-          </a>
+          @guest
+            <a href="{{route('home')}}">
+              <span class="text text-light">Home</span>
+            </a>
+          @else
+            <a href="{{route('dashboard')}}">
+              <span class="text text-light">Home</span>
+            </a>
+          @endguest
         </li>
         <li class="el-megamenu el-megamenu-lg">
         <a href="{{url('shop')}}">
@@ -46,24 +52,26 @@
           </div>
         </div>
       </div>
-      <button
-        type="button"
-        class="button button-icon button-icon-cart button-display-shopping-cart"
-      >
-        <img
-          class="icon"
-          src="{{asset("assets/images/icons/shopping-cart-light.svg")}}"
-          alt="--Alternative--"
-        />
-        <span class="count">3</span>
-      </button>
+      @guest
+      @else
+        <button
+          type="button"
+          class="button button-icon button-icon-cart button-display-shopping-cart"
+        >
+          <img
+            class="icon"
+            src="{{asset("assets/images/icons/shopping-cart-light.svg")}}"
+            alt="--Alternative--"
+          />
+        </button>
+      @endguest
       <ul class="log-in-out" style="height: 100%;">
         <li class="el-megamenu el-megamenu-xs align-content-center" style="line-height: 0!important; height: 60px;">
           <button class="button button-icon">
             <img class="icon log-svg" src="{{asset('assets/images/icons/login.png')}}" alt="">
             @guest
             @else
-            <label style="cursor: pointer" class="text-light font-weight-normal">{{$akun->username}}</label>
+              <label style="cursor: pointer" class="text-light font-weight-normal">{{$akun->username}}</label>
             @endguest
           </button>
           <i class="ti-angle-down hidden-lg-up"></i>

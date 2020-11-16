@@ -10317,3 +10317,19 @@ Preloader
 .btn-option a {
     border-radius: 5px !important;
 }
+.pilih-bank {
+    list-style: none;
+    border: 1px solid #a5a5a5;
+    border-radius: 5px;
+    padding: 10px 20px;
+    width: 100%;
+    text-align: left;
+    margin-bottom: 15px;
+}
+.pilih-bank:hover {
+    background-color: rgb(50, 150, 231);
+    color: white;
+}
+.list {
+    list-style: none;
+}

@@ -2,10 +2,13 @@
     --base: #f7f7f7;
     --base-0: #fff;
     --base-1: #000;
-    --primary: #2775FF;
+    --primary: #2775ff;
     --primary-1: #1c55ba;
     --primary-2: #1c55ba;
     --primary-3: #1c55ba;
-    --secondary:  #C13B95;
+    --secondary: #c13b95;
     --secondary-1: #9c3078;
+    --danger: #b90000;
+    --success: rgb(57, 136, 33);
+    --waiting: rgb(197, 116, 10);
 }
