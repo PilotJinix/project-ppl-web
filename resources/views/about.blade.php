@@ -48,18 +48,18 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-12 col-sm-12 col-md-12 col-lg-6 text-right">
-                            <h1>About Us</h1>
+                            <h1>Tentang Kami</h1>
                         </div>
                         <div class="col-12 col-sm-12 col-md-12 col-lg-6">
                             <ul class="el-breadcrumbs el-breadcrumbs-1 text-light">
                                 <li>
-                                    <a href="home-1.html">
+                                    <a href="{{route('home')}}">
                                         <span class="text">Home</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#" class="active">
-                                        <span class="text">About</span>
+                                    <a href="{{url('about')}}" class="active">
+                                        <span class="text">Tentang Kami</span>
                                     </a>
                                 </li>
                             </ul>
@@ -78,16 +78,16 @@
                     <div class="col-lg-6">
                         <div class="display-spacing custom-table">
                             <header class="el-heading el-heading-3">
-                                <h2>We Are 100% Trustable <br /> And Provide <span class="text-primary">Fast Delivery</span></h2>
+                                <h2>Kami 100% Terpercaya <br /> dan Konsisten <span class="text-primary">Pengiriman cepat pula !!</span></h2>
                             </header>
                             <div class="el-content">
                                 <p>Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem.</p>
                                 <p>Phasellus gravida semper nisi. Nullam vel sem. Pellentesque libero tortor, tincidunt et, tincidunt eget, semper nec, quam. </p>
-                                <a href="page-contact.html" class="button button-md button-primary" target="_blank">
-                                    <span class="text">Get in Touch</span>
+                                <a href="{{route('dashboard')}}" class="button button-md button-primary" target="_blank">
+                                    <span class="text">Halaman Baru</span>
                                 </a>
-                                <a href="page-contact.html" class="button button-md button-line-primary" target="_blank">
-                                    <span class="text">Contact Us</span>
+                                <a href="{{url('about')}}" class="button button-md button-line-primary" target="_blank">
+                                    <span class="text">Tentang Kami</span>
                                 </a>
                             </div>
                         </div>

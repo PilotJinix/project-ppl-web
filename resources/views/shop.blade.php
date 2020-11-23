@@ -48,13 +48,13 @@
           <div class="container">
             <div class="row">
               <div class="col-12 col-sm-12 col-md-12 col-lg-6 text-right">
-                <h1>Featured Products</h1>
+                <h1>Product Kami</h1>
               </div>
               <div class="col-12 col-sm-12 col-md-12 col-lg-6">
                 <ul class="el-breadcrumbs el-breadcrumbs-1 text-light">
                   <li>
                     <a href="home-1.html">
-                      <span class="text">Home</span>
+                      <span class="text">Beranda</span>
                     </a>
                   </li>
                   <li>
@@ -77,7 +77,7 @@
           <div class="el-data-filters">
             <div class="el-data-filters-links">
               <ul>
-                <li data-filter="all" class="active">All Product</li>
+                <li data-filter="all" class="active">Product Kami</li>
               </ul>
             </div>
             <div class="el-data-filters-content">
@@ -167,7 +167,7 @@
     <footer class="app-footer app-footer-1">
       <div class="footer-copyright">
         <div class="container">
-          <p><span class="text-bold">WG FARM</span> organic and wellness.</p>
+          <p><span class="text-bold">WG FARM</span> sayuran dan buah segar</p>
           <p class="text-2">© 2020 All Rights Reserved</p>
         </div>
       </div>

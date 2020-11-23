@@ -6,23 +6,23 @@
         <li class="el-megamenu el-megamenu-xs">
           @guest
             <a href="{{route('home')}}">
-              <span class="text text-light">Home</span>
+              <span class="text text-light">Beranda</span>
             </a>
           @else
             <a href="{{route('dashboard')}}">
-              <span class="text text-light">Home</span>
+              <span class="text text-light">Beranda</span>
             </a>
           @endguest
         </li>
         <li class="el-megamenu el-megamenu-lg">
         <a href="{{url('shop')}}">
-            <span class="text text-light">Shop</span>
+            <span class="text text-light">Toko</span>
             <i class="ti-angle-down hidden-lg-up"></i>
           </a>
         </li>
         <li class="el-megamenu el-megamenu-lg">
         <a href="{{url('about')}}">
-            <span class="text text-light">About Us</span>
+            <span class="text text-light">Tentang Kami</span>
             <i class="ti-angle-right hidden-lg-up"></i>
           </a>
         </li>
