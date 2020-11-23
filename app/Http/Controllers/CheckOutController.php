@@ -107,4 +107,12 @@ class CheckOutController extends Controller
 		return view('payment',compact('akun','riwayat_pembelian','detail'));
 	}
 
+	public function diterima(Request $request, $id){
+		DB::table('detail_checkout')->where('id',$id)->update([
+			'status_checkout' => 'Diterima'
+		]);
+
+		return redirect()->route('info-payment',$id);
+	}
+
 }

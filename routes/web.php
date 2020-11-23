@@ -34,5 +34,6 @@ Route::get('product/checkout/{id}', 'CheckOutController@checkoutScreen')->name('
 Route::post('product/checkout/wgfarm{id}','CheckOutController@checkout')->name('checkout');
 Route::get('payment/thankyou/wgfarm/{id}','CheckOutController@payment')->name('payment');
 Route::get('payment/infopayment/{id}', 'CheckOutController@checkoutDetail')->name('info-payment');
+Route::get('payment/status/{id}', 'CheckOutController@diterima')->name('update-status-diterima');
 
 Route::post('review/wgfarm/thankyou/{id}', 'ReviewProductController@review')->name('review');
