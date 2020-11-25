@@ -98,7 +98,7 @@
                       </a>
                     @endif
                     @if ($item->status_checkout == 'Proses Pengiriman')
-                      <a href="{{route('update-status-diterima',$item->id)}}" class="mt-3 w-100">
+                      <a href="{{route('update-status-diterima',$item->id)}}" class="mt-3 w-100"> 
                         <button class="btn btn-success w-100">Diterima</button>
                       </a>
                     @endif

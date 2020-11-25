@@ -32,7 +32,8 @@ class LoginController extends Controller
         return redirect('login')->with('error', 'Oppes! You have entered invalid credentials');
     }
 
-    public function logout() {
+    public function logout(Request $request) {
+      $request->session()->forget('username');
       Auth::logout();
 
       return redirect('login');

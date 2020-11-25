@@ -26,6 +26,12 @@
             <i class="ti-angle-right hidden-lg-up"></i>
           </a>
         </li>
+        <li class="el-megamenu el-megamenu-lg">
+          <a href="{{route('ajuan-produk')}}">
+              <span class="text text-light">Ajukan Produk Anda</span>
+              <i class="ti-angle-right hidden-lg-up"></i>
+            </a>
+          </li>
       </ul>
       <button class="button button-menu button-display-sidenav">
         <span></span>

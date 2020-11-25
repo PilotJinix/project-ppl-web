@@ -81,9 +81,9 @@
       <span class="bg-pattern bg-pattern-3"></span>
       <div class="hero-inner display-center">
         <div class="hero-content text-center">
-          <h1>Organic Fresh Fruits For Your Health</h1>
+          <h1>WG FARMING</h1>
           <p class="text-dark">
-            Order now and receive your order right to your door!
+            WG Farm mengawal dari awal
           </p>
         </div>
       </div>
@@ -101,8 +101,8 @@
                     src="assets/images/icons/fl-1.png"
                     alt="--Alternative--"
                   />
-                  <h2>Free Shipping</h2>
-                  <p>On all orders over $75.00</p>
+                  <h2>Pengantaran Gratis</h2>
+                  <p>Pasti sampai di tangan</p>
                 </div>
               </div>
               <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-3">
@@ -111,8 +111,8 @@
                     src="assets/images/icons/fl-4.png"
                     alt="--Alternative--"
                   />
-                  <h2>Free Returns</h2>
-                  <p>Returns are free within 9 days</p>
+                  <h2>Aman Murah</h2>
+                  <p>Coba cek toko sebelah</p>
                 </div>
               </div>
               <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-3">
@@ -121,8 +121,8 @@
                     src="assets/images/icons/fl-3.png"
                     alt="--Alternative--"
                   />
-                  <h2>100% Payment Secure</h2>
-                  <p>Your payment are safe with us.</p>
+                  <h2>Diskon menjamur</h2>
+                  <p>Tunggu diskon menarik dari kami</p>
                 </div>
               </div>
               <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-3">
@@ -131,8 +131,8 @@
                     src="assets/images/icons/fl-2.png"
                     alt="--Alternative--"
                   />
-                  <h2>Support 24/7</h2>
-                  <p>Contact us 24 hours a day</p>
+                  <h2>24 jam</h2>
+                  <p>Kami siap</p>
                 </div>
               </div>
             </div>
@@ -153,9 +153,9 @@
               ></div>
               <div class="display-center">
                 <div class="inner">
-                  <h2 class="title">Farm Market<br />Organic Shop Online</h2>
+                  <h2 class="title">WG FARMING<br />Pasti ada terus</h2>
                   <a href="/shop" class="button button-sm button-dark mt-20">
-                    <span class="text">SHOP NOW</span>
+                    <span class="text">Pergi ke Toko</span>
                   </a>
                 </div>
               </div>
@@ -174,9 +174,9 @@
                   <div class="display-center">
                     <div class="inner">
                       <h3 class="title title-2">
-                        Discover<br />
-                        Real Organic<br />
-                        Flavors
+                        Makanan Sehat<br />
+                        100% aman<br />
+                        dan segar
                       </h3>
                     </div>
                   </div>
@@ -187,8 +187,8 @@
                   <div class="display-center">
                     <div class="inner">
                       <h3 class="title title-2 text-light">
-                        5% OFF<br />
-                        Vegetables &<br />Herbs
+                        5% Diskon<br />
+                        Sayuran &<br />Buah
                       </h3>
                     </div>
                   </div>
@@ -205,8 +205,8 @@
       <div class="display-spacing">
         <div class="container">
           <header class="el-heading el-heading-1 center">
-            <h2>Featured Products</h2>
-            <p>Add Popular Categories to weekly line up</p>
+            <h2>Produk Kami</h2>
+            <p>Ayo pesen sebelum kehabisan</p>
           </header>
           <div class="el-data-filters">
             <div class="el-data-filters-content">
@@ -300,17 +300,16 @@
       style="background-image: url(assets/images/images/bg-7.png)"
     >
       <div class="display-spacing">
-        <div class="container">
+        <div class="container"> 
           <div class="row">
             <div class="col-lg-6">
               <header class="el-heading el-heading-4">
                 <h2>
-                  Up to <span class="bigger text-gradient">80%</span> OFF.<br />
-                  All Sales Are Final!
+                  Ada Diskon sampai <span class="bigger text-gradient">80%</span> Lho.<br />
+                  Pada akhir tahun dan lebaran
                 </h2>
                 <p class="mb-75">
-                  Phasellus gravida semper nisi. Nullam vel sem. Pellentesque
-                  libero tortor, tincidunt et, tincidunt eget, semper nec, quam.
+                  Pastikan Pengantara sampai dengan selamat.
                 </p>
               </header>
               <div
@@ -329,8 +328,8 @@
     <footer class="app-footer app-footer-1">
       <div class="footer-copyright">
         <div class="container">
-          <p><span class="text-bold">WG FARM</span> organic and wellness.</p>
-          <p class="text-2">© 2020 All Rights Reserved</p>
+          <p><span class="text-bold">WG FARM</span> Sayuran sehat segar berkualitas</p>
+          <p class="text-2">WGFARMING © 2020 All Rights Reserved</p>
         </div>
       </div>
     </footer>

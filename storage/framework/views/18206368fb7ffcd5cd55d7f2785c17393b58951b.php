@@ -41,8 +41,8 @@
       <div class="display-spacing">
         <div class="container">
           <header class="el-heading el-heading-1 center">
-            <h2>Create your account</h2>
-            <p>Made with love for designers & developers.</p>
+            <h2>Buat Akun</h2>
+            <p>Agar lebih luar untuk berselancar</p>
           </header>
           <form class="form form-1" method="POST" action="<?php echo route('create'); ?>">
             <?php echo csrf_field(); ?>
@@ -329,8 +329,8 @@ endif; ?>
             </div>
           </form>
           <div class="pt-25 text-center">
-            <span class="text-color">Already have an acocunt?</span>
-            <a href="<?php echo e(url('/login')); ?>" class="text-primary">Sign in</a>
+            <span class="text-color">Sudah punya akun ?</span>
+            <a href="<?php echo e(url('/login')); ?>" class="text-primary">login</a>
           </div>
         </div>
       </div>
@@ -346,22 +346,22 @@ endif; ?>
             <div class="hidden-lg-down col-lg-6">
               <ul class="menu">
                 <li>
-                  <a href="home-1.html">
-                    <span class="text">Home</span>
+                  <a href="<?php echo e(route('dashboard')); ?>">
+                    <span class="text">beranda</span>
                   </a>
                 </li>
                 <li>
-                  <a href="shop-special-1.html">
+                  <a href="<?php echo e(url('shop')); ?>">
                     <span class="text">Best Sales</span>
                   </a>
                 </li>
                 <li>
-                  <a href="page-about.html">
-                    <span class="text">About Us</span>
+                  <a href="<?php echo e(url('about')); ?>">
+                    <span class="text">Tentang Kami</span>
                   </a>
                 </li>
                 <li>
-                  <a href="page-contact.html">
+                  <a href="<?php echo e(url('about')); ?>">
                     <span class="text">Contact Us</span>
                   </a>
                 </li>

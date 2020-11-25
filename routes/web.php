@@ -37,3 +37,5 @@ Route::get('payment/infopayment/{id}', 'CheckOutController@checkoutDetail')->nam
 Route::get('payment/status/{id}', 'CheckOutController@diterima')->name('update-status-diterima');
 
 Route::post('review/wgfarm/thankyou/{id}', 'ReviewProductController@review')->name('review');
+
+Route::get('wgfarm/mitra/ajuan-produk', 'AjuanProdukController@index')->name('ajuan-produk');

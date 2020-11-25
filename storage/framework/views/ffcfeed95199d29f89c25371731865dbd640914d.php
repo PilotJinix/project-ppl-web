@@ -6,26 +6,32 @@
         <li class="el-megamenu el-megamenu-xs">
           <?php if(auth()->guard()->guest()): ?>
             <a href="<?php echo e(route('home')); ?>">
-              <span class="text text-light">Home</span>
+              <span class="text text-light">Beranda</span>
             </a>
           <?php else: ?>
             <a href="<?php echo e(route('dashboard')); ?>">
-              <span class="text text-light">Home</span>
+              <span class="text text-light">Beranda</span>
             </a>
           <?php endif; ?>
         </li>
         <li class="el-megamenu el-megamenu-lg">
         <a href="<?php echo e(url('shop')); ?>">
-            <span class="text text-light">Shop</span>
+            <span class="text text-light">Toko</span>
             <i class="ti-angle-down hidden-lg-up"></i>
           </a>
         </li>
         <li class="el-megamenu el-megamenu-lg">
         <a href="<?php echo e(url('about')); ?>">
-            <span class="text text-light">About Us</span>
+            <span class="text text-light">Tentang Kami</span>
             <i class="ti-angle-right hidden-lg-up"></i>
           </a>
         </li>
+        <li class="el-megamenu el-megamenu-lg">
+          <a href="<?php echo e(route('ajuan-produk')); ?>">
+              <span class="text text-light">Ajukan Produk Anda</span>
+              <i class="ti-angle-right hidden-lg-up"></i>
+            </a>
+          </li>
       </ul>
       <button class="button button-menu button-display-sidenav">
         <span></span>

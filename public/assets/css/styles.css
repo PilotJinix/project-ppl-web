@@ -10301,7 +10301,7 @@ Preloader
     transform: translate(-50%, -50%);
     border: 1px solid #e1e1e1;
     border-radius: 5px;
-    width: 250px;
+    min-width: 250px;
 }
 .option-header {
     border-bottom: 1px solid #e1e1e1;

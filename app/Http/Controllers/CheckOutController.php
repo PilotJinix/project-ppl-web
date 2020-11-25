@@ -10,17 +10,22 @@ class CheckOutController extends Controller
 {
   public function checkoutScreen(Request $request, $id){
 		$session = $request->session()->get('username');
-		$akun = DB::table('users')->where('username',$session)->first();
-		$user_id = $akun->id;
+		if ($session != null) {
+			$akun = DB::table('users')->where('username',$session)->first();
+			$user_id = $akun->id;
 
-		$detail = DB::table('produk')->where('id',$id)->first();
+			$detail = DB::table('produk')->where('id',$id)->first();
 
-		$riwayat_pembelian = DB::table('detail_checkout')
-		->join('produk', 'detail_checkout.produk_id','=','produk.id')
-		->where('detail_checkout.user_id','=',$user_id)->select('detail_checkout.*','produk.nama','produk.harga','produk.gambar')->latest()
-		->get();
+			$riwayat_pembelian = DB::table('detail_checkout')
+			->join('produk', 'detail_checkout.produk_id','=','produk.id')
+			->where('detail_checkout.user_id','=',$user_id)
+			->select('detail_checkout.*','produk.nama','produk.harga','produk.gambar')->latest()
+			->get();
 
-		return view('checkout',compact('akun','detail','riwayat_pembelian'));
+			return view('checkout',compact('akun','detail','riwayat_pembelian'));
+		}
+
+		return redirect()->route('login');
 	}
 
 	public function checkout(Request $request, $id){

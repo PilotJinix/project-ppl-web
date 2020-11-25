@@ -45,8 +45,8 @@
       <div class="display-spacing">
         <div class="container">
           <header class="el-heading el-heading-1 center">
-            <h2>Member login</h2>
-            <p>Sign in to your account to continue.</p>
+            <h2>User login</h2>
+            <p>Login dengan akun anda.</p>
             <?php if(session()->get('success')): ?>
               <div class="bg-success p-2 rounded">
                 <i class="fa fa-check-circle" aria-hidden="true"></i>
@@ -147,8 +147,8 @@ endif; ?>
             </div>
           </form>
           <div class="pt-20 text-center">
-            <span class="text-color">Not registered?</span>
-            <a href="<?php echo e(route('register')); ?>" class="text-primary">Create account</a>
+            <span class="text-color">Belum memiliki akun?</span>
+            <a href="<?php echo e(route('register')); ?>" class="text-primary">Buat Akun</a>
           </div>
         </div>
       </div>
@@ -165,21 +165,21 @@ endif; ?>
               <ul class="menu">
                 <li>
                 <a href="<?php echo e(url('/')); ?>">
-                    <span class="text">Home</span>
+                    <span class="text">Beranda</span>
                   </a>
                 </li>
                 <li>
-                  <a href="shop-special-1.html">
+                  <a href="<?php echo e(url('/')); ?>">
                     <span class="text">Best Sales</span>
                   </a>
                 </li>
                 <li>
-                  <a href="page-about.html">
-                    <span class="text">About Us</span>
+                  <a href="<?php echo e(url('about')); ?>">
+                    <span class="text">Tentang Kami</span>
                   </a>
                 </li>
                 <li>
-                  <a href="page-contact.html">
+                  <a href="<?php echo e(url('/')); ?>">
                     <span class="text">Contact Us</span>
                   </a>
                 </li>
