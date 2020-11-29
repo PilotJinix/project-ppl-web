@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-8">
-      <div class="header-logo"><span>LOGO</span></div>
+      <div class="header-logo"><span>WG FARM</span></div>
       <ul class="menu">
         <li class="el-megamenu el-megamenu-xs">
           @guest
@@ -38,26 +38,6 @@
       </button>
     </div>
     <div class="col-md-4 text-right">
-      <div class="el-hover-search-bar">
-        <button
-          type="submit"
-          class="button button-icon button-icon-search"
-        >
-          <img
-            class="icon"
-            src="{{asset("assets/images/icons/search-light.svg")}}"
-            alt="--Alternative--"
-          />
-        </button>
-        <div class="el-hover-search-bar-box" id="xxx">
-          <div class="form-item">
-            <input
-              type="text"
-              placeholder="What are you looking for?"
-            />
-          </div>
-        </div>
-      </div>
       @guest
       @else
         <button
