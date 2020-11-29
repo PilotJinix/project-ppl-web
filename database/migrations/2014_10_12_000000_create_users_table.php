@@ -19,6 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('username');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
+            $table->string('foto')->default('blank-profile.webp');
             $table->string('nomer_hp');
             $table->string('alamat');
             $table->string('status')->default('user');

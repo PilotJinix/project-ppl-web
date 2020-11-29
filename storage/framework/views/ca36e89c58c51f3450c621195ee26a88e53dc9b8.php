@@ -368,63 +368,6 @@
                             </a>
                           </div>
                         </li>
-                        <li>
-                          <div class="el-comments-avatar">
-                            <img
-                              src="assets/images/people/2.jpg"
-                              alt="--Alternative--"
-                            />
-                          </div>
-                          <div class="el-comments-content">
-                            <div class="el-comments-info">
-                              <div class="row">
-                                <div class="col-6">
-                                  <span class="el-comments-author"
-                                    >Thomas Shelby</span
-                                  >
-                                </div>
-                                <div class="col-6 text-right d-rtl">
-                                  <span class="el-comments-date"
-                                    >May 3, 2020</span
-                                  >
-                                </div>
-                              </div>
-                            </div>
-                            <p>
-                              Lorem Ipsumin gravida nibh vel velit auctor
-                              aliquet. Aenean sollicitudin, lorem quis bibendum
-                              auctor, nisi elit consequat ipsum, nec sagittis
-                              sem nibh id elit. Duis sed odio sit amet nibh
-                              vulputate. Pellentesque habitant morbi tristique
-                              senectus et netus et malesuada fames ac turpis
-                              egestas. Vestibulum tortor quam, feugiat vitae,
-                              ultricies eget, tempor sit amet, ante. Donec eu
-                              libero sit amet quam egestas semper. Aenean
-                              ultricies mi vitae est. Mauris placerat eleifend
-                              leo.
-                            </p>
-                            <ul class="el-stars">
-                              <li>
-                                <i class="fa fa-star"></i>
-                              </li>
-                              <li>
-                                <i class="fa fa-star"></i>
-                              </li>
-                              <li>
-                                <i class="fa fa-star"></i>
-                              </li>
-                              <li>
-                                <i class="fa fa-star"></i>
-                              </li>
-                              <li>
-                                <i class="fa fa-star-o"></i>
-                              </li>
-                            </ul>
-                            <a href="#" class="reply">
-                              <span class="fa fa-reply"></span>
-                            </a>
-                          </div>
-                        </li>
                       </ul>
                     </div>
                   </div>

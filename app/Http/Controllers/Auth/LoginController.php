@@ -41,6 +41,9 @@ class LoginController extends Controller
 
     public function home(Request $request){
       $session = $request->session()->get('username');
+      if ($session == null) {
+        return redirect()->route('home');
+      }
       $akun = DB::table('users')->where('username',$session)->first();
       $user_id = $akun->id;
 
