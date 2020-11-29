@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-8">
-            <div class="header-logo"><span>LOGO</span></div>
+            <div class="header-logo"><span>WG FARM</span></div>
             <ul class="menu">
                 <li class="el-megamenu el-megamenu-xs">
                     @guest
