@@ -8,10 +8,15 @@ use DB;
 class UserController extends Controller
 {
 	public function index(Request $request){
+		$session = $request->session()->get('username');
+		if($session != null){
+			return redirect()->route('dashboard');
+		}
 		/** Get information product from produk*/
 		$product = DB::table('produk')->latest()->get();
-		return view('home', compact('product'));	
+		return view('home', compact('product'));
 	}
+
 	public function productDetail(Request $request, $id){
 		$user = $request->session()->get('username');
 		if($user != null){
@@ -48,6 +53,7 @@ class UserController extends Controller
 		}
 		return view('about');
 	}
+
 	public function shop(Request $request){
 		$user = $request->session()->get('username');
 		if ($user != null) {
@@ -67,6 +73,7 @@ class UserController extends Controller
 		$product = DB::table('produk')->latest()->get();
 		return view('shop', compact('product'));
 	}
+	
 	public function my_account(Request $request){
 		$user = $request->session()->get('username');
 		$akun = DB::table('users')->where('username',$user)->first();
@@ -78,5 +85,23 @@ class UserController extends Controller
 		->get();
 		
 		return view('my-account', compact('akun','riwayat_pembelian'));
+	}
+
+	public function blog(Request $request){
+		$user = $request->session()->get('username');
+		if ($user != null) {
+			$akun = DB::table('users')->where('username',$user)->first();
+			$user_id = $akun->id;
+
+			$riwayat_pembelian = DB::table('detail_checkout')
+			->join('produk', 'detail_checkout.produk_id','=','produk.id')
+			->where('detail_checkout.user_id','=',$user_id)->select('detail_checkout.*','produk.nama','produk.harga','produk.gambar')->latest()
+			->get();
+
+			return view('blog', compact('akun','riwayat_pembelian'));
+		}
+
+		/** Get information product from produk*/
+		return view('blog');
 	}
 }

@@ -16,6 +16,7 @@ Route::get('product/{id}', 'UserController@productDetail')->name('product');
 Route::get('about', 'UserController@about');
 Route::get('shop', 'UserController@shop');
 Route::get('account', 'UserController@my_account')->name('profile-user');
+Route::get('wgfarm/blog','UserController@blog')->name('blog');
 
 Route::get('register', 'Auth\RegisterController@register')->name('register');
 Route::post('create', 'Auth\RegisterController@store')->name('create');
@@ -26,6 +27,8 @@ Route::get('dashboard', 'Auth\LoginController@home')->name('dashboard');
 Route::get('bye/logout', 'Auth\LoginController@logout')->name('logout');
 Route::get('edit-profile', 'Auth\EditProfileController@editProfile')->name('edit-profile');
 Route::post('edit-user', 'Auth\EditProfileController@editUser')->name('edit-user');
+Route::post('edit-password', 'Auth\EditProfileController@editPassword')->name('edit-password');
+Route::post('edit-foto-profile', 'Auth\EditProfileController@editFoto')->name('edit-foto');
 
 Route::get('upgrade-mitra', 'Auth\UpgradeMitraController@upgradeMitra')->name('upgrade-mitra');
 Route::post('ajuan-saya', 'Auth\UpgradeMitraController@createMitra')->name('create-mitra');
@@ -35,7 +38,8 @@ Route::post('product/checkout/wgfarm{id}','CheckOutController@checkout')->name('
 Route::get('payment/thankyou/wgfarm/{id}','CheckOutController@payment')->name('payment');
 Route::get('payment/infopayment/{id}', 'CheckOutController@checkoutDetail')->name('info-payment');
 Route::get('payment/status/{id}', 'CheckOutController@diterima')->name('update-status-diterima');
-
 Route::post('review/wgfarm/thankyou/{id}', 'ReviewProductController@review')->name('review');
-
 Route::get('wgfarm/mitra/ajuan-produk', 'AjuanProdukController@index')->name('ajuan-produk');
+Route::post('wgfarm/mitra/ajukan-produk', 'AjuanProdukController@tambah')->name('ajukan-produk');
+Route::get('wgfarm/mitra/riwayat-produk','AjuanProdukController@riwayat')->name('riwayat-ajuan-mitra');
+
