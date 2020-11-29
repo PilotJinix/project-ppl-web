@@ -4226,7 +4226,7 @@ Forms
     min-height: 180px;
 }
 
-/* 
+/*
 * Form - Style 1
 */
 .form-1 select,
@@ -4333,7 +4333,7 @@ Forms
     padding-left: 51px;
 }
 
-/* 
+/*
 * Form - Style 2
 */
 .form-2 {
@@ -4400,7 +4400,7 @@ Forms
     box-shadow: inset 0px 0px 0px 1px var(--primary);
 }
 
-/* 
+/*
 * Form - Style 3
 */
 .form-3 {
@@ -6062,7 +6062,7 @@ form
 }
 
 /*------------------------------------
-    Element: Stars 
+    Element: Stars
 ------------------------------------*/
 .el-stars {
     list-style: none;
@@ -6080,7 +6080,7 @@ form
 }
 
 /*------------------------------------
-    Element: Social 
+    Element: Social
 ------------------------------------*/
 .el-social-icons {
     list-style: none;
@@ -6113,7 +6113,7 @@ form
 }
 
 /*------------------------------------
-    Element: Menu 
+    Element: Menu
 ------------------------------------*/
 .el-menu {
     top: 0;
@@ -6138,7 +6138,7 @@ form
 }
 
 /*------------------------------------
-    Element: Banner 
+    Element: Banner
 ------------------------------------*/
 .el-banner.el-banner-1 h1 {
     color: var(--base-0);
@@ -6167,7 +6167,7 @@ form
 }
 
 /*------------------------------------
-    Element: Heading 
+    Element: Heading
 ------------------------------------*/
 .el-heading p {
     font-size: 16px;
@@ -6208,7 +6208,7 @@ form
 }
 
 /*------------------------------------
-    Element: Content 
+    Element: Content
 ------------------------------------*/
 .el-content p {
     margin-bottom: 20px;
@@ -6818,7 +6818,7 @@ form
 }
 
 /*------------------------------------
-    Element: Languages 
+    Element: Languages
 ------------------------------------*/
 .el-select-languages {
     cursor: pointer;
@@ -6865,7 +6865,7 @@ Preloader
     transform: translate(-50%, -50%);
 }
 
-/* 
+/*
 * Preloader - Style 1
 */
 .preloader-1 {
@@ -6890,7 +6890,7 @@ Preloader
     animation: preloader-1 1.2s infinite;
 }
 
-/* 
+/*
 * Preloader - Style 2
 */
 .preloader-2 {
@@ -6910,7 +6910,7 @@ Preloader
     animation: preloader-2 2.4s cubic-bezier(0, 0.2, 0.8, 1) infinite;
 }
 
-/* 
+/*
 * Preloader - Style 3
 */
 .preloader-3 {
@@ -7023,7 +7023,7 @@ Preloader
     animation-delay: 0s;
 }
 
-/* 
+/*
 * Preloader - Style 4
 */
 .preloader-4 {
@@ -7045,7 +7045,7 @@ Preloader
     animation: preloader-4 1.2s linear infinite;
 }
 
-/* 
+/*
 * Preloader - Style 5
 */
 .preloader-5 {
@@ -7085,7 +7085,7 @@ Preloader
     animation-delay: -0.15s;
 }
 
-/* 
+/*
 * Preloader - Style 6
 */
 .preloader-6 {
@@ -8291,7 +8291,7 @@ Preloader
         background-color: var(--primary) !important;
     }
     .el-megamenu .el-megamenu-box {
-        height: 180px;
+        height: 100px;
         padding: 15px;
         display: none;
         overflow: hidden;
