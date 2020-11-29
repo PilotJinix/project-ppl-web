@@ -28,7 +28,7 @@
                 </li>
                 @guest
                 @else
-                    @if ($akun->status == 'proses')
+                    @if ($akun->status == 'mitra')
                         <li class="el-megamenu el-megamenu-lg">
                             <a href="{{route('ajuan-produk')}}">
                                 <span class="text text-light">Ajukan Produk Anda</span>
