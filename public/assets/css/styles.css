@@ -4140,7 +4140,7 @@ Forms
     min-height: 180px;
 }
 
-/* 
+/*
 * Form - Style 1
 */
 .form-1 select,
@@ -4247,7 +4247,7 @@ Forms
     padding-left: 51px;
 }
 
-/* 
+/*
 * Form - Style 2
 */
 .form-2 {
@@ -4314,7 +4314,7 @@ Forms
     box-shadow: inset 0px 0px 0px 1px var(--primary);
 }
 
-/* 
+/*
 * Form - Style 3
 */
 .form-3 {
@@ -5929,7 +5929,7 @@ form .input-select .select2-container--default .select2-selection--single .selec
 }
 
 /*------------------------------------
-    Element: Stars 
+    Element: Stars
 ------------------------------------*/
 .el-stars {
     list-style: none;
@@ -5947,7 +5947,7 @@ form .input-select .select2-container--default .select2-selection--single .selec
 }
 
 /*------------------------------------
-    Element: Social 
+    Element: Social
 ------------------------------------*/
 .el-social-icons {
     list-style: none;
@@ -5980,7 +5980,7 @@ form .input-select .select2-container--default .select2-selection--single .selec
 }
 
 /*------------------------------------
-    Element: Menu 
+    Element: Menu
 ------------------------------------*/
 .el-menu {
     top: 0;
@@ -6005,7 +6005,7 @@ form .input-select .select2-container--default .select2-selection--single .selec
 }
 
 /*------------------------------------
-    Element: Banner 
+    Element: Banner
 ------------------------------------*/
 .el-banner.el-banner-1 h1 {
     color: var(--base-0);
@@ -6036,7 +6036,7 @@ form .input-select .select2-container--default .select2-selection--single .selec
 }
 
 /*------------------------------------
-    Element: Heading 
+    Element: Heading
 ------------------------------------*/
 .el-heading p {
     font-size: 16px;
@@ -6077,7 +6077,7 @@ form .input-select .select2-container--default .select2-selection--single .selec
 }
 
 /*------------------------------------
-    Element: Content 
+    Element: Content
 ------------------------------------*/
 .el-content p {
     margin-bottom: 20px;
@@ -6684,7 +6684,7 @@ form .input-select .select2-container--default .select2-selection--single .selec
 }
 
 /*------------------------------------
-    Element: Languages 
+    Element: Languages
 ------------------------------------*/
 .el-select-languages {
     cursor: pointer;
@@ -6731,7 +6731,7 @@ Preloader
     transform: translate(-50%, -50%);
 }
 
-/* 
+/*
 * Preloader - Style 1
 */
 .preloader-1 {
@@ -6756,7 +6756,7 @@ Preloader
     animation: preloader-1 1.2s infinite;
 }
 
-/* 
+/*
 * Preloader - Style 2
 */
 .preloader-2 {
@@ -6776,7 +6776,7 @@ Preloader
     animation: preloader-2 2.4s cubic-bezier(0, 0.2, 0.8, 1) infinite;
 }
 
-/* 
+/*
 * Preloader - Style 3
 */
 .preloader-3 {
@@ -6889,7 +6889,7 @@ Preloader
     animation-delay: 0s;
 }
 
-/* 
+/*
 * Preloader - Style 4
 */
 .preloader-4 {
@@ -6911,7 +6911,7 @@ Preloader
     animation: preloader-4 1.2s linear infinite;
 }
 
-/* 
+/*
 * Preloader - Style 5
 */
 .preloader-5 {
@@ -6951,7 +6951,7 @@ Preloader
     animation-delay: -0.15s;
 }
 
-/* 
+/*
 * Preloader - Style 6
 */
 .preloader-6 {
@@ -8142,7 +8142,7 @@ Preloader
     }
 
     .el-megamenu .el-megamenu-box {
-        height: 180px;
+        height: 100px;
         padding: 15px;
         display: none;
         overflow: hidden;

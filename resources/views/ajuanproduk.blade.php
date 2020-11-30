@@ -204,7 +204,7 @@
                             </thead>
                             <tbody>
                                 @foreach ($patokan_harga as $list)
-                                @if ($list->jenis == 'buah')
+                                @if ($list->jenis == 'Buah')
                                 <tr>
                                     <td>{{__($list->nama_barang)}}</td>
                                     <td>{{__($list->jenis)}}</td>
@@ -228,7 +228,7 @@
                             </thead>
                             <tbody>
                                 @foreach ($patokan_harga as $list)
-                                @if ($list->jenis == 'sayuran')
+                                @if ($list->jenis == 'Sayuran')
                                 <tr>
                                     <td>{{__($list->nama_barang)}}</td>
                                     <td>{{__($list->jenis)}}</td>
