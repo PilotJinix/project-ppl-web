@@ -63,4 +63,12 @@ class UpgradeMitraController extends Controller
         
         return redirect('account')->with('mitra-success','Pengajuan Berhasil');
     }
+
+    public function mundurMitra($id){
+        DB::table('users')->where('id',$id)->update(['status'=>'user']);
+
+        DB::table('ajuan_user')->where('user_id',$id)->delete();
+
+        return redirect()->route('profile-user')->with('successMundur','Anda Telah Mengundurkan Dari Mitra');
+    }
 }

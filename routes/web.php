@@ -32,6 +32,7 @@ Route::post('edit-foto-profile', 'Auth\EditProfileController@editFoto')->name('e
 
 Route::get('upgrade-mitra', 'Auth\UpgradeMitraController@upgradeMitra')->name('upgrade-mitra');
 Route::post('ajuan-saya', 'Auth\UpgradeMitraController@createMitra')->name('create-mitra');
+Route::get('wgfarm/mitra/getout/{id}','Auth\UpgradeMitraController@mundurMitra')->name('mundur-mitra');
 
 Route::get('product/checkout/{id}', 'CheckOutController@checkoutScreen')->name('checkout-screen');
 Route::post('product/checkout/wgfarm{id}','CheckOutController@checkout')->name('checkout');
