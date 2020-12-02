@@ -25,6 +25,7 @@ class DetailCheckOut extends Model
         'status',
         'user_id',
         'produk_id',
-        'batas_pembayaran'
+        'batas_pembayaran',
+        'time'
     ];
 }

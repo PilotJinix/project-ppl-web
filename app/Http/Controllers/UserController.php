@@ -28,9 +28,12 @@ class UserController extends Controller
 			->where('detail_checkout.user_id','=',$user_id)->select('detail_checkout.*','produk.nama','produk.harga','produk.gambar')->latest()
 			->get();
 
+			$url= url()->current();
+			$fbShare = 'https://facebook.com/sharer/sharer.php?u='.$url.'&display=popup';
+
 			/** Get information product */
 			$product = DB::table('produk')->where('id',$id)->first();
-			return view('product-detail', compact('akun','product','riwayat_pembelian'));
+			return view('product-detail', compact('akun','product','riwayat_pembelian','fbShare'));
 		}
 
 		/** Get information product */

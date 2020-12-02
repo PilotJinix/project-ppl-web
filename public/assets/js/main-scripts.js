@@ -36,14 +36,14 @@
                 $this.html(
                     event.strftime(
                         '<div class="countdown-item"><div class="countdown-value">%D</div><div class="countdown-label">' +
-                            e["label-day"] +
-                            '</div></div><div class="countdown-item"><div class="countdown-value">%H</div><div class="countdown-label">' +
-                            e["label-hour"] +
-                            '</div></div><div class="countdown-item"><div class="countdown-value">%M</div><div class="countdown-label">' +
-                            e["label-minute"] +
-                            '</div></div><div class="countdown-item"><div class="countdown-value">%S</div><div class="countdown-label">' +
-                            e["label-second"] +
-                            "</div></div>"
+                        e["label-day"] +
+                        '</div></div><div class="countdown-item"><div class="countdown-value">%H</div><div class="countdown-label">' +
+                        e["label-hour"] +
+                        '</div></div><div class="countdown-item"><div class="countdown-value">%M</div><div class="countdown-label">' +
+                        e["label-minute"] +
+                        '</div></div><div class="countdown-item"><div class="countdown-value">%S</div><div class="countdown-label">' +
+                        e["label-second"] +
+                        "</div></div>"
                     )
                 );
             });
@@ -478,15 +478,11 @@
                 clickable: true,
                 renderBullet: function (index, className) {
                     return (
-                        '<div class="el-swiper-pagination-image el-swiper-pagination-image-' +
+                        '<i class="fa fa-circle el-swiper-pagination-image-' +
                         index +
                         " " +
                         className +
-                        '">' +
-                        "<img src='assets/images/products/." +
-                        "$product->gambar'" +
-                        "alt='alternative'/>" +
-                        "</div>"
+                        '"></i>'
                     );
                 },
             },

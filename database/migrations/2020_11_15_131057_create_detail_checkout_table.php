@@ -35,6 +35,7 @@ class CreateDetailCheckoutTable extends Migration
             $table->bigInteger('produk_id')->unsigned();
             $table->foreign('produk_id')->references('id')->on('produk')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
+            $table->string('time');
         });
     }
 

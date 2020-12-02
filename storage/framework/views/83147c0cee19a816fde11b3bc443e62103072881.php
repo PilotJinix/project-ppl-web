@@ -54,7 +54,7 @@
                         <div class="col-12 col-sm-12 col-md-12 col-lg-6">
                             <ul class="el-breadcrumbs el-breadcrumbs-1 text-light">
                                 <li>
-                                    <a href="home-1.html">
+                                    <a href="<?php echo e(route('home')); ?>">
                                         <span class="text">Home</span>
                                     </a>
                                 </li>

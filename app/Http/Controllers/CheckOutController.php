@@ -36,7 +36,7 @@ class CheckOutController extends Controller
 		$request->validate([
 			'nama_lengkap' => 'required|string|max:255',
 			'email' => 'required|string|email|max:255',
-			'no_hp' => 'required|string|max:15',
+			'no_hp' => 'required|string|max:15|min:9',
 			'alamat' => 'required|string|max:255',
 			'label_alamat' => 'max:255',
 			'kode_pos' => 'required|string|max:100',
@@ -53,7 +53,7 @@ class CheckOutController extends Controller
 		date_default_timezone_set("Asia/Jakarta");
 		$currentTime = time();
 		$hours = 24;
-		$secondsToAdd = $hours * (60 * 60);
+		$secondsToAdd = (1 * 60);
 
 		$newTime = $currentTime + $secondsToAdd;
 		$date = date('d F Y H:i', $newTime);
@@ -75,8 +75,16 @@ class CheckOutController extends Controller
 			'diskon' => $request->diskon,
 			'total_harga' => $request->total_harga,
 			'batas_pembayaran' => $date,
+			'time' => $newTime,
 		]);
 
+		$produk = DB::table('produk')->where('id',$id)->first();
+		
+		$newStok = $produk->stok - $request->jumlah;
+		DB::table('produk')->where('id',$id)->update([
+			'stok' => $newStok,
+		]);
+		
 		return redirect()->route('payment',$detail->id);
 	}
 
