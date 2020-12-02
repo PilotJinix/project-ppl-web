@@ -19,6 +19,10 @@ class UserController extends Controller
 
 	public function productDetail(Request $request, $id){
 		$user = $request->session()->get('username');
+
+		$url= url()->current();
+		$fbShare = 'https://facebook.com/sharer/sharer.php?u='.$url.'&display=popup';
+
 		if($user != null){
 			$akun = DB::table('users')->where('username',$user)->first();
 			$user_id = $akun->id;
@@ -28,9 +32,6 @@ class UserController extends Controller
 			->where('detail_checkout.user_id','=',$user_id)->select('detail_checkout.*','produk.nama','produk.harga','produk.gambar')->latest()
 			->get();
 
-			$url= url()->current();
-			$fbShare = 'https://facebook.com/sharer/sharer.php?u='.$url.'&display=popup';
-
 			/** Get information product */
 			$product = DB::table('produk')->where('id',$id)->first();
 			return view('product-detail', compact('akun','product','riwayat_pembelian','fbShare'));
@@ -38,7 +39,7 @@ class UserController extends Controller
 
 		/** Get information product */
 		$product = DB::table('produk')->where('id',$id)->first();
-		return view('product-detail', compact('product'));
+		return view('product-detail', compact('product','fbShare'));
 	}
 
 	public function about(Request $request){
