@@ -152,14 +152,16 @@
                             <div class="shareit">
                                 <ul class="el-social-icons block">
                                     <li class="bg-facebook">
-                                        <a href="<?php echo e(__($fbShare)); ?>">
+                                        <a href="<?php echo e(__($fbShare)); ?>" target="blank">
                                             <i class="ti-facebook"></i>
                                         </a>
                                     </li>
                                     <li class="bg-twitter">
-                                        <a href="#">
-                                            <i class="ti-twitter"></i>
-                                        </a>
+                                        
+                                        <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" target="__blank"
+                                            data-show-count="false"><i class="ti-twitter"></i></a>
+                                        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8">
+                                        </script>
                                     </li>
                                     <li class="bg-instagram">
                                         <a href="#">
@@ -182,7 +184,19 @@
                                 <span class="text">Description</span>
                             </li>
                             <li data-tab-link="tab-3">
-                                <span class="text">Reviews (2)</span>
+                                <span class="text mr-2"><?php echo e(__('Review')); ?></span>
+                                <?php if($rataFinal == 5): ?>
+                                <i class="fa fa-star" style="color: goldenrod"></i>
+                                <span><?php echo e(__(round($rataFinal,1))); ?></span>
+                                <?php endif; ?>
+                                <?php if($rataFinal > 0 && $rataFinal < 5): ?> <i class="fa fa-star-half-o"
+                                    style="color: goldenrod"></i>
+                                    <span><?php echo e(__(round($rataFinal,1))); ?></span>
+                                    <?php endif; ?>
+                                    <?php if($rataFinal == 0): ?>
+                                    <i class="fa fa-star-o" style="color: goldenrod"></i>
+                                    <span><?php echo e(__(round($rataFinal,1))); ?></span>
+                                    <?php endif; ?>
                             </li>
                         </ul>
                     </div>
@@ -201,37 +215,52 @@
                             </li>
                             <li data-tab-content="tab-3">
                                 <div class="content">
-                                    <h2>2 review for this product</h2>
+                                    <h2><?php echo e(__('('.count($review).') '.' Review for this product')); ?></h2>
+                                    <?php $__currentLoopData = $review; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                     <div class="el-comments">
                                         <ul>
                                             <li>
                                                 <div class="el-comments-avatar">
-                                                    <img src="assets/images/people/1.jpg" alt="--Alternative--" />
+                                                    <img src="<?php echo e(asset('assets/images/people/'.$item->foto)); ?>"
+                                                        alt="Foto Profile" />
                                                 </div>
                                                 <div class="el-comments-content">
                                                     <div class="el-comments-info">
                                                         <div class="row">
                                                             <div class="col-6">
-                                                                <span class="el-comments-author">Megan Johnson</span>
+                                                                <span
+                                                                    class="el-comments-author"><?php echo e(__($item->nama_lengkap)); ?></span>
                                                             </div>
                                                             <div class="col-6 text-right d-rtl">
-                                                                <span class="el-comments-date">May 1, 2020</span>
+                                                                <span
+                                                                    class="el-comments-date"><?php echo e(__($item->created_at)); ?></span>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <p>
-                                                        Lorem Ipsumin gravida nibh vel velit auctor
-                                                        aliquet. Aenean sollicitudin, lorem quis bibendum
-                                                        auctor, nisi elit consequat ipsum, nec sagittis
-                                                        sem nibh id elit. Duis sed odio sit amet nibh
-                                                        vulputate. Pellentesque habitant morbi tristique
-                                                        senectus et netus et malesuada fames ac turpis
-                                                        egestas. Vestibulum tortor quam, feugiat vitae,
-                                                        ultricies eget, tempor sit amet, ante. Donec eu
-                                                        libero sit amet quam egestas semper. Aenean
-                                                        ultricies mi vitae est. Mauris placerat eleifend
-                                                        leo.
+                                                        <?php echo e(__($item->review)); ?>
+
                                                     </p>
+                                                    <?php if($item->rating == 5): ?>
+                                                    <ul class="el-stars">
+                                                        <li>
+                                                            <i class="ti-star active"></i>
+                                                        </li>
+                                                        <li>
+                                                            <i class="ti-star active"></i>
+                                                        </li>
+                                                        <li>
+                                                            <i class="ti-star active"></i>
+                                                        </li>
+                                                        <li>
+                                                            <i class="ti-star active"></i>
+                                                        </li>
+                                                        <li>
+                                                            <i class="ti-star active"></i>
+                                                        </li>
+                                                    </ul>
+                                                    <?php endif; ?>
+                                                    <?php if($item->rating == 4): ?>
                                                     <ul class="el-stars">
                                                         <li>
                                                             <i class="ti-star active"></i>
@@ -249,13 +278,69 @@
                                                             <i class="ti-star"></i>
                                                         </li>
                                                     </ul>
-                                                    <a href="#" class="reply">
-                                                        <span class="fa fa-reply"></span>
-                                                    </a>
+                                                    <?php endif; ?>
+                                                    <?php if($item->rating == 3): ?>
+                                                    <ul class="el-stars">
+                                                        <li>
+                                                            <i class="ti-star active"></i>
+                                                        </li>
+                                                        <li>
+                                                            <i class="ti-star active"></i>
+                                                        </li>
+                                                        <li>
+                                                            <i class="ti-star active"></i>
+                                                        </li>
+                                                        <li>
+                                                            <i class="ti-star "></i>
+                                                        </li>
+                                                        <li>
+                                                            <i class="ti-star"></i>
+                                                        </li>
+                                                    </ul>
+                                                    <?php endif; ?>
+                                                    <?php if($item->rating == 2): ?>
+                                                    <ul class="el-stars">
+                                                        <li>
+                                                            <i class="ti-star active"></i>
+                                                        </li>
+                                                        <li>
+                                                            <i class="ti-star active"></i>
+                                                        </li>
+                                                        <li>
+                                                            <i class="ti-star "></i>
+                                                        </li>
+                                                        <li>
+                                                            <i class="ti-star "></i>
+                                                        </li>
+                                                        <li>
+                                                            <i class="ti-star "></i>
+                                                        </li>
+                                                    </ul>
+                                                    <?php endif; ?>
+                                                    <?php if($item->rating == 1): ?>
+                                                    <ul class="el-stars">
+                                                        <li>
+                                                            <i class="ti-star active"></i>
+                                                        </li>
+                                                        <li>
+                                                            <i class="ti-star"></i>
+                                                        </li>
+                                                        <li>
+                                                            <i class="ti-star"></i>
+                                                        </li>
+                                                        <li>
+                                                            <i class="ti-star"></i>
+                                                        </li>
+                                                        <li>
+                                                            <i class="ti-star"></i>
+                                                        </li>
+                                                    </ul>
+                                                    <?php endif; ?>
                                                 </div>
                                             </li>
                                         </ul>
                                     </div>
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                 </div>
                             </li>
                         </ul>

@@ -436,6 +436,7 @@ class ComposerStaticInitddb24b68d084edcf20af509e628876d8
     public static $classMap = array (
         'App\\AjuanProduk' => __DIR__ . '/../..' . '/app/AjuanProduk.php',
         'App\\AjuanUser' => __DIR__ . '/../..' . '/app/AjuanUser.php',
+        'App\\Console\\Commands\\BatasPembayaran' => __DIR__ . '/../..' . '/app/Console/Commands/BatasPembayaran.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\DetailCheckOut' => __DIR__ . '/../..' . '/app/DetailCheckOut.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',

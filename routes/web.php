@@ -17,6 +17,7 @@ Route::get('about', 'UserController@about');
 Route::get('shop', 'UserController@shop');
 Route::get('account', 'UserController@my_account')->name('profile-user');
 Route::get('wgfarm/blog','UserController@blog')->name('blog');
+Route::get('wgfarm/blog/{id}','UserController@blogDetail')->name('blog-detail');
 
 Route::get('register', 'Auth\RegisterController@register')->name('register');
 Route::post('create', 'Auth\RegisterController@store')->name('create');

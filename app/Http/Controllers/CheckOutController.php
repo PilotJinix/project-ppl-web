@@ -52,7 +52,7 @@ class CheckOutController extends Controller
 		/* Get Time with timezone Asia/Jakarta */
 		date_default_timezone_set("Asia/Jakarta");
 		$currentTime = time();
-		$hours = 24;
+		$hours = 1;
 		$secondsToAdd = $hours * (60 * 60);
 
 		$newTime = $currentTime + $secondsToAdd;

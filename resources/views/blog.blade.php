@@ -77,58 +77,23 @@
             <div class="container">
                 <div class="row row-sm">
                     <!--Item-->
+                    @foreach ($blog as $item)
                     <div class="col-12 col-sm-12 col-md-6 col-lg-4">
                         <div class="el-card el-card-blog el-card-blog-1 el-hover"
                             style="box-shadow: 0px 0px 10px #bebebe">
                             <div class="post-image">
-                                <img src="{{asset('assets/images/blog/1-1.jpg')}}" alt="--Alternative--">
+                                <img src="{{asset('assets/images/blog/'.$item->gambar)}}" alt="--Alternative--">
                             </div>
                             <div class="details">
                                 <h3>
-                                    <a href="blog-single-post-2.html" title="Fila Locker Room Varsity Jacket">
-                                        <span class="text">Blogging for business? Here’s everything you need to
-                                            know.</span>
+                                    <a href="{{route('blog-detail', $item->id)}}" title="{{__($item->judul)}}">
+                                        <span class="text">{{__($item->judul)}}</span>
                                     </a>
                                 </h3>
                             </div>
                         </div>
                     </div>
-                    <!--/-->
-                    <!--Item-->
-                    <div class="col-12 col-sm-12 col-md-6 col-lg-4">
-                        <div class="el-card el-card-blog el-card-blog-1 el-hover"
-                            style="box-shadow: 0px 0px 10px #bebebe">
-                            <div class="post-image">
-                                <img src="{{asset('assets/images/blog/1-2.jpg')}}" alt="--Alternative--">
-                            </div>
-                            <div class="details">
-                                <h3>
-                                    <a href="blog-single-post-2.html" title="Fila Locker Room Varsity Jacket">
-                                        <span class="text">Blogging for business? Here’s everything you need to
-                                            know.</span>
-                                    </a>
-                                </h3>
-                            </div>
-                        </div>
-                    </div>
-                    <!--/-->
-                    <!--Item-->
-                    <div class="col-12 col-sm-12 col-md-6 col-lg-4">
-                        <div class="el-card el-card-blog el-card-blog-1 el-hover"
-                            style="box-shadow: 0px 0px 10px #bebebe">
-                            <div class="post-image">
-                                <img src="{{asset('assets/images/blog/1-3.jpg')}}" alt="--Alternative--">
-                            </div>
-                            <div class="details">
-                                <h3>
-                                    <a href="blog-single-post-2.html" title="Fila Locker Room Varsity Jacket">
-                                        <span class="text">Blogging for business? Here’s everything you need to
-                                            know.</span>
-                                    </a>
-                                </h3>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                     <!--/-->
                 </div>
             </div>

@@ -23,6 +23,23 @@ class UserController extends Controller
 		$url= url()->current();
 		$fbShare = 'https://facebook.com/sharer/sharer.php?u='.$url.'&display=popup';
 
+		$review = DB::table('review_product')->join('users','review_product.user_id','=','users.id')
+			->where('produk_id',$id)->select('users.nama_lengkap','users.foto','review_product.*')->latest()->get();
+
+		$rata = 0;
+		foreach ($review as $item) {
+			$rata = $rata + $item->rating;
+		};
+	
+		if (count($review) != null) {
+			$rataFinal = $rata / count($review);
+		}else{
+			$rataFinal = $rata;
+		}
+
+		/** Get information product */
+		$product = DB::table('produk')->where('id',$id)->first();
+
 		if($user != null){
 			$akun = DB::table('users')->where('username',$user)->first();
 			$user_id = $akun->id;
@@ -32,14 +49,11 @@ class UserController extends Controller
 			->where('detail_checkout.user_id','=',$user_id)->select('detail_checkout.*','produk.nama','produk.harga','produk.gambar')->latest()
 			->get();
 
-			/** Get information product */
-			$product = DB::table('produk')->where('id',$id)->first();
-			return view('product-detail', compact('akun','product','riwayat_pembelian','fbShare'));
+			return view('product-detail', compact('akun','product','riwayat_pembelian','fbShare','review','rataFinal'));
 		}
 
-		/** Get information product */
 		$product = DB::table('produk')->where('id',$id)->first();
-		return view('product-detail', compact('product','fbShare'));
+		return view('product-detail', compact('product','fbShare','review','rataFinal'));
 	}
 
 	public function about(Request $request){
@@ -93,6 +107,9 @@ class UserController extends Controller
 
 	public function blog(Request $request){
 		$user = $request->session()->get('username');
+
+		$blog = DB::table('blog')->get();
+
 		if ($user != null) {
 			$akun = DB::table('users')->where('username',$user)->first();
 			$user_id = $akun->id;
@@ -102,10 +119,32 @@ class UserController extends Controller
 			->where('detail_checkout.user_id','=',$user_id)->select('detail_checkout.*','produk.nama','produk.harga','produk.gambar')->latest()
 			->get();
 
-			return view('blog', compact('akun','riwayat_pembelian'));
+			return view('blog', compact('akun','riwayat_pembelian','blog'));
 		}
 
 		/** Get information product from produk*/
-		return view('blog');
+		return view('blog', compact('blog'));
+	}
+
+	public function blogDetail(Request $request, $id){
+		$user = $request->session()->get('username');
+
+		$blog = DB::table('blog')->where('id', $id)->first();
+		$latestBlog = DB::table('blog')->latest()->limit(4)->get();
+
+		if ($user != null) {
+			$akun = DB::table('users')->where('username',$user)->first();
+			$user_id = $akun->id;
+
+			$riwayat_pembelian = DB::table('detail_checkout')
+			->join('produk', 'detail_checkout.produk_id','=','produk.id')
+			->where('detail_checkout.user_id','=',$user_id)->select('detail_checkout.*','produk.nama','produk.harga','produk.gambar')->latest()
+			->get();
+
+			return view('blogdetail', compact('akun','riwayat_pembelian','blog','latestBlog'));
+		}
+
+		/** Get information product from produk*/
+		return view('blogdetail', compact('blog','latestBlog'));
 	}
 }
