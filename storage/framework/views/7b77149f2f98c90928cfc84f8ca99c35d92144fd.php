@@ -150,6 +150,10 @@
                         </ul>
                     </div>
                 </div>
+                <div class="el-pagination text-center pt-space-half">
+                    <?php echo e($product->links()); ?>
+
+                </div>
             </div>
         </div>
         <!--Footer-->

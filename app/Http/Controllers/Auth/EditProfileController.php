@@ -28,6 +28,7 @@ class EditProfileController extends Controller
             'username' => 'required|string|max:100|regex:/^\S*$/u',
             'nomer_hp' => 'required|string|max:15',
             'alamat' => 'required|string|max:255',
+            'rekening' => 'required|string|max:255',
         ]);
 
         DB::table('users')->where('id',$id)->update([
@@ -36,6 +37,7 @@ class EditProfileController extends Controller
             'username' => $request->username,
             'nomer_hp' => $request->nomer_hp,
             'alamat' => $request->alamat,
+            'no_rekening' => $request->rekening,
         ]);
         
         /* merubah nilai username pada session */

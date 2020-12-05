@@ -24,6 +24,9 @@ class CreateUsersTable extends Migration
             $table->string('alamat');
             $table->string('status')->default('user');
             $table->string('password');
+            $table->string('foto_ktp')->nullable();
+            $table->string('nik')->nullable();
+            $table->string('no_rekening')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

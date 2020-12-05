@@ -96,6 +96,9 @@
                     @endforeach
                     <!--/-->
                 </div>
+                <div class="el-pagination text-center pt-space-half">
+                    {{$blog->links()}}
+                </div>
             </div>
         </div>
         <!--Footer-->

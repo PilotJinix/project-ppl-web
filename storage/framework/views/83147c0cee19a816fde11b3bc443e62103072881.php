@@ -96,6 +96,10 @@
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     <!--/-->
                 </div>
+                <div class="el-pagination text-center pt-space-half">
+                    <?php echo e($blog->links()); ?>
+
+                </div>
             </div>
         </div>
         <!--Footer-->

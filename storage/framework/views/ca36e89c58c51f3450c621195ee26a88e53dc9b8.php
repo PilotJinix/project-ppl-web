@@ -157,8 +157,7 @@
                                         </a>
                                     </li>
                                     <li class="bg-twitter">
-                                        
-                                        <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" target="__blank"
+                                        <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" target="blank"
                                             data-show-count="false"><i class="ti-twitter"></i></a>
                                         <script async src="https://platform.twitter.com/widgets.js" charset="utf-8">
                                         </script>

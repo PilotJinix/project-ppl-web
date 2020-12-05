@@ -6,12 +6,13 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Auth;
 use DB;
+use App\User;
+use App\Notifications\Checkout;
 
 class LoginController extends Controller
 {
     public function login()
     {
-
       return view('auth.login');
     }
     
@@ -41,6 +42,7 @@ class LoginController extends Controller
 
     public function home(Request $request){
       $session = $request->session()->get('username');
+
       if ($session == null) {
         return redirect()->route('home');
       }

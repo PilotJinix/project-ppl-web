@@ -150,6 +150,9 @@
                         </ul>
                     </div>
                 </div>
+                <div class="el-pagination text-center pt-space-half">
+                    {{$product->links()}}
+                </div>
             </div>
         </div>
         <!--Footer-->

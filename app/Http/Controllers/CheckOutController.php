@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use App\DetailCheckOut;
+use App\Notifications\Checkout;
+use App\User;
 
 class CheckOutController extends Controller
 {
@@ -58,6 +60,10 @@ class CheckOutController extends Controller
 		$newTime = $currentTime + $secondsToAdd;
 		$date = date('d F Y H:i', $newTime);
 
+		$link = route('info-payment',$id);
+		$user = User::first();
+		$user->notify(new Checkout($link, $date));
+
 		$detail = DetailCheckOut::create([
 			'nama_penerima' => $request->nama_lengkap,
 			'email_penerima' => $request->email,
@@ -77,7 +83,7 @@ class CheckOutController extends Controller
 			'batas_pembayaran' => $date,
 			'time' => $newTime,
 		]);
-
+		
 		$produk = DB::table('produk')->where('id',$id)->first();
 		
 		$newStok = $produk->stok - $request->jumlah;

@@ -24,7 +24,7 @@ class UserController extends Controller
 		$fbShare = 'https://facebook.com/sharer/sharer.php?u='.$url.'&display=popup';
 
 		$review = DB::table('review_product')->join('users','review_product.user_id','=','users.id')
-			->where('produk_id',$id)->select('users.nama_lengkap','users.foto','review_product.*')->latest()->get();
+			->where('produk_id',$id)->select('users.nama_lengkap','users.foto','review_product.*')->get();
 
 		$rata = 0;
 		foreach ($review as $item) {
@@ -74,6 +74,9 @@ class UserController extends Controller
 
 	public function shop(Request $request){
 		$user = $request->session()->get('username');
+
+		$product = DB::table('produk')->latest()->paginate(20);
+
 		if ($user != null) {
 			$akun = DB::table('users')->where('username',$user)->first();
 			$user_id = $akun->id;
@@ -82,13 +85,10 @@ class UserController extends Controller
 			->join('produk', 'detail_checkout.produk_id','=','produk.id')
 			->where('detail_checkout.user_id','=',$user_id)->select('detail_checkout.*','produk.nama','produk.harga','produk.gambar')->latest()
 			->get();
-			$product = DB::table('produk')->latest()->get();
 
 			return view('shop', compact('akun','product','riwayat_pembelian'));
 		}
 
-		/** Get information product from produk*/
-		$product = DB::table('produk')->latest()->get();
 		return view('shop', compact('product'));
 	}
 	
@@ -108,7 +108,7 @@ class UserController extends Controller
 	public function blog(Request $request){
 		$user = $request->session()->get('username');
 
-		$blog = DB::table('blog')->get();
+		$blog = DB::table('blog')->latest()->paginate(6);
 
 		if ($user != null) {
 			$akun = DB::table('users')->where('username',$user)->first();

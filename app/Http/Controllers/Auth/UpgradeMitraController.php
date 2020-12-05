@@ -65,7 +65,12 @@ class UpgradeMitraController extends Controller
     }
 
     public function mundurMitra($id){
-        DB::table('users')->where('id',$id)->update(['status'=>'user']);
+        DB::table('users')->where('id',$id)->update([
+            'status'=>'user',
+            'foto_ktp' => null,
+            'no_rekening' => null,
+            'nik' => null,
+            ]);
 
         DB::table('ajuan_user')->where('user_id',$id)->delete();
 
