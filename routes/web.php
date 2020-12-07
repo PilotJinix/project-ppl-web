@@ -41,7 +41,7 @@ Route::get('payment/thankyou/wgfarm/{id}','CheckOutController@payment')->name('p
 Route::get('payment/infopayment/{id}', 'CheckOutController@checkoutDetail')->name('info-payment');
 Route::get('payment/status/{id}', 'CheckOutController@diterima')->name('update-status-diterima');
 
-Route::post('review/wgfarm/thankyou/{id}', 'ReviewProductController@review')->name('review');
+Route::post('review/wgfarm/thankyou/{id}/{idDetail}', 'ReviewProductController@review')->name('review');
 
 Route::get('wgfarm/mitra/ajuan-produk', 'AjuanProdukController@index')->name('ajuan-produk');
 Route::post('wgfarm/mitra/ajukan-produk', 'AjuanProdukController@tambah')->name('ajukan-produk');

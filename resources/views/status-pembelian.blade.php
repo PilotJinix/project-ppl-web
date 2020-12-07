@@ -111,9 +111,16 @@
                                     </a>
                                     @endif
                                     @if ($item->status_checkout == 'Diterima')
+                                    @if ($item->review == "sudah")
+                                    <a id="review" href="{{__('#')}}" class="mt-3 w-100">
+                                        <button class="btn btn-secondary w-100" disabled>Terima kasih atas
+                                            dukungannya</button>
+                                    </a>
+                                    @else
                                     <a id="review" href="{{__('#')}}" class="mt-3 w-100">
                                         <button class="btn btn-primary w-100">Beri Penilaian</button>
                                     </a>
+                                    @endif
                                     @endif
                                     @if ($item->status_checkout == 'Dibatalkan')
                                     <a id="review" href="{{__('#')}}" class="mt-3 w-100">
@@ -148,7 +155,7 @@
                 <h5 class="text-title text-bold mb-0">Beri Kami Nilai!</h5>
             </div>
             @foreach ($detail as $item)
-            <form action="{{route('review', $item->produk_id)}}" method="post">
+            <form action="{{route('review', [$item->produk_id, $item->id])}}" method="post">
                 @csrf
                 <div class="card-body text-center">
                     <span class="text-bold">Rating And Review!</span>

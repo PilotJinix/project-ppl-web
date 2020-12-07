@@ -24,7 +24,7 @@ class UserController extends Controller
 		$fbShare = 'https://facebook.com/sharer/sharer.php?u='.$url.'&display=popup';
 
 		$review = DB::table('review_product')->join('users','review_product.user_id','=','users.id')
-			->where('produk_id',$id)->select('users.nama_lengkap','users.foto','review_product.*')->get();
+			->where('produk_id',$id)->select('users.nama_lengkap','users.foto','review_product.*')->latest()->get();
 
 		$rata = 0;
 		foreach ($review as $item) {

@@ -111,9 +111,16 @@
                                     </a>
                                     <?php endif; ?>
                                     <?php if($item->status_checkout == 'Diterima'): ?>
+                                    <?php if($item->review == "sudah"): ?>
+                                    <a id="review" href="<?php echo e(__('#')); ?>" class="mt-3 w-100">
+                                        <button class="btn btn-secondary w-100" disabled>Terima kasih atas
+                                            dukungannya</button>
+                                    </a>
+                                    <?php else: ?>
                                     <a id="review" href="<?php echo e(__('#')); ?>" class="mt-3 w-100">
                                         <button class="btn btn-primary w-100">Beri Penilaian</button>
                                     </a>
+                                    <?php endif; ?>
                                     <?php endif; ?>
                                     <?php if($item->status_checkout == 'Dibatalkan'): ?>
                                     <a id="review" href="<?php echo e(__('#')); ?>" class="mt-3 w-100">
@@ -148,7 +155,7 @@
                 <h5 class="text-title text-bold mb-0">Beri Kami Nilai!</h5>
             </div>
             <?php $__currentLoopData = $detail; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-            <form action="<?php echo e(route('review', $item->produk_id)); ?>" method="post">
+            <form action="<?php echo e(route('review', [$item->produk_id, $item->id])); ?>" method="post">
                 <?php echo csrf_field(); ?>
                 <div class="card-body text-center">
                     <span class="text-bold">Rating And Review!</span>
