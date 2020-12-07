@@ -10,6 +10,9 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+/*
+(------------------->>> Route Untuk User dan Mitra <<<-----------------------)
+*/
 
 Route::get('/', 'UserController@index')->name('home');
 Route::get('product/{id}', 'UserController@productDetail')->name('product');
@@ -46,3 +49,18 @@ Route::post('review/wgfarm/thankyou/{id}/{idDetail}', 'ReviewProductController@r
 Route::get('wgfarm/mitra/ajuan-produk', 'AjuanProdukController@index')->name('ajuan-produk');
 Route::post('wgfarm/mitra/ajukan-produk', 'AjuanProdukController@tambah')->name('ajukan-produk');
 Route::get('wgfarm/mitra/riwayat-produk','AjuanProdukController@riwayat')->name('riwayat-ajuan-mitra');
+
+
+/* 
+  |-----------------------------------------------------------------------|
+  |------------------------>> Route Untuk Admin <<------------------------|
+  |-----------------------------------------------------------------------|
+*/
+
+Route::prefix('/admin')->name('admin.')->namespace('Admin')->group(function(){
+  Route::get('dashboard','AdminController@index')->name('dashboard');
+  Route::get('login','Auth\LoginController@index')->name('login');
+
+  Route::post('authenticated', 'Auth\LoginController@authenticate')->name('logged');
+  Route::get('logout','Auth\LoginController@logout')->name('logout');
+});
