@@ -285,7 +285,7 @@
                         <div class="form-group">
                             <label for="labelFileFoto">Unggah Foto Profil</label>
                             <input type="file" name="foto_profile" id="fotoProfile"
-                                class="form-control-file border rounded p-2">
+                                class="form-control-file border rounded p-2 @error('foto_profile') not valid @enderror">
                         </div>
                         <button type="submit" class="btn btn-primary">Unggah</button>
                     </form>
@@ -293,6 +293,17 @@
             </div>
         </div>
     </div>
+    @error('foto_profile')
+    <div class="pos-fixed" id="notifFoto">
+        <div class="option">
+            <div class="card border-0 rounded">
+                <div class="card-body bg-danger rounded">
+                    <strong class="text-light">{{$message}}</strong>
+                </div>
+            </div>
+        </div>
+    </div>
+    @enderror
     <div class="afra-demo">
         <div class="afra-demo-panel">
             <span class="afra-demo-close">
@@ -346,6 +357,7 @@
     <script>
         $(document).ready(function () {
             setTimeout(function () {
+                $('#notifFoto').fadeOut();
                 $("#message").fadeOut(3000);
             }, 3000);
             $('#editPassword').click(function () {

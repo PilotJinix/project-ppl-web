@@ -358,7 +358,11 @@ endif; ?>
                         <div class="form-group">
                             <label for="labelFileFoto">Unggah Foto Profil</label>
                             <input type="file" name="foto_profile" id="fotoProfile"
-                                class="form-control-file border rounded p-2">
+                                class="form-control-file border rounded p-2 <?php if ($errors->has('foto_profile')) :
+if (isset($message)) { $messageCache = $message; }
+$message = $errors->first('foto_profile'); ?> not valid <?php unset($message);
+if (isset($messageCache)) { $message = $messageCache; }
+endif; ?>">
                         </div>
                         <button type="submit" class="btn btn-primary">Unggah</button>
                     </form>
@@ -366,6 +370,21 @@ endif; ?>
             </div>
         </div>
     </div>
+    <?php if ($errors->has('foto_profile')) :
+if (isset($message)) { $messageCache = $message; }
+$message = $errors->first('foto_profile'); ?>
+    <div class="pos-fixed" id="notifFoto">
+        <div class="option">
+            <div class="card border-0 rounded">
+                <div class="card-body bg-danger rounded">
+                    <strong class="text-light"><?php echo e($message); ?></strong>
+                </div>
+            </div>
+        </div>
+    </div>
+    <?php unset($message);
+if (isset($messageCache)) { $message = $messageCache; }
+endif; ?>
     <div class="afra-demo">
         <div class="afra-demo-panel">
             <span class="afra-demo-close">
@@ -419,6 +438,7 @@ endif; ?>
     <script>
         $(document).ready(function () {
             setTimeout(function () {
+                $('#notifFoto').fadeOut(500);
                 $("#message").fadeOut(3000);
             }, 3000);
             $('#editPassword').click(function () {

@@ -73,7 +73,7 @@
     <!--/-->
     <!--Products-->
     <section class="section section-products section-blog-1">
-        <div class="display-spacing">
+        <div class="display-spacing" style="min-height: 80vh">
             <div class="container">
                 <div class="row row-sm">
                     <!--Item-->
@@ -102,7 +102,7 @@
             </div>
         </div>
         <!--Footer-->
-        <footer class="app-footer app-footer-1">
+        <footer class="app-footer app-footer-1" style="bottom: 0">
             <div class="footer-copyright">
                 <div class="container">
                     <p><span class="text-bold">WG FARM</span> sayuran dan buah segar</p>
