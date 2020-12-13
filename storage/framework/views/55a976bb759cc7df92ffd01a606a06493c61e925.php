@@ -438,7 +438,7 @@ endif; ?>
     <script>
         $(document).ready(function () {
             setTimeout(function () {
-                $('#notifFoto').fadeOut(500);
+                $('#notifFoto').fadeOut();
                 $("#message").fadeOut(3000);
             }, 3000);
             $('#editPassword').click(function () {

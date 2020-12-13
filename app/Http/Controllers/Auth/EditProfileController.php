@@ -82,7 +82,6 @@ class EditProfileController extends Controller
         $tujuan_upload = "assets/images/people/";
 
         $img = Image::make($foto->getRealPath());
-        $img->resize(512,512)->save($tujuan_upload.$nama_foto);
 
         DB::table('users')->where('id',$id)->update([
             'foto' => $nama_foto,

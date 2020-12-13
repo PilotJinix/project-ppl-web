@@ -134,4 +134,24 @@ class CheckOutController extends Controller
 		return redirect()->route('info-payment',$id);
 	}
 
+	public function struk(Request $request, $id){
+		$request->validate([
+			'struk' => 'required|file|image|mimes:jpg,jpeg,gif,png'
+		]);
+
+		$img = $request->file('struk');
+		$nama_file = time()."_".$img->getClientOriginalName();
+
+		$tujuan_upload = "assets/images/struk/";
+
+		DB::table('detail_checkout')->where('id',$id)->update([
+			'struk' => $nama_file,
+			'status_checkout' => 'Menunggu Konfirmasi',
+		]);
+
+		$img->move($tujuan_upload,$nama_file);
+
+		return redirect()->route('info-payment',$id);
+	}
+
 }

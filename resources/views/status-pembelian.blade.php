@@ -65,6 +65,9 @@
                                 @if ($item->status_checkout == 'Proses Pengiriman')
                                 <small class="text-warning">{{_($item->status_checkout)}}</small>
                                 @endif
+                                @if ($item->status_checkout == 'Menunggu Konfirmasi')
+                                <small class="text-info">{{_($item->status_checkout)}}</small>
+                                @endif
                                 @if ($item->status_checkout == 'Diterima')
                                 <small class="text-success">{{_($item->status_checkout)}}</small>
                                 @endif
@@ -102,8 +105,13 @@
                                     @endif
                                     @if ($item->status_checkout == 'Menunggu Pembayaran')
                                     <a href="{{route('payment',$item->id)}}" class="mt-3 w-100">
-                                        <button class="btn btn-primary w-100">Cara Pembayaran</button>
+                                        <button class="btn btn-primary w-100 mb-2">Cara Pembayaran</button>
                                     </a>
+                                    <button id="btnStruk" class="btn btn-success w-100">Unggah Struk Pembayaran</button>
+                                    @endif
+                                    @if ($item->status_checkout == 'Menunggu Konfirmasi')
+                                    <button class="btn btn-primary w-100 mb-2" disabled>Menunggu Konfirmasi
+                                        Admin</button>
                                     @endif
                                     @if ($item->status_checkout == 'Proses Pengiriman')
                                     <a href="{{route('update-status-diterima',$item->id)}}" class="mt-3 w-100">
@@ -191,6 +199,32 @@
         <span>{{__(session()->get('success'))}}</span>
     </div>
     @endif
+    <div id="modalUnggahStruk" class="pos-fixed" style="display: none">
+        <div class="option w-50">
+            <div class="card">
+                <div class="card-header">
+                    <span>Unggah struk bukti pembayaran</span>
+                </div>
+                <div class="card-body">
+                    @foreach ($detail as $item)
+                    <form action="{{route('unggah-struk',$item->id)}}" method="post" enctype="multipart/form-data">
+                        @csrf
+                        <div class="form-group">
+                            <span>Unggah</span>
+                            <input type="file" class="form-file-control ml-4 @error('struk') not valid @enderror"
+                                name="struk">
+                            @error('struk')
+                            <strong class="text-danger"> {!!"*".$message!!} </strong>
+                            @enderror
+                        </div>
+                        <button type="submit" class="btn btn-primary">KIRIM</button>
+                        <a id="closeStruk" href="#" onclick="return false;" class="btn btn-danger">TUTUP</a>
+                    </form>
+                    @endforeach
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="afra-demo">
         <div class="afra-demo-panel">
             <span class="afra-demo-close">
@@ -328,6 +362,13 @@
             setTimeout(function () {
                 $("#succes-review").fadeOut(3000);
             }, 2500);
+
+            $("#btnStruk").on('click', function () {
+                $('#modalUnggahStruk').fadeIn();
+            });
+            $("#closeStruk").on('click', function () {
+                $('#modalUnggahStruk').fadeOut();
+            })
         });
 
     </script>

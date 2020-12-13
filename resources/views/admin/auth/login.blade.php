@@ -7,14 +7,14 @@
     <title>Login</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Favicon-->
-    <link rel="icon" href="{{asset("admin/assets/images/favicon.ico")}}" type="image/x-icon">
+    <link rel="icon" href="{{asset("admins/assets/images/favicon.ico")}}" type="image/x-icon">
 
     <!-- Plugins Core Css -->
-    <link href="{{asset("admin/assets/css/app.min.css")}}" rel="stylesheet">
+    <link href="{{asset("admins/assets/css/app.min.css")}}" rel="stylesheet">
 
     <!-- Custom Css -->
-    <link href="{{asset("admin/assets/css/style.css")}}" rel="stylesheet" />
-    <link href="{{asset("admin/assets/css/pages/extra_pages.css")}}" rel="stylesheet" />
+    <link href="{{asset("admins/assets/css/style.css")}}" rel="stylesheet" />
+    <link href="{{asset("admins/assets/css/pages/extra_pages.css")}}" rel="stylesheet" />
 </head>
 
 <body class="login-page">
@@ -24,7 +24,7 @@
                 <form class="login100-form validate-form" method="POST" action="{{route('admin.logged')}}">
                     @csrf
                     <span class="login100-form-logo">
-                        <img alt="" src="{{asset("admin/assets/images/loading.png")}}">
+                        <img alt="" src="{{asset("admins/assets/images/loading.png")}}">
                     </span>
                     <span class="login100-form-title p-b-34 p-t-27">
                         Log in
@@ -72,10 +72,10 @@
 
     <!-- Plugins Js -->
 
-    <script src="{{asset("admin/assets/js/app.min.js")}}"></script>
+    <script src="{{asset("admins/assets/js/app.min.js")}}"></script>
 
     <!-- Extra page Js -->
-    <script src="{{asset('admin/assets/js/pages/examples/pages.js')}}"></script>
+    <script src="{{asset('admins/assets/js/pages/examples/pages.js')}}"></script>
 
 </body>
 

@@ -206,10 +206,8 @@
                             <li class="active" data-tab-content="tab-1">
                                 <div class="content">
                                     <h2>Product Infomation</h2>
-                                    <p>
-                                        <?php echo e(__($product->deskripsi)); ?>
+                                    <?php echo $product->deskripsi; ?>
 
-                                    </p>
                                 </div>
                             </li>
                             <li data-tab-content="tab-3">

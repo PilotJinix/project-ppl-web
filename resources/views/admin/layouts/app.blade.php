@@ -7,13 +7,13 @@
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <title>WGFarm</title>
     <!-- Favicon-->
-    <link rel="icon" href="{{asset("admin/assets/images/favicon.ico")}}" type="image/x-icon">
+    <link rel="icon" href="{{asset("admins/assets/images/favicon.ico")}}" type="image/x-icon">
     <!-- Plugins Core Css -->
-    <link href="{{asset("admin/assets/css/app.min.css")}}" rel="stylesheet">
+    <link href="{{asset("admins/assets/css/app.min.css")}}" rel="stylesheet">
     <!-- Custom Css -->
-    <link href="{{asset("admin/assets/css/style.css")}}" rel="stylesheet" />
+    <link href="{{asset("admins/assets/css/style.css")}}" rel="stylesheet" />
     <!-- Theme style. You can choose a theme from css/themes instead of get all themes -->
-    <link href="{{asset("admin/assets/css/styles/all-themes.css")}}" rel="stylesheet" />
+    <link href="{{asset("admins/assets/css/styles/all-themes.css")}}" rel="stylesheet" />
 </head>
 
 <body class="light">
@@ -21,7 +21,7 @@
     <div class="page-loader-wrapper">
         <div class="loader">
             <div class="m-t-30">
-                <img class="loading-img-spin" src="{{asset("admin/assets/images/loading.png")}}" width="20" height="20"
+                <img class="loading-img-spin" src="{{asset("admins/assets/images/loading.png")}}" width="20" height="20"
                     alt="admin">
             </div>
             <p>Please wait...</p>
@@ -39,7 +39,7 @@
                     data-target="#navbar-collapse" aria-expanded="false"></a>
                 <a href="#" onClick="return false;" class="bars"></a>
                 <a class="navbar-brand" href="index.html">
-                    <img src="assets/images/logo.png" alt="" />
+                    <img src="{{asset("admins/assets/images/logo.png")}}" alt="" />
                     <span class="logo-name">Lorax</span>
                 </a>
             </div>
@@ -73,7 +73,7 @@
                                     <li>
                                         <a href="#" onClick="return false;">
                                             <span class="table-img msg-user">
-                                                <img src="assets/images/user/user1.jpg" alt="">
+                                                <img src="{{asset("admins/assets/images/user/user1.jpg")}}" alt="">
                                             </span>
                                             <span class="menu-info">
                                                 <span class="menu-title">Sarah Smith</span>
@@ -87,7 +87,7 @@
                                     <li>
                                         <a href="#" onClick="return false;">
                                             <span class="table-img msg-user">
-                                                <img src="assets/images/user/user2.jpg" alt="">
+                                                <img src="{{asset("admins/assets/images/user/user2.jpg")}}" alt="">
                                             </span>
                                             <span class="menu-info">
                                                 <span class="menu-title">Airi Satou</span>
@@ -101,7 +101,7 @@
                                     <li>
                                         <a href="#" onClick="return false;">
                                             <span class="table-img msg-user">
-                                                <img src="assets/images/user/user3.jpg" alt="">
+                                                <img src="{{asset("admins/assets/images/user/user3.jpg")}}" alt="">
                                             </span>
                                             <span class="menu-info">
                                                 <span class="menu-title">John Doe</span>
@@ -115,7 +115,7 @@
                                     <li>
                                         <a href="#" onClick="return false;">
                                             <span class="table-img msg-user">
-                                                <img src="assets/images/user/user4.jpg" alt="">
+                                                <img src="{{asset("admins/assets/images/user/user4.jpg")}}" alt="">
                                             </span>
                                             <span class="menu-info">
                                                 <span class="menu-title">Ashton Cox</span>
@@ -129,7 +129,7 @@
                                     <li>
                                         <a href="#" onClick="return false;">
                                             <span class="table-img msg-user">
-                                                <img src="assets/images/user/user5.jpg" alt="">
+                                                <img src="{{asset("admins/assets/images/user/user5.jpg")}}" alt="">
                                             </span>
                                             <span class="menu-info">
                                                 <span class="menu-title">Cara Stevens</span>
@@ -143,7 +143,7 @@
                                     <li>
                                         <a href="#" onClick="return false;">
                                             <span class="table-img msg-user">
-                                                <img src="assets/images/user/user6.jpg" alt="">
+                                                <img src="{{asset("admins/assets/images/user/user6.jpg")}}" alt="">
                                             </span>
                                             <span class="menu-info">
                                                 <span class="menu-title">Charde Marshall</span>
@@ -157,7 +157,7 @@
                                     <li>
                                         <a href="#" onClick="return false;">
                                             <span class="table-img msg-user">
-                                                <img src="assets/images/user/user7.jpg" alt="">
+                                                <img src="{{asset("admins/assets/images/user/user7.jpg")}}" alt="">
                                             </span>
                                             <span class="menu-info">
                                                 <span class="menu-title">John Doe</span>
@@ -179,7 +179,7 @@
                     <li class="dropdown user_profile">
                         <a href="#" onClick="return false;" class="dropdown-toggle" data-toggle="dropdown"
                             role="button">
-                            <img src="assets/images/user.jpg" width="32" height="32" alt="User">
+                            <img src="{{asset("admins/assets/images/user.jpg")}}" width="32" height="32" alt="User">
                         </a>
                         <ul class="dropdown-menu pullDown">
                             <li class="body">
@@ -223,8 +223,8 @@
                     <li class="sidebar-user-panel active">
                         <div class="user-panel">
                             <div class=" image">
-                                <img src="assets/images/usrbig.jpg" class="img-circle user-img-circle"
-                                    alt="User Image" />
+                                <img src="{{asset("admins/assets/images/usrbig.jpg")}}"
+                                    class="img-circle user-img-circle" alt="User Image" />
                             </div>
                         </div>
                         <div class="profile-usertitle">
@@ -232,399 +232,71 @@
                             <div class="profile-usertitle-job ">Manager </div>
                         </div>
                     </li>
+                    @if ($pages == 'dashboard')
                     <li class="active">
+                        @else
+                    <li>
+                        @endif
                         <a href="#" onClick="return false;" class="menu-toggle">
-                            <i class="fas fa-tachometer-alt"></i>
+                            <i class="fas fa-home"></i>
                             <span>Home</span>
                         </a>
                         <ul class="ml-menu">
+                            @if ($pages == 'dashboard')
                             <li class="active">
-                                <a href="index.html">Dashboard</a>
+                                @else
+                            <li>
+                                @endif
+                                <a href="{{route('admin.dashboard')}}">Dashboard</a>
                             </li>
                         </ul>
                     </li>
+                    @if ($pages == 'daftar-pengguna')
+                    <li class="active">
+                        @else
                     <li>
-                        <a href="pages/apps/calendar.html">
-                            <i class="far fa-calendar"></i>
-                            <span>Events</span>
+                        @endif
+                        <a href="{{route('admin.pengguna','daftar-pengguna')}}">
+                            <i class="
+                            fas fa-user-friends"></i>
+                            <span>Daftar Pengguna</span>
                         </a>
                     </li>
+                    @if ($pages == 'list-produk' OR $pages == 'edit-produk' OR $pages == 'new-produk')
+                    <li class="active">
+                        @else
                     <li>
-                        <a href="#" onClick="return false;" class="menu-toggle">
-                            <i class="fas fa-mail-bulk"></i>
-                            <span>Email</span>
-                        </a>
-                        <ul class="ml-menu">
-                            <li>
-                                <a href="pages/email/inbox.html">Inbox</a>
-                            </li>
-                            <li>
-                                <a href="pages/email/compose.html">Compose</a>
-                            </li>
-                            <li>
-                                <a href="pages/email/view-mail.html">Read Email</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#" onClick="return false;" class="menu-toggle">
-                            <i class="fab fa-google-play"></i>
-                            <span>Apps</span>
-                        </a>
-                        <ul class="ml-menu">
-                            <li>
-                                <a href="pages/apps/chat.html">Chat</a>
-                            </li>
-                            <li>
-                                <a href="pages/apps/task.html">Task Bar</a>
-                            </li>
-                            <li>
-                                <a href="pages/apps/dragdrop.html">Drag &amp; Drop</a>
-                            </li>
-                            <li>
-                                <a href="pages/apps/portfolio.html">Portfolio</a>
-                            </li>
-                            <li>
-                                <a href="pages/apps/contact_list.html">Contact List</a>
-                            </li>
-                            <li>
-                                <a href="pages/apps/contact_grid.html">Contact Grid</a>
-                            </li>
-                            <li>
-                                <a href="pages/apps/support.html">Support</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
+                        @endif
                         <a href="#" onClick="return false;" class="menu-toggle">
                             <i class="fas fa-shopping-cart"></i>
                             <span>E-commerce</span>
                         </a>
                         <ul class="ml-menu">
+                            @if ($pages == 'list-produk')
+                            <li class="active">
+                                @else
                             <li>
-                                <a href="pages/ecommerce/products.html">Products</a>
+                                @endif
+                                <a href="{{route('admin.list-produk','list-produk')}}">Produk</a>
                             </li>
+                            @if ($pages == 'new-produk')
+                            <li class="active">
+                                @else
                             <li>
-                                <a href="pages/ecommerce/product-detail.html">Product Details</a>
-                            </li>
-                            <li>
-                                <a href="pages/ecommerce/cart.html">Cart</a>
-                            </li>
-                            <li>
-                                <a href="pages/ecommerce/product-list.html">Product List</a>
-                            </li>
-                            <li>
-                                <a href="pages/ecommerce/invoice.html">Invoice</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="pages/widgets/widget.html">
-                            <i class="fas fa-braille"></i>
-                            <span>Widgets</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" onClick="return false;" class="menu-toggle">
-                            <i class="fas fa-drafting-compass"></i>
-                            <span>User Interface (UI)</span>
-                        </a>
-                        <ul class="ml-menu">
-                            <li>
-                                <a href="pages/ui/alerts.html">Alerts</a>
-                            </li>
-                            <li>
-                                <a href="pages/ui/animations.html">Animations</a>
-                            </li>
-                            <li>
-                                <a href="pages/ui/badges.html">Badges</a>
-                            </li>
-                            <li>
-                                <a href="pages/ui/modal.html">Modal</a>
-                            </li>
-                            <li>
-                                <a href="pages/ui/buttons.html">Buttons</a>
-                            </li>
-                            <li>
-                                <a href="pages/ui/collapse.html">Collapse</a>
-                            </li>
-                            <li>
-                                <a href="pages/ui/dialogs.html">Dialogs</a>
-                            </li>
-                            <li>
-                                <a href="pages/ui/cards.html">Cards</a>
-                            </li>
-                            <li>
-                                <a href="pages/ui/labels.html">Labels</a>
-                            </li>
-                            <li>
-                                <a href="pages/ui/list-group.html">List Group</a>
-                            </li>
-                            <li>
-                                <a href="pages/ui/media-object.html">Media Object</a>
-                            </li>
-                            <li>
-                                <a href="pages/ui/notifications.html">Notifications</a>
-                            </li>
-                            <li>
-                                <a href="pages/ui/preloaders.html">Preloaders</a>
-                            </li>
-                            <li>
-                                <a href="pages/ui/progressbars.html">Progress Bars</a>
-                            </li>
-                            <li>
-                                <a href="pages/ui/range-sliders.html">Range Sliders</a>
-                            </li>
-                            <li>
-                                <a href="pages/ui/tabs.html">Tabs</a>
-                            </li>
-                            <li>
-                                <a href="pages/ui/waves.html">Waves</a>
-                            </li>
-                            <li>
-                                <a href="pages/ui/typography.html">Typography</a>
-                            </li>
-                            <li>
-                                <a href="pages/ui/helper-classes.html">Helper Classes</a>
+                                @endif
+                                <a href="{{route('admin.new-produk','new-produk')}}">Produk Baru</a>
                             </li>
                         </ul>
                     </li>
+                    @if ($pages == 'riwayat-transaksi')
+                    <li class="active">
+                        @else
                     <li>
-                        <a href="#" onClick="return false;" class="menu-toggle">
-                            <i class="fab fa-wpforms"></i>
-                            <span>Forms</span>
+                        @endif
+                        <a href="{{route('admin.riwayat-transaksi')}}">
+                            <i class="fas fa-wallet"></i>
+                            <span>Transaksi</span>
                         </a>
-                        <ul class="ml-menu">
-                            <li>
-                                <a href="pages/forms/basic-form-elements.html">Basic Form</a>
-                            </li>
-                            <li>
-                                <a href="pages/forms/advanced-form-elements.html">Advanced Form</a>
-                            </li>
-                            <li>
-                                <a href="pages/forms/form-examples.html">Form Examples</a>
-                            </li>
-                            <li>
-                                <a href="pages/forms/form-validation.html">Form Validation</a>
-                            </li>
-                            <li>
-                                <a href="pages/forms/form-wizard.html">Form Wizard</a>
-                            </li>
-                            <li>
-                                <a href="pages/forms/editors.html">Editors</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#" onClick="return false;" class="menu-toggle">
-                            <i class="fas fa-table"></i>
-                            <span>Tables</span>
-                        </a>
-                        <ul class="ml-menu">
-                            <li>
-                                <a href="pages/tables/normal-tables.html">Normal Tables</a>
-                            </li>
-                            <li>
-                                <a href="pages/tables/advance-tables.html">Advance Datatables</a>
-                            </li>
-                            <li>
-                                <a href="pages/tables/export-table.html">Export Table</a>
-                            </li>
-                            <li>
-                                <a href="pages/tables/child-row-table.html">Child Row Table</a>
-                            </li>
-                            <li>
-                                <a href="pages/tables/group-table.html">Grouping</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#" onClick="return false;" class="menu-toggle">
-                            <i class="far fa-images"></i>
-                            <span>Medias</span>
-                        </a>
-                        <ul class="ml-menu">
-                            <li>
-                                <a href="pages/medias/image-gallery.html">Image Gallery</a>
-                            </li>
-                            <li>
-                                <a href="pages/medias/carousel.html">Carousel</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#" onClick="return false;" class="menu-toggle">
-                            <i class="fas fa-chart-line"></i>
-                            <span>Charts</span>
-                        </a>
-                        <ul class="ml-menu">
-                            <li>
-                                <a href="pages/charts/echart.html">Echart</a>
-                            </li>
-                            <li>
-                                <a href="pages/charts/apexchart.html">Apex Chart</a>
-                            </li>
-                            <li>
-                                <a href="pages/charts/amchart.html">amChart</a>
-                            </li>
-                            <li>
-                                <a href="pages/charts/morris.html">Morris</a>
-                            </li>
-                            <li>
-                                <a href="pages/charts/flot.html">Flot</a>
-                            </li>
-                            <li>
-                                <a href="pages/charts/chartjs.html">ChartJS</a>
-                            </li>
-                            <li>
-                                <a href="pages/charts/sparkline.html">Sparkline</a>
-                            </li>
-                            <li>
-                                <a href="pages/charts/jquery-knob.html">Jquery Knob</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#" onClick="return false;" class="menu-toggle">
-                            <i class="fab fa-hubspot"></i>
-                            <span>Timeline</span>
-                        </a>
-                        <ul class="ml-menu">
-                            <li>
-                                <a href="pages/timeline/timeline.html">Timeline 1</a>
-                            </li>
-                            <li>
-                                <a href="pages/timeline/timeline2.html">Timeline 2</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#" onClick="return false;" class="menu-toggle">
-                            <i class="fas fa-paw"></i>
-                            <span>Icons</span>
-                        </a>
-                        <ul class="ml-menu">
-                            <li>
-                                <a href="pages/icons/material-icons.html">Material Icons</a>
-                            </li>
-                            <li>
-                                <a href="pages/icons/font-awesome.html">Font Awesome</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#" onClick="return false;" class="menu-toggle">
-                            <i class="fas fa-id-card"></i>
-                            <span>Authentication</span>
-                        </a>
-                        <ul class="ml-menu">
-                            <li>
-                                <a href="pages/examples/login-register.html">Login &amp; Register</a>
-                            </li>
-                            <li>
-                                <a href="pages/examples/login.html">Login</a>
-                            </li>
-                            <li>
-                                <a href="pages/examples/login2.html">Login 2</a>
-                            </li>
-                            <li>
-                                <a href="pages/examples/register.html">Register</a>
-                            </li>
-                            <li>
-                                <a href="pages/examples/register2.html">Register 2</a>
-                            </li>
-                            <li>
-                                <a href="pages/examples/forgot-password.html">Forgot Password</a>
-                            </li>
-                            <li>
-                                <a href="pages/examples/locked.html">Locked</a>
-                            </li>
-                            <li>
-                                <a href="pages/examples/404.html">404 - Not Found</a>
-                            </li>
-                            <li>
-                                <a href="pages/examples/500.html">500 - Server Error</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#" onClick="return false;" class="menu-toggle">
-                            <i class="far fa-file-alt"></i>
-                            <span>Extra Pages</span>
-                        </a>
-                        <ul class="ml-menu">
-                            <li>
-                                <a href="pages/examples/profile.html">Profile</a>
-                            </li>
-                            <li>
-                                <a href="pages/examples/pricing.html">Pricing</a>
-                            </li>
-                            <li>
-                                <a href="pages/examples/invoice.html">Invoice</a>
-                            </li>
-                            <li>
-                                <a href="pages/examples/faqs.html">Faqs</a>
-                            </li>
-                            <li>
-                                <a href="pages/examples/blank.html">Blank Page</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#" onClick="return false;" class="menu-toggle">
-                            <i class="fas fa-globe-americas"></i>
-                            <span>Maps</span>
-                        </a>
-                        <ul class="ml-menu">
-                            <li>
-                                <a href="pages/maps/google.html">Google Map</a>
-                            </li>
-                            <li>
-                                <a href="pages/maps/jqvmap.html">Vector Map</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#" onClick="return false;" class="menu-toggle">
-                            <i class="fas fa-angle-double-down"></i>
-                            <span>Multi Level Menu</span>
-                        </a>
-                        <ul class="ml-menu">
-                            <li>
-                                <a href="#" onClick="return false;">
-                                    <span>Menu Item</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" onClick="return false;">
-                                    <span>Menu Item - 2</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" onClick="return false;" class="menu-toggle">
-                                    <span>Level - 2</span>
-                                </a>
-                                <ul class="ml-menu">
-                                    <li>
-                                        <a href="#" onClick="return false;">
-                                            <span>Menu Item</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" onClick="return false;" class="menu-toggle">
-                                            <span>Level - 3</span>
-                                        </a>
-                                        <ul class="ml-menu">
-                                            <li>
-                                                <a href="#" onClick="return false;">
-                                                    <span>Level - 4</span>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
                     </li>
                 </ul>
             </div>
@@ -842,12 +514,14 @@
         @yield('content')
     </section>
     <!-- Plugins Js -->
-    <script src="assets/js/app.min.js"></script>
-    <script src="assets/js/chart.min.js"></script>
+    <script src="{{asset("admins/assets/js/app.min.js")}}"></script>
+    <script src="{{asset("admins/assets/js/chart.min.js")}}"></script>
+    <script src="{{asset("admins/assets/js/table.min.js")}}"></script>
     <!-- Custom Js -->
-    <script src="{{asset("admin/assets/js/admin.js")}}"></script>
-    <script src="{{asset("admin/assets/js/pages/index.js")}}"></script>
-    <script src="{{asset("admin/assets/js/pages/charts/jquery-knob.js")}}"></script>
-    <script src="{{asset("admin/assets/js/pages/sparkline/sparkline-data.js")}}"></script>
-    <script src="{{asset("admin/assets/js/pages/medias/carousel.js")}}"></script>
+    <script src="{{asset("admins/assets/js/admin.js")}}"></script>
+    <script src="{{asset("admins/assets/js/pages/index.js")}}"></script>
+    <script src="{{asset("admins/assets/js/pages/charts/jquery-knob.js")}}"></script>
+    <script src="{{asset("admins/assets/js/pages/sparkline/sparkline-data.js")}}"></script>
+    <script src="{{asset("admins/assets/js/pages/medias/carousel.js")}}"></script>
+    <script src="{{asset("admins/assets/js/pages/tables/jquery-datatable.js")}}"></script>
 </body>
