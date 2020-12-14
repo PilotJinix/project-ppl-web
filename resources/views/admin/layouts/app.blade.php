@@ -251,18 +251,35 @@
                             </li>
                         </ul>
                     </li>
-                    @if ($pages == 'daftar-pengguna')
+                    @if ($pages == 'daftar-pengguna' OR $pages == 'pengajuan-mitra')
                     <li class="active">
                         @else
                     <li>
                         @endif
-                        <a href="{{route('admin.pengguna','daftar-pengguna')}}">
+                        <a class="menu-toggle">
                             <i class="
                             fas fa-user-friends"></i>
-                            <span>Daftar Pengguna</span>
+                            <span>Pengguna</span>
                         </a>
+                        <ul class="ml-menu">
+                            @if ($pages == 'daftar-pengguna')
+                            <li class="active">
+                                @else
+                            <li>
+                                @endif
+                                <a href="{{route('admin.pengguna','daftar-pengguna')}}">Semua Pengguna</a>
+                            </li>
+                            @if ($pages == "pengajuan-mitra")
+                            <li class="active">
+                                @else
+                            <li>
+                                @endif
+                                <a href="{{route('admin.pengajuan-mitra')}}">Pengajuan Mitra</a>
+                            </li>
+                        </ul>
                     </li>
-                    @if ($pages == 'list-produk' OR $pages == 'edit-produk' OR $pages == 'new-produk')
+                    @if ($pages == 'list-produk' OR $pages == 'edit-produk' OR $pages == 'new-produk' OR $pages ==
+                    'penawaran-produk' OR $pages == 'detail-penawaran')
                     <li class="active">
                         @else
                     <li>
@@ -285,6 +302,13 @@
                             <li>
                                 @endif
                                 <a href="{{route('admin.new-produk','new-produk')}}">Produk Baru</a>
+                            </li>
+                            @if ($pages == 'penawaran-produk')
+                            <li class="active">
+                                @else
+                            <li>
+                                @endif
+                                <a href="{{route('admin.penawaran-produk')}}">Penawran Produk Mitra</a>
                             </li>
                         </ul>
                     </li>

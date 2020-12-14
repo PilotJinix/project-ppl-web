@@ -112,4 +112,54 @@ class ProdukController extends Controller
 
         return redirect()->route('admin.list-produk','list-produk')->with('deleted','Produk berhasil dihapus!');
     }
+
+    public function penawaranProduk(Request $request){
+        $session = $request->session()->get('admin');
+        if ($session == null) {
+            return redirect()->route("admin.login");
+        }
+        $pages = "penawaran-produk";
+
+        $produk = DB::table('ajuan_produk_mitra')->latest()->get();
+        
+        return view('admin.penawaranproduk', compact('pages','produk'));
+    }
+
+    public function detailPenawaran(Request $request,$id){
+        $session = $request->session()->get('admin');
+        if ($session == null) {
+            return redirect()->route("admin.login");
+        }
+        $pages = "detail-penawaran";
+
+        $produk = DB::table('ajuan_produk_mitra')->where('id',$id)->first();
+
+        return view('admin.detailprodukmitra',compact('pages','produk'));
+    }
+
+    public function terimaPenawaran(Request $request, $id){
+        $session = $request->session()->get('admin');
+        if ($session == null) {
+            return redirect()->route("admin.login");
+        }
+
+        DB::table('ajuan_produk_mitra')->where('id',$id)->update([
+            'status' => 'Sedang Mengecek',
+        ]);
+
+        return redirect()->back();
+    }
+
+    public function tolakPenawaran(Request $request, $id){
+        $session = $request->session()->get('admin');
+        if ($session == null) {
+            return redirect()->route("admin.login");
+        }
+
+        DB::table('ajuan_produk_mitra')->where('id',$id)->update([
+            'status' => 'Ditolak',
+        ]);
+
+        return redirect()->back();
+    }
 }

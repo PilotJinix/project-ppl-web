@@ -70,12 +70,22 @@ Route::prefix('/admin')->name('admin.')->namespace('Admin')->group(function(){
   Route::get('logout','Auth\LoginController@logout')->name('logout');
 
   Route::get('pengguna/{pages}','AdminController@daftarPengguna')->name('pengguna');
+  Route::get('pengguna/akun/delete/{id}','AdminController@deletePengguna')->name('delete-pengguna');
+  Route::get('pengguna/akun/drop/{id}','AdminController@deleteMitra')->name('drop-mitra');
+  Route::get('pengguna/mitra/pengajuan-mitra','AdminController@pengajuanMitra')->name('pengajuan-mitra');
+  Route::get('pengguna/mitra/terima/{id}','AdminController@terimaMitra')->name('terima-mitra');
+  Route::get('pengguna/mitra/tolak/{id}','AdminController@tolakMitra')->name('tolak-mitra');
+
   Route::get('produk/{pages}','ProdukController@listProduk')->name('list-produk');
   Route::get('new-produk','ProdukController@newProduk')->name('new-produk');
   Route::post('new-produk/save','ProdukController@saveProduk')->name('save-produk');
   Route::get('edit-produk/{id}','ProdukController@editProduk')->name('edit-produk');
   Route::post('edit-produk/change/{id}','ProdukController@saveEdit')->name('save-edit-produk');
   Route::get('delete-produk/{id}','ProdukController@deleteProduk')->name('delete-produk');
+  Route::get('produk/mitra/penawaran-produk','ProdukController@penawaranProduk')->name('penawaran-produk');
+  Route::get('produk/mitra/detail-produk-penawaran/{id}','ProdukController@detailPenawaran')->name('detail-penawaran');
+  Route::get('produk/mitra/terima-penawaran/{id}','ProdukController@terimaPenawaran')->name('terima-penawaran');
+  Route::get('produk/mitra/tolak-penawaran/{id}','ProdukController@terimaPenawaran')->name('tolak-penawaran');
 
   Route::get('riwayat-transaksi','TransaksiController@index')->name('riwayat-transaksi');
   Route::get('riwayat-transaksi/invoice/{id}','TransaksiController@invoice')->name('invoice');

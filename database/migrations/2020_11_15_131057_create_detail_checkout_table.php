@@ -25,6 +25,7 @@ class CreateDetailCheckoutTable extends Migration
             $table->string('email_penerima');
             $table->string('no_hp_penerima');
             $table->string('alamat_penerima');
+            $table->string('struk');
             $table->string('label_alamat_penerima')->nullable();
             $table->string('kode_pos_penerima');
             $table->string('kota_penerima');

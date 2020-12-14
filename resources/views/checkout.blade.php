@@ -219,6 +219,17 @@
                                         </li>
                                         <li>
                                             <div class="row row-sm">
+                                                <div class="col-12">
+                                                    <select name="" class="w-100" id="kurir">
+                                                        <option disabled selected>Pilih Kurir</option>
+                                                        <option id="jnt" value="25000">J&T - Rp 25.000</option>
+                                                        <option id="jne" value="20000">JNE Reg - Rp 20.000</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="row row-sm">
                                                 <div class="col-6">
                                                     <span class="var">Jumlah</span>
                                                 </div>
@@ -256,8 +267,8 @@
                                                 <div class="col-6 d-flex justify-content-end">
                                                     <span class="text-right">Rp <input id="biaya_pengiriman" type="text"
                                                             name="biaya_pengiriman"
-                                                            class="@error('biaya_pengiriman') is invalid @enderror val text-bold text-right text-dark"
-                                                            value="5000" readonly style="width: 50px"></span>
+                                                            class="@error('biaya_pengiriman') is invalid @enderror val text-bold text-right text-dark biaya"
+                                                            value="0" readonly style="width: 50px"></span>
                                                 </div>
                                             </div>
                                         </li>
@@ -270,7 +281,8 @@
                                                     <span class="text-right"><input id="diskon" type="text"
                                                             name="diskon"
                                                             class="val text-bold text-right text-dark @error('diskon') is invalid @enderror"
-                                                            value="5" readonly style="width: 50px"> %</span>
+                                                            value="{!!$detail->diskon!!}" readonly style="width: 50px">
+                                                        %</span>
                                                 </div>
                                             </div>
                                         </li>
@@ -440,7 +452,21 @@
             });
             $('#closeModalBank').click(function () {
                 $('#metode-pembayaran').fadeOut();
-            })
+            });
+            $('#kurir').click(function () {
+                let harga = $('#harga').val();
+                let jumlah = $('#jumlah').val();
+                let kurir = $('#kurir').val();
+                $('.biaya').val(kurir);
+                let biaya_kirim = $('#biaya_pengiriman').val();
+                let diskon = $('#diskon').val();
+                let hasil_diskon = diskon / 100 * harga;
+                let harga_diskon = harga - hasil_diskon;
+                let kirim = Number(biaya_kirim);
+                let total = harga_diskon * jumlah + kirim;
+
+                $('#total-harga').val(total);
+            });
 
             /* Jumlah */
             let harga = $('#harga').val();
