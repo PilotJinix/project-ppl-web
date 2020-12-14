@@ -59,127 +59,11 @@
                         </a>
                     </li>
                     <!-- #END# Full Screen Button -->
-                    <!-- #START# Notifications-->
-                    <li class="dropdown">
-                        <a href="#" onClick="return false;" class="dropdown-toggle" data-toggle="dropdown"
-                            role="button">
-                            <i class="far fa-bell"></i>
-                            <span class="label-count bg-orange"></span>
-                        </a>
-                        <ul class="dropdown-menu pullDown">
-                            <li class="header">NOTIFICATIONS</li>
-                            <li class="body">
-                                <ul class="menu">
-                                    <li>
-                                        <a href="#" onClick="return false;">
-                                            <span class="table-img msg-user">
-                                                <img src="{{asset("admins/assets/images/user/user1.jpg")}}" alt="">
-                                            </span>
-                                            <span class="menu-info">
-                                                <span class="menu-title">Sarah Smith</span>
-                                                <span class="menu-desc">
-                                                    <i class="material-icons">access_time</i> 14 mins ago
-                                                </span>
-                                                <span class="menu-desc">Please check your email.</span>
-                                            </span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" onClick="return false;">
-                                            <span class="table-img msg-user">
-                                                <img src="{{asset("admins/assets/images/user/user2.jpg")}}" alt="">
-                                            </span>
-                                            <span class="menu-info">
-                                                <span class="menu-title">Airi Satou</span>
-                                                <span class="menu-desc">
-                                                    <i class="material-icons">access_time</i> 22 mins ago
-                                                </span>
-                                                <span class="menu-desc">Please check your email.</span>
-                                            </span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" onClick="return false;">
-                                            <span class="table-img msg-user">
-                                                <img src="{{asset("admins/assets/images/user/user3.jpg")}}" alt="">
-                                            </span>
-                                            <span class="menu-info">
-                                                <span class="menu-title">John Doe</span>
-                                                <span class="menu-desc">
-                                                    <i class="material-icons">access_time</i> 3 hours ago
-                                                </span>
-                                                <span class="menu-desc">Please check your email.</span>
-                                            </span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" onClick="return false;">
-                                            <span class="table-img msg-user">
-                                                <img src="{{asset("admins/assets/images/user/user4.jpg")}}" alt="">
-                                            </span>
-                                            <span class="menu-info">
-                                                <span class="menu-title">Ashton Cox</span>
-                                                <span class="menu-desc">
-                                                    <i class="material-icons">access_time</i> 2 hours ago
-                                                </span>
-                                                <span class="menu-desc">Please check your email.</span>
-                                            </span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" onClick="return false;">
-                                            <span class="table-img msg-user">
-                                                <img src="{{asset("admins/assets/images/user/user5.jpg")}}" alt="">
-                                            </span>
-                                            <span class="menu-info">
-                                                <span class="menu-title">Cara Stevens</span>
-                                                <span class="menu-desc">
-                                                    <i class="material-icons">access_time</i> 4 hours ago
-                                                </span>
-                                                <span class="menu-desc">Please check your email.</span>
-                                            </span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" onClick="return false;">
-                                            <span class="table-img msg-user">
-                                                <img src="{{asset("admins/assets/images/user/user6.jpg")}}" alt="">
-                                            </span>
-                                            <span class="menu-info">
-                                                <span class="menu-title">Charde Marshall</span>
-                                                <span class="menu-desc">
-                                                    <i class="material-icons">access_time</i> 3 hours ago
-                                                </span>
-                                                <span class="menu-desc">Please check your email.</span>
-                                            </span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" onClick="return false;">
-                                            <span class="table-img msg-user">
-                                                <img src="{{asset("admins/assets/images/user/user7.jpg")}}" alt="">
-                                            </span>
-                                            <span class="menu-info">
-                                                <span class="menu-title">John Doe</span>
-                                                <span class="menu-desc">
-                                                    <i class="material-icons">access_time</i> Yesterday
-                                                </span>
-                                                <span class="menu-desc">Please check your email.</span>
-                                            </span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="footer">
-                                <a href="#" onClick="return false;">View All Notifications</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <!-- #END# Notifications-->
                     <li class="dropdown user_profile">
                         <a href="#" onClick="return false;" class="dropdown-toggle" data-toggle="dropdown"
                             role="button">
-                            <img src="{{asset("admins/assets/images/user.jpg")}}" width="32" height="32" alt="User">
+                            <img src="{{asset("assets/images/people/blank-profile.webp")}}" width="32" height="32"
+                                alt="User">
                         </a>
                         <ul class="dropdown-menu pullDown">
                             <li class="body">
@@ -223,13 +107,13 @@
                     <li class="sidebar-user-panel active">
                         <div class="user-panel">
                             <div class=" image">
-                                <img src="{{asset("admins/assets/images/usrbig.jpg")}}"
+                                <img src="{{asset("assets/images/people/blank-profile.webp")}}"
                                     class="img-circle user-img-circle" alt="User Image" />
                             </div>
                         </div>
                         <div class="profile-usertitle">
-                            <div class="sidebar-userpic-name"> Emily Smith </div>
-                            <div class="profile-usertitle-job ">Manager </div>
+                            <div class="sidebar-userpic-name"> Admin </div>
+                            <div class="profile-usertitle-job ">Administrasi </div>
                         </div>
                     </li>
                     @if ($pages == 'dashboard')
@@ -279,7 +163,7 @@
                         </ul>
                     </li>
                     @if ($pages == 'list-produk' OR $pages == 'edit-produk' OR $pages == 'new-produk' OR $pages ==
-                    'penawaran-produk' OR $pages == 'detail-penawaran')
+                    'penawaran-produk' OR $pages == 'detail-penawaran' OR $pages == 'patokan-harga')
                     <li class="active">
                         @else
                     <li>
@@ -308,7 +192,14 @@
                                 @else
                             <li>
                                 @endif
-                                <a href="{{route('admin.penawaran-produk')}}">Penawran Produk Mitra</a>
+                                <a href="{{route('admin.penawaran-produk')}}">Penawaran Produk Mitra</a>
+                            </li>
+                            @if ($pages == 'patokan-harga')
+                            <li class="active">
+                                @else
+                            <li>
+                                @endif
+                                <a href="{{route('admin.patokan-harga')}}">Patokan Harga Produk</a>
                             </li>
                         </ul>
                     </li>
@@ -322,6 +213,32 @@
                             <span>Transaksi</span>
                         </a>
                     </li>
+                    @if ($pages == 'artikel' OR $pages == 'new-artikel')
+                    <li class="active">
+                        @else
+                    <li>
+                        @endif
+                        <a href="#" onClick="return false;" class="menu-toggle">
+                            <i class="fab fa-blogger-b"></i>
+                            <span>Blog</span>
+                        </a>
+                        <ul class="ml-menu">
+                            @if ($pages == 'artikel')
+                            <li class="active">
+                                @else
+                            <li>
+                                @endif
+                                <a href="{{route('admin.artikel')}}">Artikel</a>
+                            </li>
+                            @if ($pages == 'new-artikel')
+                            <li class="active">
+                                @else
+                            <li>
+                                @endif
+                                <a href="{{route('admin.new-artikel')}}">Artikel Baru</a>
+                            </li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
             <!-- #Menu -->
@@ -333,70 +250,10 @@
                 <li role="presentation">
                     <a href="#skins" data-toggle="tab" class="active">SKINS</a>
                 </li>
-                <li role="presentation">
-                    <a href="#settings" data-toggle="tab">SETTINGS</a>
-                </li>
             </ul>
             <div class="tab-content">
                 <div role="tabpanel" class="tab-pane in active in active stretchLeft" id="skins">
                     <div class="demo-skin">
-                        <div class="rightSetting">
-                            <p>GENERAL SETTINGS</p>
-                            <ul class="setting-list list-unstyled m-t-20">
-                                <li>
-                                    <div class="form-check">
-                                        <div class="form-check m-l-10">
-                                            <label class="form-check-label">
-                                                <input class="form-check-input" type="checkbox" value="" checked> Save
-                                                History
-                                                <span class="form-check-sign">
-                                                    <span class="check"></span>
-                                                </span>
-                                            </label>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="form-check">
-                                        <div class="form-check m-l-10">
-                                            <label class="form-check-label">
-                                                <input class="form-check-input" type="checkbox" value="" checked> Show
-                                                Status
-                                                <span class="form-check-sign">
-                                                    <span class="check"></span>
-                                                </span>
-                                            </label>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="form-check">
-                                        <div class="form-check m-l-10">
-                                            <label class="form-check-label">
-                                                <input class="form-check-input" type="checkbox" value="" checked> Auto
-                                                Submit Issue
-                                                <span class="form-check-sign">
-                                                    <span class="check"></span>
-                                                </span>
-                                            </label>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="form-check">
-                                        <div class="form-check m-l-10">
-                                            <label class="form-check-label">
-                                                <input class="form-check-input" type="checkbox" value="" checked> Show
-                                                Status To All
-                                                <span class="form-check-sign">
-                                                    <span class="check"></span>
-                                                </span>
-                                            </label>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
                         <div class="rightSetting">
                             <p>SIDEBAR MENU COLORS</p>
                             <button type="button"
@@ -437,97 +294,6 @@
                                 </li>
                             </ul>
                         </div>
-                        <div class="rightSetting">
-                            <p>Disk Space</p>
-                            <div class="sidebar-progress">
-                                <div class="progress m-t-20">
-                                    <div class="progress-bar l-bg-cyan shadow-style width-per-45" role="progressbar"
-                                        aria-valuenow="45" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                                <span class="progress-description">
-                                    <small>26% remaining</small>
-                                </span>
-                            </div>
-                        </div>
-                        <div class="rightSetting">
-                            <p>Server Load</p>
-                            <div class="sidebar-progress">
-                                <div class="progress m-t-20">
-                                    <div class="progress-bar l-bg-orange shadow-style width-per-63" role="progressbar"
-                                        aria-valuenow="63" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                                <span class="progress-description">
-                                    <small>Highly Loaded</small>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div role="tabpanel" class="tab-pane stretchRight" id="settings">
-                    <div class="demo-settings">
-                        <p>GENERAL SETTINGS</p>
-                        <ul class="setting-list">
-                            <li>
-                                <span>Report Panel Usage</span>
-                                <div class="switch">
-                                    <label>
-                                        <input type="checkbox" checked>
-                                        <span class="lever switch-col-green"></span>
-                                    </label>
-                                </div>
-                            </li>
-                            <li>
-                                <span>Email Redirect</span>
-                                <div class="switch">
-                                    <label>
-                                        <input type="checkbox">
-                                        <span class="lever switch-col-blue"></span>
-                                    </label>
-                                </div>
-                            </li>
-                        </ul>
-                        <p>SYSTEM SETTINGS</p>
-                        <ul class="setting-list">
-                            <li>
-                                <span>Notifications</span>
-                                <div class="switch">
-                                    <label>
-                                        <input type="checkbox" checked>
-                                        <span class="lever switch-col-purple"></span>
-                                    </label>
-                                </div>
-                            </li>
-                            <li>
-                                <span>Auto Updates</span>
-                                <div class="switch">
-                                    <label>
-                                        <input type="checkbox" checked>
-                                        <span class="lever switch-col-cyan"></span>
-                                    </label>
-                                </div>
-                            </li>
-                        </ul>
-                        <p>ACCOUNT SETTINGS</p>
-                        <ul class="setting-list">
-                            <li>
-                                <span>Offline</span>
-                                <div class="switch">
-                                    <label>
-                                        <input type="checkbox" checked>
-                                        <span class="lever switch-col-red"></span>
-                                    </label>
-                                </div>
-                            </li>
-                            <li>
-                                <span>Location Permission</span>
-                                <div class="switch">
-                                    <label>
-                                        <input type="checkbox">
-                                        <span class="lever switch-col-lime"></span>
-                                    </label>
-                                </div>
-                            </li>
-                        </ul>
                     </div>
                 </div>
             </div>

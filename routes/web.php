@@ -86,9 +86,21 @@ Route::prefix('/admin')->name('admin.')->namespace('Admin')->group(function(){
   Route::get('produk/mitra/detail-produk-penawaran/{id}','ProdukController@detailPenawaran')->name('detail-penawaran');
   Route::get('produk/mitra/terima-penawaran/{id}','ProdukController@terimaPenawaran')->name('terima-penawaran');
   Route::get('produk/mitra/tolak-penawaran/{id}','ProdukController@terimaPenawaran')->name('tolak-penawaran');
+  Route::get('produk/list/patokan-harga','ProdukController@patokanHarga')->name('patokan-harga');
+  Route::get('produk/new/patokan-harga','ProdukController@newHarga')->name('new-harga');
+  Route::post('produk/patokan-harga/edit/{id}','ProdukController@editHarga')->name('edit-harga');
+  Route::post('produk/new/patokan-harga/saved','ProdukController@saveHarga')->name('save-harga');
+  Route::get('produk/patokan-harga/delete/{id}','ProdukController@deleteHarga')->name('delete-harga');
 
   Route::get('riwayat-transaksi','TransaksiController@index')->name('riwayat-transaksi');
   Route::get('riwayat-transaksi/invoice/{id}','TransaksiController@invoice')->name('invoice');
   Route::get('riwayat-transaksi/payment/terima/{id}','TransaksiController@terimaPembayaran')->name('terima-pembayaran');
   Route::get('riwayat-transaksi/payment/tolak/{id}','TransaksiController@tolakPembayaran')->name('tolak-pembayaran');
+
+  Route::get('blog/artikel','BlogController@index')->name('artikel');
+  Route::get('blog/artikel/new','BlogController@newArtikel')->name('new-artikel');
+  Route::post('blog/artikel/new/save','BlogController@savedNew')->name('save-artikel');
+  Route::get('blog/artikel/edit/{id}','BlogController@editArtikel')->name('edit-artikel');
+  Route::post('blog/artikel/save-edit/{id}','BlogController@saveEdit')->name('save-edit-artikel');
+  Route::get('blog/artikel/delete-artikel/{id}','BlogController@deleteArtikel')->name('delete-artikel');
 });

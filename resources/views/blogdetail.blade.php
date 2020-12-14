@@ -56,7 +56,7 @@
                                     </div>
                                     <div class="details">
                                         <h1>{{__($blog->judul)}}</h1>
-                                        {{__($blog->deskripsi)}}
+                                        {!!$blog->deskripsi!!}
                                     </div>
                                 </div>
                             </div>

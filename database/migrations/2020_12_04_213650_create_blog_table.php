@@ -17,7 +17,7 @@ class CreateBlogTable extends Migration
             $table->bigIncrements('id');
             $table->string('judul');
             $table->string('gambar');
-            $table->string('deskripsi');
+            $table->text('deskripsi');
             $table->timestamps();
         });
     }

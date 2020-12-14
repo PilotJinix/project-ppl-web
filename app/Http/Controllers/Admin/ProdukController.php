@@ -162,4 +162,63 @@ class ProdukController extends Controller
 
         return redirect()->back();
     }
+
+    public function patokanHarga(Request $request){
+        $session = $request->session()->get('admin');
+        if ($session == null) {
+            return redirect()->route("admin.login");
+        }
+        $pages = "patokan-harga";
+        $patokan = DB::table('patokan_harga')->latest()->get();
+
+        return view('admin.patokanharga', compact('pages','patokan'));
+    }
+
+    public function editHarga(Request $request, $id){
+        $request->validate([
+            'nama_produk' => 'required|string',
+            'kategori' => 'required|string',
+            'harga' => 'required'
+        ]);
+
+        DB::table('patokan_harga')->where('id',$id)->update([
+            'nama_barang' => $request->nama_produk,
+            'jenis' => $request->kategori,
+            'harga' => $request->harga,
+        ]);
+
+        return redirect()->route('admin.patokan-harga')->with('changed','Patokan harga telah berhasil diperbaharui!');
+    }
+
+    public function newHarga(Request $request){
+        $session = $request->session()->get('admin');
+        if ($session == null) {
+            return redirect()->route("admin.login");
+        }
+        $pages = "new-harga";
+
+        return view('admin.newharga', compact('pages'));
+    }
+
+    public function saveHarga(Request $request){
+        $request->validate([
+            'nama_produk' => 'required|string',
+            'kategori' => 'required|string',
+            'harga' => 'required'
+        ]);
+
+        DB::table('patokan_harga')->insert([
+            'nama_barang' => $request->nama_produk,
+            'jenis' => $request->kategori,
+            'harga' => $request->harga,
+        ]);
+
+        return redirect()->route('admin.patokan-harga')->with('saved','Patokan harga baru telah berhasil ditambahkan!');
+    }
+
+    public function deleteHarga(Request $request, $id){
+        DB::table('patokan_harga')->where('id',$id)->delete();
+
+        return redirect()->route('admin.patokan-harga')->with('deleted','Patokan harga berhasil dihapus');
+    }
 }
