@@ -104,6 +104,3 @@ Route::prefix('/admin')->name('admin.')->namespace('Admin')->group(function(){
   Route::post('blog/artikel/save-edit/{id}','BlogController@saveEdit')->name('save-edit-artikel');
   Route::get('blog/artikel/delete-artikel/{id}','BlogController@deleteArtikel')->name('delete-artikel');
 });
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');

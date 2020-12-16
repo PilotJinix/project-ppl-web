@@ -58,7 +58,7 @@ class ProdukController extends Controller
             'kondisi' => $request->kondisi,
             'berat' => $request->berat,
         ]);
-        
+
         /** Change resoluution image and save to path **/
         $img->resize(600,600)->save($tujuan_upload.$nama_foto);
 
@@ -121,7 +121,7 @@ class ProdukController extends Controller
         $pages = "penawaran-produk";
 
         $produk = DB::table('ajuan_produk_mitra')->latest()->get();
-        
+
         return view('admin.penawaranproduk', compact('pages','produk'));
     }
 

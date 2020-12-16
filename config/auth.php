@@ -48,7 +48,7 @@ return [
         ],
         'admins' => [
             'driver' => 'session',
-            'provider' => 'admins',
+            'provider' => 'admin',
         ],
     ],
 
@@ -107,7 +107,7 @@ return [
             'expire' => 60,
         ],
         'admins' => [
-            'provider' => 'admins',
+            'provider' => 'admin',
             'table' => 'password_reset',
             'expire' => 60,
         ],
