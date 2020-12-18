@@ -163,6 +163,32 @@ class ProdukController extends Controller
         return redirect()->back();
     }
 
+    public function selesaiCheck(Request $request, $id){
+        $session = $request->session()->get('admin');
+        if ($session == null) {
+            return redirect()->route("admin.login");
+        }
+
+        DB::table('ajuan_produk_mitra')->where('id',$id)->update([
+            'status' => 'Selesai',
+        ]);
+
+        return redirect()->back();
+    }
+
+    public function batalkanPenawaran(Request $request, $id){
+        $session = $request->session()->get('admin');
+        if ($session == null) {
+            return redirect()->route("admin.login");
+        }
+
+        DB::table('ajuan_produk_mitra')->where('id',$id)->update([
+            'status' => 'Dibatalkan',
+        ]);
+
+        return redirect()->back();
+    }
+
     public function patokanHarga(Request $request){
         $session = $request->session()->get('admin');
         if ($session == null) {

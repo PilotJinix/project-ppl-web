@@ -107,10 +107,6 @@
                                 <span class="title"><?php echo e(__('Harga:')); ?></span>
                                 <span class="new-price"><?php echo e(__('Rp '.$product->harga)); ?></span>
                             </div>
-                            <p>
-                                <?php echo e(__($product->deskripsi)); ?>
-
-                            </p>
                             <div class="product-table">
                                 <ul>
                                     <li>

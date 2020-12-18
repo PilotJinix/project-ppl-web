@@ -15,7 +15,13 @@ class AdminController extends Controller
         if ($session == null) {
             return redirect()->route("admin.login");
         }
-        return view('admin.home', compact('pages'));
+
+        $jumlah_produk = DB::table('produk')->count();
+        $pesanan_diterima = DB::table('detail_checkout')->where('status_checkout','diterima')->count();
+        $jumlah_mitra = DB::table('users')->where('status','mitra')->count();
+        $jumlah_user = DB::table('users')->whereIn('status',['user','proses'])->count();
+
+        return view('admin.home', compact('pages','jumlah_produk','pesanan_diterima','jumlah_mitra','jumlah_user'));
     }
 
     public function daftarPengguna(Request $request, $pages){

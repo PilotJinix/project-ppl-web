@@ -82,10 +82,14 @@ Route::prefix('/admin')->name('admin.')->namespace('Admin')->group(function(){
   Route::get('edit-produk/{id}','ProdukController@editProduk')->name('edit-produk');
   Route::post('edit-produk/change/{id}','ProdukController@saveEdit')->name('save-edit-produk');
   Route::get('delete-produk/{id}','ProdukController@deleteProduk')->name('delete-produk');
+  
   Route::get('produk/mitra/penawaran-produk','ProdukController@penawaranProduk')->name('penawaran-produk');
   Route::get('produk/mitra/detail-produk-penawaran/{id}','ProdukController@detailPenawaran')->name('detail-penawaran');
   Route::get('produk/mitra/terima-penawaran/{id}','ProdukController@terimaPenawaran')->name('terima-penawaran');
-  Route::get('produk/mitra/tolak-penawaran/{id}','ProdukController@terimaPenawaran')->name('tolak-penawaran');
+  Route::get('produk/mitra/tolak-penawaran/{id}','ProdukController@tolakPenawaran')->name('tolak-penawaran');
+  Route::get('produk/mitra/selesai-checking/{id}','ProdukController@selesaiCheck')->name('selesai-check');
+  Route::get('produk/mitra/batalkan-penawaran/{id}','ProdukController@batalkanPenawaran')->name('batalkan-penawaran');
+
   Route::get('produk/list/patokan-harga','ProdukController@patokanHarga')->name('patokan-harga');
   Route::get('produk/new/patokan-harga','ProdukController@newHarga')->name('new-harga');
   Route::post('produk/patokan-harga/edit/{id}','ProdukController@editHarga')->name('edit-harga');

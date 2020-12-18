@@ -55,7 +55,7 @@
                                         <p><strong>Jumlah Berat Produk :</strong></p>
                                         <p>{!!$produk->berat_produk." Kg"!!}</p>
                                         <p><strong>Status Produk :</strong></p>
-                                        @if ($produk->status == 'Ditolak')
+                                        @if ($produk->status == 'Ditolak' OR $produk->status == 'Dibatalkan')
                                         <p class="text-danger">{!!$produk->status!!}</p>
                                         @endif
                                         @if ($produk->status == 'Menunggu')
@@ -73,14 +73,20 @@
                                         @endif
                                         @if ($produk->status == 'Sedang Mengecek')
                                         <p class="text-warning">{!!$produk->status!!}</p>
-                                        <button type="button" class="btn btn-success waves-effect">
-                                            Selesai
-                                        </button>
-                                        <button type="button" class="btn btn-danger waves-effect">
-                                            Batalkan
-                                        </button>
+                                        <a href="{{ route('admin.selesai-check', $produk->id) }}">
+                                            <button type="button" class="btn btn-success waves-effect">
+                                                Selesai
+                                            </button>
+                                        </a>
+                                        <a href="{{ route('admin.batalkan-penawaran', $produk->id) }}">
+                                            <button type="button" class="btn btn-danger waves-effect">
+                                                Batalkan
+                                            </button>
+                                        </a>
                                         @endif
-
+                                        @if ($produk->status == 'Selesai')
+                                        <p class="text-success">{!!$produk->status!!}</p>
+                                        @endif
                                     </div>
                                 </div>
                             </div>

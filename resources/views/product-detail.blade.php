@@ -106,9 +106,6 @@
                                 <span class="title">{{__('Harga:')}}</span>
                                 <span class="new-price">{{__('Rp '.$product->harga)}}</span>
                             </div>
-                            <p>
-                                {{__($product->deskripsi)}}
-                            </p>
                             <div class="product-table">
                                 <ul>
                                     <li>
