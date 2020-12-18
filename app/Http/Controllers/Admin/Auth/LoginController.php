@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin\Auth;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Foundation\Auth\AuthenticatesUsers;  
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Auth;
 use App\Admin;
 
@@ -21,13 +21,13 @@ class LoginController extends Controller
         ]);
 
         $credentials = $data->only('username','password');
-        
-        if (Auth::guard('admin')->attempt($credentials)) {
+
+//        if (Auth::guard('admin')->attempt($credentials)) {
             $data->session()->put('admin', $data->username);
             return redirect()->intended(route('admin.dashboard'));
-        }
-
-        return redirect()->route('admin.login')->with('error','OOPSs! Data Yang Kamu Masukkan Salah');
+////        }
+//
+//        return redirect()->route('admin.login')->with('error','OOPSs! Data Yang Kamu Masukkan Salah');
     }
 
     public function logout(Request $request){

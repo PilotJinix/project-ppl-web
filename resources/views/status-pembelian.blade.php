@@ -131,7 +131,7 @@
                                     @endif
                                     @endif
                                     @if ($item->status_checkout == 'Dibatalkan')
-                                    <a id="review" href="{{__('#')}}" class="mt-3 w-100">
+                                        <a id="review" href="{{__('#')}}" class="mt-3 w-100">
                                         <button class="btn btn-secondary w-100" disabled>Pesanan Dibatalkan</button>
                                     </a>
                                     @endif
