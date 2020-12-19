@@ -61,4 +61,16 @@ class TransaksiController extends Controller
         $pages = 'invoice';
         return redirect()->route('admin.invoice', $id);
     }
+
+    public function resi(Request $request, $id){
+        $request->validate([
+            'resi' => 'required|string',
+        ]);
+
+        DB::table('detail_checkout')->where('id',$id)->update([
+            'resi' => $request->resi,
+        ]);
+
+        return redirect()->route('admin.invoice', $id)->with('saved','Resi berhasil ditambahkan!');
+    }
 }

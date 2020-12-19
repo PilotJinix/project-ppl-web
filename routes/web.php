@@ -100,6 +100,7 @@ Route::prefix('/admin')->name('admin.')->namespace('Admin')->group(function(){
   Route::get('riwayat-transaksi/invoice/{id}','TransaksiController@invoice')->name('invoice');
   Route::get('riwayat-transaksi/payment/terima/{id}','TransaksiController@terimaPembayaran')->name('terima-pembayaran');
   Route::get('riwayat-transaksi/payment/tolak/{id}','TransaksiController@tolakPembayaran')->name('tolak-pembayaran');
+  Route::post('riwayat-transaksi/resi/{id}','TransaksiController@resi')->name('masukkan-resi');
 
   Route::get('blog/artikel','BlogController@index')->name('artikel');
   Route::get('blog/artikel/new','BlogController@newArtikel')->name('new-artikel');
