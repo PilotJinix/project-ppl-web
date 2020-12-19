@@ -50,6 +50,14 @@ class TransaksiController extends Controller
             'status_checkout' => 'Dibatalkan',
         ]);
 
+        $detail = DB::table('detail_checkout')->where('id',$id)->first();
+        $produk = DB::table('produk')->where('id',$detail->produk_id)->first();
+        
+        $newStok = $produk->stok + $detail->jumlah;
+        DB::table('produk')->where('id',$detail->produk_id)->update([
+            'stok' => $newStok,
+        ]);
+
         $pages = 'invoice';
         return redirect()->route('admin.invoice', $id);
     }

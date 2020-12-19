@@ -25,28 +25,6 @@
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <div class="card">
                 <div class="header">
-                    <ul class="header-dropdown m-r--5">
-                        <li class="dropdown">
-                            <button class="dropdown-toggle btn btn-primary pb-0" data-toggle="dropdown">
-                                <i class="material-icons text-light" style="font-size: 18px">settings</i>
-                                <Span>filter</Span>
-                            </button>
-                            <ul class="dropdown-menu pull-right">
-                                <li>
-                                    <a id="people-all" href="#" onClick="return false;">Semua</a>
-                                </li>
-                                <li>
-                                    <a id="people-users" href="#" onClick="return false;">Menunggu Konfirmasi</a>
-                                </li>
-                                <li>
-                                    <a id="people-mitra" href="#" onClick="return false;">Proses Pengiriman</a>
-                                </li>
-                                <li>
-                                    <a id="diterima" href="#" onClick="return false;">Diterima</a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
                 </div>
                 <div id="table-semua">
                     <div class="body">
@@ -80,9 +58,6 @@
                                                     <i class="material-icons">remove_red_eye</i>
                                                 </button>
                                             </a>
-                                            <button class="btn tblActnBtn">
-                                                <i class="material-icons">delete</i>
-                                            </button>
                                         </td>
                                     </tr>
                                     @endif
