@@ -21,47 +21,32 @@
     <!-- Widgets -->
     <div class="row">
         <div class="col-lg-3 col-sm-6">
-            <div class="counter-box text-center white">
-                <div class="text font-17 m-b-5">Total Income</div>
-                <h3 class="m-b-10">$758
-                    <i class="material-icons col-green">trending_up</i>
+            <div class="support-box text-center d-flex flex-column justify-content-between l-bg-red">
+                <div class="text font-17 m-b-5">Jumlah Produk</div>
+                <h3 class="m-b-10">{!!$jumlah_produk!!}
                 </h3>
-                <div class="icon">
-                    <div class="chart chart-bar"></div>
-                </div>
+                <div class="text font-17">Produk</div>
             </div>
         </div>
         <div class="col-lg-3 col-sm-6">
-            <div class="counter-box text-center white">
-                <div class="text font-17 m-b-5">Orders Received</div>
-                <h3 class="m-b-10">1025
-                    <i class="material-icons col-red">trending_down</i>
-                </h3>
-                <div class="icon">
-                    <span class="chart chart-line"></span>
-                </div>
+            <div class="support-box text-center d-flex flex-column justify-content-between l-bg-cyan">
+                <div class="text font-17 m-b-5">Pesanan Diterima</div>
+                <h3 class="m-b-10">{!!$pesanan_diterima!!}</h3>
+                <div class="text font-17">Pesanan</div>
             </div>
         </div>
         <div class="col-lg-3 col-sm-6">
-            <div class="counter-box text-center white">
-                <div class="text font-17 m-b-5">Total Sales</div>
-                <h3 class="m-b-10">956
-                    <i class="material-icons col-green">trending_up</i>
-                </h3>
-                <div class="icon">
-                    <div class="chart chart-pie"></div>
-                </div>
+            <div class="support-box text-center l-bg-orange d-flex flex-column justify-content-between">
+                <div class="text font-17 m-b-5">Jumlah Mitra</div>
+                <h3 class="m-b-10">{!!$jumlah_mitra!!}</h3>
+                <div class="text font-17">Mitra</div>
             </div>
         </div>
         <div class="col-lg-3 col-sm-6">
-            <div class="counter-box text-center white">
-                <div class="text font-17 m-b-5">Total Active Users</div>
-                <h3 class="m-b-10">214
-                    <i class="material-icons col-red">trending_down</i>
-                </h3>
-                <div class="icon">
-                    <div class="chart" id="liveChart">Loading..</div>
-                </div>
+            <div class="support-box text-center l-bg-purple d-flex flex-column justify-content-between">
+                <div class="text font-17 m-b-5">Jumlah Users</div>
+                <h3 class="m-b-10">{!!$jumlah_user!!}</h3>
+                <div class="text font-17">Users</div>
             </div>
         </div>
     </div>

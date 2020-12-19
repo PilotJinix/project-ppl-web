@@ -91,11 +91,6 @@
                                                             <i class="material-icons">settings</i> Umum
                                                         </div>
                                                     </li>
-                                                    <li>
-                                                        <div id="dataPengiriman" class="collapsible-header active">
-                                                            <i class="material-icons">local_shipping</i> Pengiriman
-                                                        </div>
-                                                    </li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -109,7 +104,8 @@
                                                         <div class="form-line">
                                                             <input type="number"
                                                                 class="form-control border pl-2 rounded @error('harga') not valid @enderror"
-                                                                name="harga" placeholder="Masukkan harga produk">
+                                                                name="harga" placeholder="Masukkan harga produk"
+                                                                min="1">
                                                         </div>
                                                     </div>
                                                     @error('harga')
@@ -126,7 +122,8 @@
                                                         <div class="form-line">
                                                             <input type="number"
                                                                 class="form-control border pl-2 rounded border-right-0 @error('diskon') not valid @enderror"
-                                                                name="diskon" placeholder="Masukkan diskon harga">
+                                                                name="diskon" placeholder="Masukkan diskon harga"
+                                                                max="100" min="0">
                                                         </div>
                                                         <span
                                                             class="input-group-addon border border-left-0 rounded">%</span>
@@ -146,7 +143,8 @@
                                                             <div class="form-line">
                                                                 <input type="number"
                                                                     class="form-control border pl-2 rounded border-right-0 @error('stok') not valid @enderror"
-                                                                    name="stok" placeholder="Masukkan jumlah stok">
+                                                                    name="stok" placeholder="Masukkan jumlah stok"
+                                                                    min="1">
                                                             </div>
                                                             <span
                                                                 class="input-group-addon border border-left-0 rounded">Kg</span>
@@ -173,30 +171,6 @@
                                                         </select>
                                                     </div>
                                                     @error('kondisi')
-                                                    <strong class="text-danger">{{$message}}</strong>
-                                                    @enderror
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div id="pengiriman" class="col-md-7 form-horizontal pt-3"
-                                            style="display: none">
-                                            <div class="row clearfix mr-0">
-                                                <div class="col-md-3 mb-0 form-control-label text-left">
-                                                    <label for="email_address_2">Berat</label>
-                                                </div>
-                                                <div class="col-md-9">
-                                                    <div class="form-group">
-                                                        <div class="input-group p-0">
-                                                            <div class="form-line">
-                                                                <input type="number"
-                                                                    class="form-control border pl-2 rounded border-right-0 @error('berat') not valid @enderror"
-                                                                    name="berat" max="1" min="1" value="1">
-                                                            </div>
-                                                            <span
-                                                                class="input-group-addon border border-left-0 rounded">Kg</span>
-                                                        </div>
-                                                    </div>
-                                                    @error('berat')
                                                     <strong class="text-danger">{{$message}}</strong>
                                                     @enderror
                                                 </div>

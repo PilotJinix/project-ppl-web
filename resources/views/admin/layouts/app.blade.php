@@ -40,7 +40,7 @@
                 <a href="#" onClick="return false;" class="bars"></a>
                 <a class="navbar-brand" href="index.html">
                     <img src="{{asset("admins/assets/images/logo.png")}}" alt="" />
-                    <span class="logo-name">Lorax</span>
+                    <span class="logo-name">WG Farm</span>
                 </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar-collapse">
@@ -71,11 +71,6 @@
                                     <li>
                                         <a href="#">
                                             <i class="material-icons">person</i>Profile
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" onClick="return false;">
-                                            <i class="material-icons">help</i>Help
                                         </a>
                                     </li>
                                     <li>
@@ -179,13 +174,6 @@
                             <li>
                                 @endif
                                 <a href="{{route('admin.list-produk','list-produk')}}">Produk</a>
-                            </li>
-                            @if ($pages == 'new-produk')
-                            <li class="active">
-                                @else
-                            <li>
-                                @endif
-                                <a href="{{route('admin.new-produk','new-produk')}}">Produk Baru</a>
                             </li>
                             @if ($pages == 'penawaran-produk')
                             <li class="active">

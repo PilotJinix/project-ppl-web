@@ -75,11 +75,23 @@
                                 <small class="text-danger">{{_($item->status_checkout)}}</small>
                                 @endif
                                 <div class=" rounded pl-3 p-1 mb-2" style="background-color: #aaaaaa">
+                                    @if ($item->status_checkout == "Menunggu Pembayaran" OR $item->status_checkout ==
+                                    "Dibatalkan")
                                     <span>
                                         <i class="fa fa-calendar text-danger" aria-hidden="true"></i>
                                         <label
                                             class="mb-0 text-dark">{{__('Bayar sebelum '.$item->batas_pembayaran.' WIB')}}</label>
                                     </span>
+                                    @else
+                                    <span>
+                                        <label class="mb-0 text-dark">{{__('Nomor Resi: ')}}</label>
+                                        @if ($item->resi == null)
+                                        <label class="mb-0"> - </label>
+                                        @else
+                                        <label class="mb-0">{{__($item->resi)}}</label>
+                                        @endif
+                                    </span>
+                                    @endif
                                 </div>
                                 <div class="w-100">
                                     <div class="d-flex justify-content-between w-100">
@@ -87,8 +99,8 @@
                                         <span>{{__($item->metode_pembayaran)}}</span>
                                     </div>
                                     <div class="d-flex justify-content-between w-100">
-                                        <span>{{__('Nomor Virtual Akun :')}}</span>
-                                        <span>{{__('88XXXXXXXXXXXXXX')}}</span>
+                                        <span>{{__('Nomor Rekening :')}}</span>
+                                        <span>{{__('88XXXXXXXXXXXXXX a/n WGFarm')}}</span>
                                     </div>
                                 </div>
                             </div>
@@ -131,7 +143,7 @@
                                     @endif
                                     @endif
                                     @if ($item->status_checkout == 'Dibatalkan')
-                                        <a id="review" href="{{__('#')}}" class="mt-3 w-100">
+                                    <a id="review" href="{{__('#')}}" class="mt-3 w-100">
                                         <button class="btn btn-secondary w-100" disabled>Pesanan Dibatalkan</button>
                                     </a>
                                     @endif

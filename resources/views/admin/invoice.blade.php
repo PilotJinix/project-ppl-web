@@ -21,6 +21,14 @@
             </div>
         </div>
     </div>
+    @if (session()->has('saved'))
+    <div class="alert bg-green alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        {{__(session()->get('saved'))}}
+    </div>
+    @endif
     <div class="row clearfix">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
             <div class="card">
@@ -69,10 +77,43 @@
                                             </p>
                                             @if ($item->status_checkout == "Menunggu Konfirmasi")
                                             <a href="{{asset('assets/images/struk/'.$item->struk)}}"
-                                                data-sub-html="Show Image Struk">
+                                                data-sub-html="Show Image Struk" target="blank">
                                                 <button class="btn btn-success">Lihat Struk Pembayaran</button>
                                             </a>
                                             @endif
+                                            @if ($item->resi == null AND $item->status_checkout == "Proses Pengiriman")
+                                            <button class="btn btn-success" data-toggle="modal" data-target="#resi">
+                                                Masukkan Resi
+                                            </button>
+                                            @endif
+                                        </div>
+                                    </div>
+                                    <div class="modal fade" id="resi" tabindex="-1" role="dialog"
+                                        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalCenterTitle">Tambah Resi
+                                                        Pengiriman</h5>
+                                                    <button type="button" class="close" data-dismiss="modal"
+                                                        aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <form action="{{ route('admin.masukkan-resi', $item->id) }}"
+                                                    method="post">
+                                                    @csrf
+                                                    <div class="modal-body text-center">
+                                                        <span>masukkan resi</span>
+                                                        <input type="text" class="form-control border" name="resi">
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="submit" class="btn btn-info ">Simpan</button>
+                                                        <button type="button" class="btn btn-danger waves-effect"
+                                                            data-dismiss="modal">Batal</button>
+                                                    </div>
+                                                </form>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="col-md-12">

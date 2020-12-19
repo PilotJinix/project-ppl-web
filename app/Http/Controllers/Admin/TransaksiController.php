@@ -50,7 +50,27 @@ class TransaksiController extends Controller
             'status_checkout' => 'Dibatalkan',
         ]);
 
+        $detail = DB::table('detail_checkout')->where('id',$id)->first();
+        $produk = DB::table('produk')->where('id',$detail->produk_id)->first();
+        
+        $newStok = $produk->stok + $detail->jumlah;
+        DB::table('produk')->where('id',$detail->produk_id)->update([
+            'stok' => $newStok,
+        ]);
+
         $pages = 'invoice';
         return redirect()->route('admin.invoice', $id);
+    }
+
+    public function resi(Request $request, $id){
+        $request->validate([
+            'resi' => 'required|string',
+        ]);
+
+        DB::table('detail_checkout')->where('id',$id)->update([
+            'resi' => $request->resi,
+        ]);
+
+        return redirect()->route('admin.invoice', $id)->with('saved','Resi berhasil ditambahkan!');
     }
 }

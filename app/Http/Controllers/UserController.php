@@ -75,7 +75,7 @@ class UserController extends Controller
 	public function shop(Request $request){
 		$user = $request->session()->get('username');
 
-		$product = DB::table('produk')->latest()->paginate(20);
+		$product = DB::table('produk')->orderBy('stok','desc')->paginate(20);
 
 		if ($user != null) {
 			$akun = DB::table('users')->where('username',$user)->first();
