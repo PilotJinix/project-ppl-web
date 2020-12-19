@@ -126,24 +126,53 @@
                                     </li>
                                 </ul>
                             </div>
-                            <div class="row row-0">
-                                <div class="col-12">
-                                    @if ($product->stok == 0)
-                                    <button class="button button-md button-block text-center" disabled
-                                        style="background-color: #888888">
-                                        <span class="ti-bag text-light"></span>
-                                        <span class="text-light">BELI</span>
-                                    </button>
-                                    @else
-                                    <a href="{{route('checkout-screen',$product->id)}}">
-                                        <button class="button button-md button-block button-dark text-center">
+                            <form action="{{ route('checkout-screen', ['id'=>$product->id]) }}" method="get">
+                                <div class="row row-0">
+                                    <div class="col-6">
+                                        <span class="var" style="font-weight: bold">Jumlah</span>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="add-to-cart">
+                                            <div class="el-counter el-counter-1 d-block empty">
+                                                <button id="kurang" type="button" class="button button-minus"
+                                                    style="background-color: rgb(53, 53, 53)">
+                                                    <i class="ti-minus text-light"></i>
+                                                </button>
+                                                <span class="label">1</span>
+                                                <input class="@error('jumlah') is invalid @enderror" id="jumlah"
+                                                    type="number" value="1" min="1" max="{{__($product->stok)}}"
+                                                    step="1" name="jumlah">
+                                                <button id="tambah" type="button" class="button button-plus"
+                                                    style="background-color: rgb(53, 53, 53)">
+                                                    <i class="ti-plus text-light"></i>
+                                                </button>
+                                            </div>
+                                            @error('jumlah')
+                                            <span class="text-danger invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row row-0">
+                                    <div class="col-12 mt-3">
+                                        @if ($product->stok == 0)
+                                        <button class="button button-md button-block text-center" disabled
+                                            style="background-color: #888888" type="button">
+                                            <span class="ti-bag text-light"></span>
+                                            <span class="text-light">BELI</span>
+                                        </button>
+                                        @else
+                                        <button class="button button-md button-block button-dark text-center"
+                                            type="submit">
                                             <span class="ti-bag"></span>
                                             <span class="text">BELI</span>
                                         </button>
-                                    </a>
-                                    @endif
+                                        @endif
+                                    </div>
                                 </div>
-                            </div>
+                            </form>
                             <div class="shareit">
                                 <ul class="el-social-icons block">
                                     <li class="bg-facebook">

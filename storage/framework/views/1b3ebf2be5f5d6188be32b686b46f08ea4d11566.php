@@ -4,6 +4,7 @@
 <head>
     <title>Orwell</title>
     <?php echo $__env->make('layouts.head', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -149,12 +150,8 @@ endif; ?>
                                     <div class="col-md-12">
                                         <div class="form-item">
                                             <label>Alamat*</label>
-                                            <input type="text" class="mt-2 <?php if ($errors->has('alamat')) :
-if (isset($message)) { $messageCache = $message; }
-$message = $errors->first('alamat'); ?> is invalid <?php unset($message);
-if (isset($messageCache)) { $message = $messageCache; }
-endif; ?>"
-                                                name="alamat" value="<?php echo e(__($akun->alamat)); ?>" />
+                                            <textarea name="alamat" id="alamat" cols="10" rows="3"
+                                                placeholder="isi dengan nama jalan, nomor rumah, nomor kompleks, nama gedung, lantai atau nomor unit"></textarea>
                                         </div>
                                         <?php if ($errors->has('alamat')) :
 if (isset($message)) { $messageCache = $message; }
@@ -188,17 +185,15 @@ endif; ?>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-item">
-                                            <label>Kode Pos*</label>
-                                            <input type="text" name="kode_pos"
-                                                class="mt-2 <?php if ($errors->has('kode_pos')) :
-if (isset($message)) { $messageCache = $message; }
-$message = $errors->first('kode_pos'); ?> is invalid <?php unset($message);
-if (isset($messageCache)) { $message = $messageCache; }
-endif; ?>" />
+                                            <label>Provinsi*</label>
+                                            <select name="provinsi" id="provinsi" class="js-states form-control"
+                                                style="width: 100%;" onchange="handleKota()">
+                                                <option selected disabled>Pilih Provinsi</option>
+                                            </select>
                                         </div>
-                                        <?php if ($errors->has('kode_pos')) :
+                                        <?php if ($errors->has('provinsi')) :
 if (isset($message)) { $messageCache = $message; }
-$message = $errors->first('kode_pos'); ?>
+$message = $errors->first('provinsi'); ?>
                                         <span class="text-danger invalid-feedback" role="alert">
                                             <strong><?php echo e($message); ?></strong>
                                         </span>
@@ -208,13 +203,11 @@ endif; ?>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-item">
-                                            <label>Nama Kota*</label>
-                                            <input type="text" name="kota"
-                                                class="mt-2 <?php if ($errors->has('kota')) :
-if (isset($message)) { $messageCache = $message; }
-$message = $errors->first('kota'); ?> is invalid <?php unset($message);
-if (isset($messageCache)) { $message = $messageCache; }
-endif; ?>" />
+                                            <label>Kota*</label>
+                                            <select name="kota" id="kota" class="form-control" style="width: 100%;"
+                                                onchange="handleKec()">
+                                                <option selected disabled>Pilih Kota</option>
+                                            </select>
                                         </div>
                                         <?php if ($errors->has('kota')) :
 if (isset($message)) { $messageCache = $message; }
@@ -226,19 +219,37 @@ $message = $errors->first('kota'); ?>
 if (isset($messageCache)) { $message = $messageCache; }
 endif; ?>
                                     </div>
-                                    <div class="col-12">
+                                    <div class="col-md-6">
                                         <div class="form-item">
-                                            <label>Catatan Pembelian(opsional)</label>
-                                            <textarea type="text" name="catatan_pembelian"
-                                                class="mt-2 <?php if ($errors->has('catatan_pembelian')) :
-if (isset($message)) { $messageCache = $message; }
-$message = $errors->first('catatan_pembelian'); ?> is invalid <?php unset($message);
-if (isset($messageCache)) { $message = $messageCache; }
-endif; ?>"></textarea>
+                                            <label>Kecamatan*</label>
+                                            <select name="kecamatan" id="kecamatan" class="form-control"
+                                                style="width: 100%;" onchange="hargaPengiriman()">
+                                                <option selected disabled>Pilih Kecamatan</option>
+                                            </select>
                                         </div>
-                                        <?php if ($errors->has('catatan_pembelian')) :
+                                        <?php if ($errors->has('kecamatan')) :
 if (isset($message)) { $messageCache = $message; }
-$message = $errors->first('catatan_pembelian'); ?>
+$message = $errors->first('kecamatan'); ?>
+                                        <span class="text-danger invalid-feedback" role="alert">
+                                            <strong><?php echo e($message); ?></strong>
+                                        </span>
+                                        <?php unset($message);
+if (isset($messageCache)) { $message = $messageCache; }
+endif; ?>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-item">
+                                            <label>Kode Pos*</label>
+                                            <input type="number" name="kode_pos"
+                                                class="mt-2 <?php if ($errors->has('kode_pos')) :
+if (isset($message)) { $messageCache = $message; }
+$message = $errors->first('kode_pos'); ?> is invalid <?php unset($message);
+if (isset($messageCache)) { $message = $messageCache; }
+endif; ?>" />
+                                        </div>
+                                        <?php if ($errors->has('kode_pos')) :
+if (isset($message)) { $messageCache = $message; }
+$message = $errors->first('kode_pos'); ?>
                                         <span class="text-danger invalid-feedback" role="alert">
                                             <strong><?php echo e($message); ?></strong>
                                         </span>
@@ -259,10 +270,11 @@ endif; ?>
                                             <span class="var">Product</span>
                                             <ul class="pl-0">
                                                 <li class="p-3" style="border: 1px solid #e3e3e3; border-radius: 5px">
-                                                    <div class="row row-0 d-flex align-items-center">
+                                                    <div
+                                                        class="row row-0 d-flex align-items-center justify-content-between">
                                                         <img src="<?php echo e(asset('assets/images/products/'.$detail->gambar)); ?>"
                                                             alt="" width="70px">
-                                                        <div class="pl-2 pt-1" style="width: 73%">
+                                                        <div class="pl-2 pt-1" style="width: 60%">
                                                             <label class="var"><?php echo e(__($detail->nama)); ?></label>
                                                             <div class="d-flex align-items-center">
                                                                 <span>Rp</span>
@@ -276,67 +288,36 @@ endif; ?>"
                                                                     style="width: 40px;">
                                                             </div>
                                                         </div>
-                                                        <?php if ($errors->has('harga')) :
-if (isset($message)) { $messageCache = $message; }
-$message = $errors->first('harga'); ?>
-                                                        <span class="text-danger invalid-feedback" role="alert">
-                                                            <strong><?php echo e($message); ?></strong>
-                                                        </span>
-                                                        <?php unset($message);
-if (isset($messageCache)) { $message = $messageCache; }
-endif; ?>
+                                                        <div class="d-flex">
+                                                            <span>x</span>
+                                                            <input type="number" readonly value=<?php echo e(__($jumlah)); ?>
+
+                                                                class="val text" style="width: 10px" id="jumlah"
+                                                                name="jumlah">
+                                                        </div>
                                                     </div>
                                                 </li>
                                             </ul>
                                         </li>
                                         <li>
                                             <div class="row row-sm">
-                                                <div class="col-12">
-                                                    <select name="" class="w-100" id="kurir">
-                                                        <option disabled selected>Pilih Kurir</option>
-                                                        <option id="jnt" value="25000">J&T - Rp 25.000</option>
-                                                        <option id="jne" value="20000">JNE Reg - Rp 20.000</option>
+                                                <div class="col-6">
+                                                    <span class="var">Pilih Kurir</span>
+                                                </div>
+                                                <div class="col-6 d-flex justify-content-end">
+                                                    <select id="kurir"
+                                                        style="font-weight: 600;font-size: 13px;text-align: right">
+                                                        <option selected disabled>Pilih Kurir</option>
                                                     </select>
                                                 </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="row row-sm">
-                                                <div class="col-6">
-                                                    <span class="var">Jumlah</span>
-                                                </div>
-                                                <div class="col-6">
-                                                    <div class="add-to-cart">
-                                                        <div class="el-counter el-counter-1 d-block empty">
-                                                            <button id="kurang" type="button"
-                                                                class="button button-minus"
-                                                                style="background-color: rgb(151, 151, 151)">
-                                                                <i class="ti-minus text-light"></i>
-                                                            </button>
-                                                            <span class="label">1</span>
-                                                            <input class="<?php if ($errors->has('jumlah')) :
+                                                <input type="text" name="kurir" class="d-none" id="courier">
+                                                <?php if ($errors->has('kurir')) :
 if (isset($message)) { $messageCache = $message; }
-$message = $errors->first('jumlah'); ?> is invalid <?php unset($message);
-if (isset($messageCache)) { $message = $messageCache; }
-endif; ?>"
-                                                                id="jumlah" type="number" value="1" min="1"
-                                                                max="<?php echo e(__($detail->stok)); ?>" step="1" name="jumlah">
-                                                            <button id="tambah" type="button" class="button button-plus"
-                                                                style="background-color: rgb(151, 151, 151)">
-                                                                <i class="ti-plus text-light"></i>
-                                                            </button>
-                                                        </div>
-                                                        <?php if ($errors->has('jumlah')) :
-if (isset($message)) { $messageCache = $message; }
-$message = $errors->first('jumlah'); ?>
-                                                        <span class="text-danger invalid-feedback" role="alert">
-                                                            <strong><?php echo e($message); ?></strong>
-                                                        </span>
-                                                        <?php unset($message);
+$message = $errors->first('kurir'); ?>
+                                                <strong class="text-danger"><?php echo e($message); ?></strong>
+                                                <?php unset($message);
 if (isset($messageCache)) { $message = $messageCache; }
 endif; ?>
-                                                    </div>
-                                                </div>
                                             </div>
                                         </li>
                                         <li>
@@ -511,9 +492,19 @@ endif; ?>"
     <script src="<?php echo e(asset('assets/js/plugins.min.js')); ?>"></script>
     <script src="<?php echo e(asset('assets/js/main-scripts.js')); ?>"></script>
     <script src="<?php echo e(asset('assets/js/custom.js')); ?>"></script>
-    <script src="<?php echo e(asset('assets/js/demo.js"')); ?>"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+    
     <script>
         $(document).ready(function () {
+            $("#provinsi").select2({
+                placeholder: "Pilih Provinsi",
+            });
+            $("#kota").select2({
+                placeholder: "Pilih Kota",
+            });
+            $("#kecamatan").select2({
+                placeholder: "Pilih Kecamatan",
+            });
             /* Pilih Metode Pembayaran */
             $('#pilih-metode').click(function () {
                 $('#metode-pembayaran').fadeIn();
@@ -545,10 +536,16 @@ endif; ?>"
             $('#closeModalBank').click(function () {
                 $('#metode-pembayaran').fadeOut();
             });
-            $('#kurir').click(function () {
+            $('#kurir').change(function () {
                 let harga = $('#harga').val();
                 let jumlah = $('#jumlah').val();
                 let kurir = $('#kurir').val();
+
+                let hoo = $(this).children("option:selected").text();
+                console.log(hoo);
+
+                $('#courier').val(hoo);
+
                 $('.biaya').val(kurir);
                 let biaya_kirim = $('#biaya_pengiriman').val();
                 let diskon = $('#diskon').val();
@@ -562,29 +559,118 @@ endif; ?>"
 
             /* Jumlah */
             let harga = $('#harga').val();
-            let biaya_kirim = $('#biaya_pengiriman').val();
+            let jumlah = $("#jumlah").val();
             let diskon = $('#diskon').val();
             let hasil_diskon = diskon / 100 * harga;
             let harga_diskon = harga - hasil_diskon;
-            let kirim = Number(biaya_kirim);
-            let total = harga_diskon + kirim;
+            let total = harga_diskon * jumlah;
             $('#total-harga').val(total);
 
-            $("#kurang,#tambah").click(function () {
-                let harga = $('#harga').val();
-                let jumlah = $('#jumlah').val();
-                let biaya_kirim = $('#biaya_pengiriman').val();
-                let diskon = $('#diskon').val();
-                let hasil_diskon = diskon / 100 * harga;
-                let harga_diskon = harga - hasil_diskon;
-                let kirim = Number(biaya_kirim);
-                let total = harga_diskon * jumlah + kirim;
-
-                $('#total-harga').val(total);
-            });
             /* button submit */
             $('#button-submit').prop('disabled', true);
         })
+
+        const url = "https://ruangapi.com/api/v1/provinces";
+
+        let res = fetch(url, {
+                headers: {
+                    "authorization": "gTHTyyFbX4kAbAydtjVMgquqGUXbtH1FX7XZrSl9",
+                    "content-type": "application/json"
+                },
+            }).then(response => response.json())
+            .then(json => provinces(json))
+            .catch(err => console.log(err));
+
+        function provinces(data) {
+            console.log(data.data.results);
+            let item = data.data.results;
+            for (let i = 0; i < item.length; i++) {
+                $('#provinsi').append(new Option(item[i].name, item[i].id));
+            }
+        }
+
+        async function handleKota() {
+            let provinsi = $('#provinsi').val();
+
+            const kotaUrl = `https://ruangapi.com/api/v1/cities?province=${provinsi}`;
+
+            let res = await fetch(kotaUrl, {
+                    headers: {
+                        "authorization": "gTHTyyFbX4kAbAydtjVMgquqGUXbtH1FX7XZrSl9",
+                        "content-type": "application/json"
+                    },
+                }).then(response => response.json())
+                .catch(err => console.log(err));
+
+            let item = res.data.results;
+            console.log(item);
+            for (let i = 0; i < item.length; i++) {
+                $('#kota').append(new Option(item[i].name, item[i].id));
+            }
+        }
+
+        async function handleKec() {
+            let kota = $("#kota").val();
+
+            const kecUrl = `https://ruangapi.com/api/v1/districts?city=${kota}`;
+
+            const res = await fetch(kecUrl, {
+                    headers: {
+                        "authorization": "gTHTyyFbX4kAbAydtjVMgquqGUXbtH1FX7XZrSl9",
+                        "content-type": "application/json"
+                    },
+                }).then(response => response.json())
+                .catch(err => console.log(err));
+
+            let item = res.data.results;
+            console.log(item);
+            for (let i = 0; i < item.length; i++) {
+                $('#kecamatan').append(new Option(item[i].name, item[i].id));
+            };
+        }
+
+        async function hargaPengiriman() {
+            const courier = [
+                'jnt',
+                'tiki',
+                'sicepat',
+            ];
+            let kec = $("#kecamatan").val();
+            let kurir = $("#kurir").val();
+            let jumlah = $("#jumlah").val();
+            const asal = 289;
+            let berat = jumlah * 1000;
+
+            for (let j = 0; j < courier.length; j++) {
+                let data = {
+                    'origin': asal,
+                    'destination': kec,
+                    'weight': berat,
+                    'courier': courier[j],
+                };
+
+                const ongkos = "https://ruangapi.com/api/v1/shipping";
+
+                const res = await fetch(ongkos, {
+                        method: 'POST',
+                        headers: {
+                            "authorization": "gTHTyyFbX4kAbAydtjVMgquqGUXbtH1FX7XZrSl9",
+                            "content-type": "application/json"
+                        },
+                        body: JSON.stringify(data)
+                    }).then(response => response.json())
+                    .catch(err => console.log(err));
+
+                let jasa = res.data.results;
+                console.log(jasa);
+                if (jasa.length != 0) {
+                    for (let index = 0; index < jasa.length; index++) {
+                        $('#kurir').append(new Option(jasa[index].courier +
+                            "-" + jasa[index].description, jasa[index].cost));
+                    }
+                }
+            }
+        }
 
     </script>
     <!--/-->

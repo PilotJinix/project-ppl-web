@@ -75,11 +75,23 @@
                                 <small class="text-danger"><?php echo e(_($item->status_checkout)); ?></small>
                                 <?php endif; ?>
                                 <div class=" rounded pl-3 p-1 mb-2" style="background-color: #aaaaaa">
+                                    <?php if($item->status_checkout == "Menunggu Pembayaran" OR $item->status_checkout ==
+                                    "Dibatalkan"): ?>
                                     <span>
                                         <i class="fa fa-calendar text-danger" aria-hidden="true"></i>
                                         <label
                                             class="mb-0 text-dark"><?php echo e(__('Bayar sebelum '.$item->batas_pembayaran.' WIB')); ?></label>
                                     </span>
+                                    <?php else: ?>
+                                    <span>
+                                        <label class="mb-0 text-dark"><?php echo e(__('Nomor Resi: ')); ?></label>
+                                        <?php if($item->resi == null): ?>
+                                        <label class="mb-0"> - </label>
+                                        <?php else: ?>
+                                        <label class="mb-0"><?php echo e(__($item->resi)); ?></label>
+                                        <?php endif; ?>
+                                    </span>
+                                    <?php endif; ?>
                                 </div>
                                 <div class="w-100">
                                     <div class="d-flex justify-content-between w-100">
@@ -87,8 +99,8 @@
                                         <span><?php echo e(__($item->metode_pembayaran)); ?></span>
                                     </div>
                                     <div class="d-flex justify-content-between w-100">
-                                        <span><?php echo e(__('Nomor Virtual Akun :')); ?></span>
-                                        <span><?php echo e(__('88XXXXXXXXXXXXXX')); ?></span>
+                                        <span><?php echo e(__('Nomor Rekening :')); ?></span>
+                                        <span><?php echo e(__('88XXXXXXXXXXXXXX a/n WGFarm')); ?></span>
                                     </div>
                                 </div>
                             </div>

@@ -29,7 +29,8 @@ class CreateDetailCheckoutTable extends Migration
             $table->string('label_alamat_penerima')->nullable();
             $table->string('kode_pos_penerima');
             $table->string('kota_penerima');
-            $table->string('catatan_pembelian')->nullable();
+            $table->string('kurir');
+            $table->string('review')->default("belum");
             $table->string('status_checkout')->default('Menunggu Pembayaran');
             $table->bigInteger('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');

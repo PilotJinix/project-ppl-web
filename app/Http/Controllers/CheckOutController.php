@@ -7,11 +7,14 @@ use DB;
 use App\DetailCheckOut;
 use App\Notifications\Checkout;
 use App\User;
+use App\CallApi;
 
 class CheckOutController extends Controller
 {
   public function checkoutScreen(Request $request, $id){
 		$session = $request->session()->get('username');
+		$jumlah = $request->jumlah;
+
 		if ($session != null) {
 			$akun = DB::table('users')->where('username',$session)->first();
 			$user_id = $akun->id;
@@ -24,10 +27,40 @@ class CheckOutController extends Controller
 			->select('detail_checkout.*','produk.nama','produk.harga','produk.gambar')->latest()
 			->get();
 
-			return view('checkout',compact('akun','detail','riwayat_pembelian'));
+			return view('checkout',compact('akun','detail','riwayat_pembelian','jumlah'));
 		}
 
 		return redirect()->route('login');
+	}
+
+	public function api($method, $url, $data = false){
+		$curl = curl_init();
+
+		curl_setopt_array($curl, array(
+			CURLOPT_URL => $url,
+			CURLOPT_RETURNTRANSFER => true,
+			CURLOPT_ENCODING => "",
+			CURLOPT_MAXREDIRS => 10,
+			CURLOPT_TIMEOUT => 30,
+			CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+			CURLOPT_CUSTOMREQUEST => $method,
+			CURLOPT_HTTPHEADER => array(
+				"accept: application/json",
+				"authorization: gTHTyyFbX4kAbAydtjVMgquqGUXbtH1FX7XZrSl9",
+				"content-type: application/json"
+			),
+		));
+
+		$response = curl_exec($curl);
+		$err = curl_error($curl);
+
+		curl_close($curl);
+
+		if ($err) {
+			return "cURL Error #:" . $err;
+		} else {
+			return $response;
+		}
 	}
 
 	public function checkout(Request $request, $id){
@@ -42,14 +75,27 @@ class CheckOutController extends Controller
 			'alamat' => 'required|string|max:255',
 			'label_alamat' => 'max:255',
 			'kode_pos' => 'required|string|max:100',
-			'kota' => 'required|string|max:100',
-			'catatan_pembelian' => 'max:255',
+			'kurir' => "required|string",
+			'provinsi' => 'required',
+			'kota' => 'required',
+			'kecamatan' => 'required',
 			'jumlah' => 'required|string|max:255',
 			'biaya_pengiriman' => 'required|string|max:255',
 			'diskon' => 'required|string|max:255',
 			'metode_pembayaran' => 'required|string|max:255',
 			'total_harga' => 'required|string|max:255',
 		]);
+		
+		$provinsi = $this->api("GET",'https://ruangapi.com/api/v1/provinces?id='.$request->provinsi);
+		$provinsi = json_decode($provinsi,true);
+
+		$kota = $this->api("GET","https://ruangapi.com/api/v1/cities?province=".$request->provinsi."&id=".$request->kota);
+		$kota = json_decode($kota,true);
+
+		$kec = $this->api("GET",'https://ruangapi.com/api/v1/districts?city='.$request->kota.'&id='.$request->kecamatan);
+		$kec = json_decode($kec,true);
+		
+		$alamat = $request->alamat.", ".$kec["data"]['results']["name"].", ".$kota["data"]['results']["name"].', '.$provinsi["data"]['results']["name"];
 		
 		/* Get Time with timezone Asia/Jakarta */
 		date_default_timezone_set("Asia/Jakarta");
@@ -68,11 +114,10 @@ class CheckOutController extends Controller
 			'nama_penerima' => $request->nama_lengkap,
 			'email_penerima' => $request->email,
 			'no_hp_penerima' => $request->no_hp,
-			'alamat_penerima' => $request->alamat,
+			'alamat_penerima' => $alamat,
 			'label_alamat_penerima' => $request->label_alamat,
 			'kode_pos_penerima' => $request->kode_pos,
-			'kota_penerima' => $request->kota,
-			'catatan_pembelian' => $request->catatan_pembelian,
+			'kurir' => $request->kurir,
 			'user_id' => $user_id,
 			'produk_id' => $id,
 			'jumlah' => $request->jumlah,

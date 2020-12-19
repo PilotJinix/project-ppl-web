@@ -127,24 +127,61 @@
                                     </li>
                                 </ul>
                             </div>
-                            <div class="row row-0">
-                                <div class="col-12">
-                                    <?php if($product->stok == 0): ?>
-                                    <button class="button button-md button-block text-center" disabled
-                                        style="background-color: #888888">
-                                        <span class="ti-bag text-light"></span>
-                                        <span class="text-light">BELI</span>
-                                    </button>
-                                    <?php else: ?>
-                                    <a href="<?php echo e(route('checkout-screen',$product->id)); ?>">
-                                        <button class="button button-md button-block button-dark text-center">
+                            <form action="<?php echo e(route('checkout-screen', ['id'=>$product->id])); ?>" method="get">
+                                <div class="row row-0">
+                                    <div class="col-6">
+                                        <span class="var" style="font-weight: bold">Jumlah</span>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="add-to-cart">
+                                            <div class="el-counter el-counter-1 d-block empty">
+                                                <button id="kurang" type="button" class="button button-minus"
+                                                    style="background-color: rgb(53, 53, 53)">
+                                                    <i class="ti-minus text-light"></i>
+                                                </button>
+                                                <span class="label">1</span>
+                                                <input class="<?php if ($errors->has('jumlah')) :
+if (isset($message)) { $messageCache = $message; }
+$message = $errors->first('jumlah'); ?> is invalid <?php unset($message);
+if (isset($messageCache)) { $message = $messageCache; }
+endif; ?>" id="jumlah"
+                                                    type="number" value="1" min="1" max="<?php echo e(__($product->stok)); ?>"
+                                                    step="1" name="jumlah">
+                                                <button id="tambah" type="button" class="button button-plus"
+                                                    style="background-color: rgb(53, 53, 53)">
+                                                    <i class="ti-plus text-light"></i>
+                                                </button>
+                                            </div>
+                                            <?php if ($errors->has('jumlah')) :
+if (isset($message)) { $messageCache = $message; }
+$message = $errors->first('jumlah'); ?>
+                                            <span class="text-danger invalid-feedback" role="alert">
+                                                <strong><?php echo e($message); ?></strong>
+                                            </span>
+                                            <?php unset($message);
+if (isset($messageCache)) { $message = $messageCache; }
+endif; ?>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row row-0">
+                                    <div class="col-12 mt-3">
+                                        <?php if($product->stok == 0): ?>
+                                        <button class="button button-md button-block text-center" disabled
+                                            style="background-color: #888888" type="button">
+                                            <span class="ti-bag text-light"></span>
+                                            <span class="text-light">BELI</span>
+                                        </button>
+                                        <?php else: ?>
+                                        <button class="button button-md button-block button-dark text-center"
+                                            type="submit">
                                             <span class="ti-bag"></span>
                                             <span class="text">BELI</span>
                                         </button>
-                                    </a>
-                                    <?php endif; ?>
+                                        <?php endif; ?>
+                                    </div>
                                 </div>
-                            </div>
+                            </form>
                             <div class="shareit">
                                 <ul class="el-social-icons block">
                                     <li class="bg-facebook">

@@ -22,7 +22,7 @@ class LoginController extends Controller
 
         $credentials = $data->only('username','password');
 
-       if (Auth::guard('admin')->attempt($credentials)) {
+       if (Auth::guard('admins')->attempt($credentials)) {
             $data->session()->put('admin', $data->username);
             return redirect()->intended(route('admin.dashboard'));
        }

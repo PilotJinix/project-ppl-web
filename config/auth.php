@@ -41,14 +41,14 @@ return [
             'provider' => 'users',
         ],
 
-        'api' => [
-            'driver' => 'token',
-            'provider' => 'users',
-            'hash' => false,
-        ],
+        // 'api' => [
+        //     'driver' => 'token',
+        //     'provider' => 'users',
+        //     'hash' => false,
+        // ],
         'admins' => [
             'driver' => 'session',
-            'provider' => 'admin',
+            'provider' => 'admins',
         ],
     ],
 
@@ -107,7 +107,7 @@ return [
             'expire' => 60,
         ],
         'admins' => [
-            'provider' => 'admin',
+            'provider' => 'admins',
             'table' => 'password_reset',
             'expire' => 60,
         ],
