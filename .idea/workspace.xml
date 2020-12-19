@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c648e688-340e-439b-aed1-24e3bd2a9f1e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/public/assets/images/people/1608398482_Pas Foto Agung.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/struk/1608374673_1607910426_timun.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CheckOutController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CheckOutController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -145,6 +148,7 @@
       <workItem from="1608132121858" duration="45000" />
       <workItem from="1608132170300" duration="36000" />
       <workItem from="1608132235149" duration="6256000" />
+      <workItem from="1608359975278" duration="8108000" />
     </task>
     <task id="LOCAL-00001" summary="Sinkronisasi laporan">
       <created>1608137103648</created>
