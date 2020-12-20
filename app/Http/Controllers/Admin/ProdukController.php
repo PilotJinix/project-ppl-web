@@ -38,7 +38,6 @@ class ProdukController extends Controller
             'diskon' => 'required|string',
             'stok' => 'required|string',
             'kondisi' => 'required|string',
-            'berat' => 'required|string',
             'kategori' => 'required|string'
         ]);
         $gambar = $request->file('foto_produk');
@@ -56,7 +55,6 @@ class ProdukController extends Controller
             'diskon' => $request->diskon,
             'stok' => $request->stok,
             'kondisi' => $request->kondisi,
-            'berat' => $request->berat,
         ]);
 
         /** Change resoluution image and save to path **/
@@ -87,7 +85,6 @@ class ProdukController extends Controller
             'harga' => 'required|string',
             'diskon' => 'required|string',
             'stok' => 'required|string',
-            'berat' => 'required|string',
         ]);
 
         DB::table('produk')->where('id',$id)->update([
@@ -96,7 +93,6 @@ class ProdukController extends Controller
             'deskripsi' => $request->deskripsi,
             'diskon' => $request->diskon,
             'stok' => $request->stok,
-            'berat' => $request->berat,
         ]);
 
         return redirect()->route('admin.list-produk','list-produk')->with('changed','Produk berhasil diedit');
