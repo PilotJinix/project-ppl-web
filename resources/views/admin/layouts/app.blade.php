@@ -7,7 +7,7 @@
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <title>WGFarm</title>
     <!-- Favicon-->
-    <link rel="icon" href="{{asset("admins/assets/images/favicon.ico")}}" type="image/x-icon">
+    <link rel="icon" href="{{asset("assets/images/favicon/favicon.png")}}" type="image/x-icon">
     <!-- Plugins Core Css -->
     <link href="{{asset("admins/assets/css/app.min.css")}}" rel="stylesheet">
     <!-- Custom Css -->
@@ -39,7 +39,7 @@
                     data-target="#navbar-collapse" aria-expanded="false"></a>
                 <a href="#" onClick="return false;" class="bars"></a>
                 <a class="navbar-brand" href="index.html">
-                    <img src="{{asset("admins/assets/images/logo.png")}}" alt="" />
+                    <img src="{{asset("assets/images/favicon/favicon.png")}}" alt="--logo--" width="36px" />
                     <span class="logo-name">WG Farm</span>
                 </a>
             </div>
