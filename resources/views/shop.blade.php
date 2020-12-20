@@ -101,26 +101,26 @@
                                             </a>
                                         </h3>
                                         <div class="footer">
+                                            @if ($item->diskon != 0)
+                                            <div class="d-flex">
+                                                <p class="mb-0 pt-1"
+                                                    style="border-radius: 5px;font-size: 10px;background-color: rgb(255, 152, 212);padding: 0 4px;color: rgb(0, 0, 0)">
+                                                    {!!
+                                                    $item->diskon."%" !!}</p>
+                                                <p class="price mb-0">
+                                                    <span class="old-price"
+                                                        style="font-size: 12px">{{__('Rp '.$item->harga)}}</span>
+                                                </p>
+                                            </div>
+                                            <p class="price mb-0">
+                                                <span class="new-price">{!!'Rp
+                                                    '.$harga = $item->harga-$item->harga*$item->diskon/100 !!}</span>
+                                            </p>
+                                            @else
                                             <p class="price">
                                                 <span class="new-price">{{__('Rp '.$item->harga)}}</span>
                                             </p>
-                                            <ul class="el-stars" title="4 Stars">
-                                                <li>
-                                                    <i class="ti-star active"></i>
-                                                </li>
-                                                <li>
-                                                    <i class="ti-star active"></i>
-                                                </li>
-                                                <li>
-                                                    <i class="ti-star active"></i>
-                                                </li>
-                                                <li>
-                                                    <i class="ti-star active"></i>
-                                                </li>
-                                                <li>
-                                                    <i class="ti-star active"></i>
-                                                </li>
-                                            </ul>
+                                            @endif
                                         </div>
                                     </div>
                                     <ul class="labels labels-left">
@@ -131,16 +131,6 @@
                                             @else
                                             <span class="label label-text bg-danger">{{__('Tersedia')}} </span>
                                             @endif
-                                        </li>
-                                    </ul>
-                                    <ul class="labels labels-right">
-                                        <li>
-                                            <a href="#" class="label label-icon label-icon-wishlist"
-                                                title="Add to wishlist">
-                                                <i class="ti-heart"></i>
-                                            </a>
-                                        </li>
-                                        <li>
                                         </li>
                                     </ul>
                                 </div>
