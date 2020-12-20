@@ -110,6 +110,6 @@ class AdminController extends Controller
             'no_rekening' => null,
         ]);
 
-        redirect()->route('admin.pengguna','daftar-pengguna')->with('dropped','Akun Telah menjadi user');
+        return redirect()->route('admin.pengguna','daftar-pengguna')->with('dropped','Akun Telah menjadi user');
     }
 }
