@@ -52,7 +52,7 @@
                             <div class="file-field input-field mb-4">
                                 <h3 class="card-inside-title">Unggah Gambar Produk</h3>
                                 <div class="file-field input-field">
-                                    <div class="btn">
+                                    <div class="btn btn-primary">
                                         <span>Browse</span>
                                         <input type="file" class="@error('foto_produk') not valid @enderror"
                                             name="foto_produk">
