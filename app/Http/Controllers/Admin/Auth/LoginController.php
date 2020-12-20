@@ -32,7 +32,7 @@ class LoginController extends Controller
 
     public function logout(Request $request){
         $request->session()->forget('admin');
-        Auth::guard('admin')->logout();
+//        Auth::guard('admin')->logout();
 
         return redirect()->route('admin.login');
     }
