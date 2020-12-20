@@ -61,13 +61,8 @@
                                                 <ul class="m-0">
                                                     <li>
                                                         <div id="dataUmum" class="collapsible-header active"
-                                                            style="background-color: rgb(209, 209, 209)">
+                                                            style="background-color: rgba(182, 182, 182, 0.5)">
                                                             <i class="material-icons">settings</i> Umum
-                                                        </div>
-                                                    </li>
-                                                    <li>
-                                                        <div id="dataPengiriman" class="collapsible-header active">
-                                                            <i class="material-icons">local_shipping</i> Pengiriman
                                                         </div>
                                                     </li>
                                                 </ul>
@@ -128,31 +123,6 @@
                                                         </div>
                                                     </div>
                                                     @error('stok')
-                                                    <strong class="text-danger">{{$message}}</strong>
-                                                    @enderror
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div id="pengiriman" class="col-md-7 form-horizontal pt-3"
-                                            style="display: none">
-                                            <div class="row clearfix mr-0">
-                                                <div class="col-md-3 mb-0 form-control-label text-left">
-                                                    <label for="email_address_2">Berat</label>
-                                                </div>
-                                                <div class="col-md-9">
-                                                    <div class="form-group">
-                                                        <div class="input-group p-0">
-                                                            <div class="form-line">
-                                                                <input type="number"
-                                                                    class="form-control border pl-2 rounded border-right-0 @error('berat') not valid @enderror"
-                                                                    name="berat" value="{{__($produk->berat)}}" max="1"
-                                                                    min="1">
-                                                            </div>
-                                                            <span
-                                                                class="input-group-addon border border-left-0 rounded">Kg</span>
-                                                        </div>
-                                                    </div>
-                                                    @error('berat')
                                                     <strong class="text-danger">{{$message}}</strong>
                                                     @enderror
                                                 </div>

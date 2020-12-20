@@ -55,7 +55,7 @@ class LoginController extends Controller
       ->get();
 
       /** Get information product from produk*/
-      $product = DB::table('produk')->latest()->get();
+      $product = DB::table('produk')->orderBy('stok','desc')->limit(16)->get();
       return view('home', compact('akun','product','riwayat_pembelian'));	
     }
 }
