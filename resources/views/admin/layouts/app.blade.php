@@ -68,19 +68,11 @@
                         <ul class="dropdown-menu pullDown">
                             <li class="body">
                                 <ul class="user_dw_menu">
-<<<<<<< HEAD
 {{--                                    <li>--}}
 {{--                                        <a href="#">--}}
 {{--                                            <i class="material-icons">person</i>Profile--}}
 {{--                                        </a>--}}
 {{--                                    </li>--}}
-=======
-                                    {{-- <li>
-                                        <a href="#">
-                                            <i class="material-icons">person</i>Profile
-                                        </a>
-                                    </li> --}}
->>>>>>> e0a21c3f44d53f813edbd1bf80d82397162dcb14
                                     <li>
                                         <a href="{{route('admin.logout')}}">
                                             <i class="material-icons">power_settings_new</i>Logout

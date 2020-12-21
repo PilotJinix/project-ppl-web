@@ -2,8 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c648e688-340e-439b-aed1-24e3bd2a9f1e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/public/assets/images/ktp/1608473319_strawberry.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/ktp/1608473997_jeruk-nipis.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/ktp/1608488104_strawberry.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/products/1608472424_jeruk.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/struk/1608489289_jeruk-nipis.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_11_16_151334_create_review_product_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_11_16_151334_create_review_product_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/layouts/app.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -145,7 +151,9 @@
       <workItem from="1608407289025" duration="314000" />
       <workItem from="1608430192474" duration="2463000" />
       <workItem from="1608433652570" duration="2470000" />
-      <workItem from="1608451784785" duration="4932000" />
+      <workItem from="1608451784785" duration="28652000" />
+      <workItem from="1608534268827" duration="1826000" />
+      <workItem from="1608543012749" duration="1357000" />
     </task>
     <servers />
   </component>

@@ -8,7 +8,7 @@ use DB;
 
 class AdminController extends Controller
 {
-    
+
     public function index(Request $data){
         $pages = 'dashboard';
         $session = $data->session()->get('admin');
@@ -33,7 +33,7 @@ class AdminController extends Controller
         $pengguna = DB::table('users')->latest()->get();
         return view('admin.daftarPengguna', compact('pages','pengguna'));
     }
-    
+
     public function pengajuanMitra(Request $request){
         $session = $request->session()->get('admin');
         if ($session == null) {
@@ -110,6 +110,6 @@ class AdminController extends Controller
             'no_rekening' => null,
         ]);
 
-        redirect()->route('admin.pengguna','daftar-pengguna')->with('dropped','Akun Telah menjadi user');
+        return redirect()->route('admin.pengguna','daftar-pengguna')->with('dropped','Akun Telah menjadi user');
     }
 }
