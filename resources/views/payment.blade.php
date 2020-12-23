@@ -239,7 +239,10 @@
             })
             $('#mobile-bri').click(function () {
                 $('#mobile-bri-desc').slideToggle('slow');
-            })
+            });
+            window.onbeforeunload = function () {
+                return "Your work will be lost.";
+            };
         })
 
     </script>

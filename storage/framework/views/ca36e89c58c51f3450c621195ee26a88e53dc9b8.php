@@ -103,10 +103,27 @@
                                 <?php echo e(__($product->nama)); ?>
 
                             </h1>
-                            <div class="price">
-                                <span class="title"><?php echo e(__('Harga:')); ?></span>
-                                <span class="new-price"><?php echo e(__('Rp '.$product->harga)); ?></span>
+                            <?php if($product->diskon != 0): ?>
+                            <div class="d-flex">
+                                <p class="mb-0 pt-1"
+                                    style="border-radius: 5px;font-size: 10px;background-color: rgb(255, 152, 212);padding: 0 4px;color: rgb(0, 0, 0)">
+                                    <?php echo $product->diskon."%"; ?></p>
+                                <p class="price mb-0" style="font-size: 0">
+                                    <span class="old-price ml-2"
+                                        style="font-size: 16px"><?php echo e(__('Rp '.$product->harga)); ?></span>
+                                </p>
                             </div>
+                            <p class="price mb-0">
+                                <span class="title">Harga:</span>
+                                <span class="new-price"><?php echo 'Rp
+                                    '.$harga = $product->harga-$product->harga*$product->diskon/100; ?></span>
+                            </p>
+                            <?php else: ?>
+                            <p class="price">
+                                <span class="title">Harga: </span>
+                                <span class="new-price"><?php echo e(__('Rp '.$product->harga)); ?></span>
+                            </p>
+                            <?php endif; ?>
                             <div class="product-table">
                                 <ul>
                                     <li>
@@ -392,50 +409,7 @@ endif; ?>
         </div>
     </footer>
     <!--/-->
-    <div class="afra-demo">
-        <div class="afra-demo-panel">
-            <span class="afra-demo-close">
-                <i class="ti-close"></i>
-            </span>
-            <span class="afra-demo-title">Demo Options</span>
-            <span class="afra-demo-subtitle">- Color Schemes</span>
-            <ul class="afra-demo-colors">
-                <li class="afra-demo-color-1" style="background-color: orange"></li>
-                <li class="afra-demo-color-2" style="background-color: #de5881"></li>
-                <li class="afra-demo-color-3" style="background-color: #0b7554"></li>
-                <li class="afra-demo-color-4" style="background-color: #7b1f29"></li>
-                <li class="afra-demo-color-5" style="background-color: #00b7b8"></li>
-                <li class="afra-demo-color-6" style="background-color: #33b5e5"></li>
-            </ul>
-            <ul class="afra-demo-colors">
-                <li class="afra-demo-color-7" style="background-color: #1d3268"></li>
-                <li class="afra-demo-color-8" style="background-color: #00897b"></li>
-                <li class="afra-demo-color-9" style="background-color: #ff5e14"></li>
-                <li class="afra-demo-color-10" style="background-color: #fdb415"></li>
-                <li class="afra-demo-color-11" style="background-color: #c89454"></li>
-                <li class="afra-demo-color-12" style="background-color: hotpink"></li>
-            </ul>
-            <ul class="afra-demo-colors">
-                <li class="afra-demo-color-13" style="background-color: #ac5f33"></li>
-                <li class="afra-demo-color-14" style="background-color: #e79e7e"></li>
-                <li class="afra-demo-color-15" style="background-color: #ffcdb4"></li>
-                <li class="afra-demo-color-16" style="background-color: #e8a384"></li>
-                <li class="afra-demo-color-17" style="background-color: #f9b689"></li>
-                <li class="afra-demo-color-18" style="background-color: #ffcba6"></li>
-            </ul>
-            <ul class="afra-demo-colors">
-                <li class="afra-demo-color-19" style="background-color: #a45223"></li>
-                <li class="afra-demo-color-20" style="background-color: #d88c75"></li>
-                <li class="afra-demo-color-21" style="background-color: #f7c3b6"></li>
-                <li class="afra-demo-color-22" style="background-color: #dc9263"></li>
-                <li class="afra-demo-color-23" style="background-color: #e9b876"></li>
-                <li class="afra-demo-color-24" style="background-color: #d78150"></li>
-            </ul>
-        </div>
-        <div class="afra-demo-toggle">
-            <i class="ti-settings"></i>
-        </div>
-    </div>
+
     <!--Scripts-->
     <script src="<?php echo e(asset('assets/js/jquery.min.js')); ?>"></script>
     <script src="<?php echo e(asset('assets/js/plugins.min.js')); ?>"></script>

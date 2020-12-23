@@ -68,6 +68,12 @@ class CheckOutController extends Controller
 		$akun = DB::table('users')->where('username',$session)->first();
 		$user_id = $akun->id;
 
+		$produk = DB::table('produk')->where('id',$id)->first();
+
+		if ($produk->stok < $request->jumlah) {
+			return redirect()->route('product',$id)->with('habis','Maaf stok sudah habis');
+		}
+
 		$request->validate([
 			'nama_lengkap' => 'required|string|max:255',
 			'email' => 'required|string|email|max:255',
@@ -128,8 +134,6 @@ class CheckOutController extends Controller
 			'batas_pembayaran' => $date,
 			'time' => $newTime,
 		]);
-		
-		$produk = DB::table('produk')->where('id',$id)->first();
 		
 		$newStok = $produk->stok - $request->jumlah;
 		DB::table('produk')->where('id',$id)->update([

@@ -102,10 +102,28 @@
                             <h1>
                                 {{__($product->nama)}}
                             </h1>
-                            <div class="price">
-                                <span class="title">{{__('Harga:')}}</span>
-                                <span class="new-price">{{__('Rp '.$product->harga)}}</span>
+                            @if ($product->diskon != 0)
+                            <div class="d-flex">
+                                <p class="mb-0 pt-1"
+                                    style="border-radius: 5px;font-size: 10px;background-color: rgb(255, 152, 212);padding: 0 4px;color: rgb(0, 0, 0)">
+                                    {!!
+                                    $product->diskon."%" !!}</p>
+                                <p class="price mb-0" style="font-size: 0">
+                                    <span class="old-price ml-2"
+                                        style="font-size: 16px">{{__('Rp '.$product->harga)}}</span>
+                                </p>
                             </div>
+                            <p class="price mb-0">
+                                <span class="title">Harga:</span>
+                                <span class="new-price">{!!'Rp
+                                    '.$harga = $product->harga-$product->harga*$product->diskon/100 !!}</span>
+                            </p>
+                            @else
+                            <p class="price">
+                                <span class="title">Harga: </span>
+                                <span class="new-price">{{__('Rp '.$product->harga)}}</span>
+                            </p>
+                            @endif
                             <div class="product-table">
                                 <ul>
                                     <li>

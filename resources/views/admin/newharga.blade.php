@@ -1,4 +1,5 @@
 @extends('admin.layouts.app')
+@section('title','Tambah Patokan Harga')
 
 @section('content')
 <div class="container-fluid">
@@ -50,9 +51,9 @@
                             <strong class="text-danger">{{$message}}</strong>
                             @enderror
                             <div class="form-group">
-                                <h3 class="card-inside-title">Harga</h3>
+                                <h3 class="card-inside-title">Harga / Kg</h3>
                                 <input class="form-control @error('harga') not valid @enderror" name="harga"
-                                    type="number" placeholder="Masukkan Harga Produk">
+                                    type="number" placeholder="Masukkan Harga Produk" min="1">
                             </div>
                             @error('harga')
                             <strong class="text-danger">{{$message}}</strong>

@@ -5,15 +5,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta content="width=device-width, initial-scale=1" name="viewport" />
-    <title>WGFarm</title>
+    <title>@yield('title') - WGFarm</title>
     <!-- Favicon-->
-    <link rel="icon" href="{{asset("admins/assets/images/favicon.ico")}}" type="image/x-icon">
+    <link rel="icon" href="{{asset("assets/images/favicon/favicon.png")}}" type="image/x-icon">
     <!-- Plugins Core Css -->
     <link href="{{asset("admins/assets/css/app.min.css")}}" rel="stylesheet">
     <!-- Custom Css -->
     <link href="{{asset("admins/assets/css/style.css")}}" rel="stylesheet" />
     <!-- Theme style. You can choose a theme from css/themes instead of get all themes -->
     <link href="{{asset("admins/assets/css/styles/all-themes.css")}}" rel="stylesheet" />
+    <script src="{{asset("admins/assets/js/app.min.js")}}"></script>
 </head>
 
 <body class="light">
@@ -21,8 +22,8 @@
     <div class="page-loader-wrapper">
         <div class="loader">
             <div class="m-t-30">
-                <img class="loading-img-spin" src="{{asset("admins/assets/images/loading.png")}}" width="20" height="20"
-                    alt="admin">
+                <img class="loading-img-spin" src="{{asset("assets/images/favicon/favicon.png")}}" width="20"
+                    height="20" alt="admin">
             </div>
             <p>Please wait...</p>
         </div>
@@ -39,7 +40,7 @@
                     data-target="#navbar-collapse" aria-expanded="false"></a>
                 <a href="#" onClick="return false;" class="bars"></a>
                 <a class="navbar-brand" href="index.html">
-                    <img src="{{asset("admins/assets/images/logo.png")}}" alt="" />
+                    <img src="{{asset("assets/images/favicon/favicon.png")}}" alt="--logo--" width="36px" />
                     <span class="logo-name">WG Farm</span>
                 </a>
             </div>
@@ -223,7 +224,7 @@
                                 @else
                             <li>
                                 @endif
-                                <a href="{{route('admin.new-artikel')}}">Artikel Baru</a>
+                                <a href="{{route('admin.new-artikel')}}">Tambah Artikel Baru</a>
                             </li>
                         </ul>
                     </li>
@@ -292,7 +293,6 @@
         @yield('content')
     </section>
     <!-- Plugins Js -->
-    <script src="{{asset("admins/assets/js/app.min.js")}}"></script>
     <script src="{{asset("admins/assets/js/chart.min.js")}}"></script>
     <script src="{{asset("admins/assets/js/table.min.js")}}"></script>
     <!-- Custom Js -->
@@ -302,4 +302,13 @@
     <script src="{{asset("admins/assets/js/pages/sparkline/sparkline-data.js")}}"></script>
     <script src="{{asset("admins/assets/js/pages/medias/carousel.js")}}"></script>
     <script src="{{asset("admins/assets/js/pages/tables/jquery-datatable.js")}}"></script>
+
+    <!---- Table js -->
+    <script src="{{asset("admins/assets/js/bundles/export-tables/dataTables.buttons.min.js")}}"></script>
+    <script src="{{asset("admins/assets/js/bundles/export-tables/buttons.flash.min.js")}}"></script>
+    <script src="{{asset("admins/assets/js/bundles/export-tables/jszip.min.js")}}"></script>
+    <script src="{{asset("admins/assets/js/bundles/export-tables/pdfmake.min.js")}}"></script>
+    <script src="{{asset("admins/assets/js/bundles/export-tables/vfs_fonts.js")}}"></script>
+    <script src="{{asset("admins/assets/js/bundles/export-tables/buttons.html5.min.js")}}"></script>
+    <script src="{{asset("admins/assets/js/bundles/export-tables/buttons.print.min.js")}}"></script>
 </body>

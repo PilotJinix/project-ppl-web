@@ -1,4 +1,5 @@
 @extends('admin.layouts.app')
+@section('title','Daftar Pengguna')
 
 @section('content')
 <div class="container-fluid">
@@ -57,8 +58,8 @@
                 <div id="table-semua">
                     <div class="body">
                         <div class="table-responsive">
-                            <table class="table table-bordered table-striped table-hover save-stage dataTable"
-                                style="width:100%;">
+                            <table id="tableExport"
+                                class="display table table-hover table-checkable order-column m-t-20 width-per-100">
                                 <thead>
                                     <tr>
                                         <th>Nama Lengkap</th>
@@ -156,8 +157,7 @@
                 <div id="table-user" style="display: none">
                     <div class="body">
                         <div class="table-responsive">
-                            <table class="table table-bordered table-striped table-hover save-stage dataTable"
-                                style="width:100%;">
+                            <table class="table table-bordered table-striped table-hover save-stage dataTable">
                                 <thead>
                                     <tr>
                                         <th>Nama Lengkap</th>
