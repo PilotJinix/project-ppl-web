@@ -1,4 +1,5 @@
 @extends('admin.layouts.app')
+@section('title','Riwayat Transaksi')
 
 @section('content')
 <div class="container-fluid">
@@ -29,15 +30,16 @@
                 <div id="table-semua">
                     <div class="body">
                         <div class="table-responsive">
-                            <table class="table table-bordered table-striped table-hover save-stage dataTable"
+                            <table id="tableExport"
+                                class="display table table-hover table-checkable order-column m-t-20 width-per-100"
                                 style="width:100%;">
                                 <thead>
                                     <tr>
                                         <th>Nama Lengkap</th>
-                                        <th>Email</th>
+                                        <th>No. HP</th>
                                         <th>Alamat</th>
                                         <th>Status</th>
-                                        <th>Nomer HP</th>
+                                        <th>Jenis Bank</th>
                                         <th>Opsi</th>
                                     </tr>
                                 </thead>

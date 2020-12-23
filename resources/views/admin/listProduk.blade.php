@@ -1,4 +1,5 @@
 @extends('admin.layouts.app')
+@section('title','Produk')
 
 @section('content')
 <div class="container-fluid">
@@ -43,12 +44,12 @@
                             <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>Product Name</th>
-                                    <th>Category</th>
-                                    <th>Price</th>
-                                    <th>QTY</th>
+                                    <th>Nama Produk</th>
+                                    <th>Kategori</th>
+                                    <th>Harga</th>
+                                    <th>Stok</th>
                                     <th>Status</th>
-                                    <th>Action</th>
+                                    <th>Opsi</th>
                                 </tr>
                             </thead>
                             <tbody>
