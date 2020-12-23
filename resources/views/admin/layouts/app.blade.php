@@ -39,7 +39,7 @@
                 <a href="#" onClick="return false;" class="navbar-toggle collapsed" data-toggle="collapse"
                     data-target="#navbar-collapse" aria-expanded="false"></a>
                 <a href="#" onClick="return false;" class="bars"></a>
-                <a class="navbar-brand" href="index.html">
+                <a class="navbar-brand" href="#">
                     <img src="{{asset("assets/images/favicon/favicon.png")}}" alt="--logo--" width="36px" />
                     <span class="logo-name">WG Farm</span>
                 </a>
