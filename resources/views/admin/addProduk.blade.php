@@ -168,7 +168,7 @@
                                                             <option disabled selected>Pilih
                                                             </option>
                                                             <option>Baru</option>
-                                                            <option>Bekas</option>
+                                                            <option> > 30 Hari </option>
                                                         </select>
                                                     </div>
                                                     @error('kondisi')
