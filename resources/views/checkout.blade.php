@@ -5,6 +5,16 @@
     <title>Orwell</title>
     @include('layouts.head')
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
+    <script>
+        function preventBack() {
+            window.history.forward();
+        }
+        setTimeout("preventBack ()", 0);
+        window.onunload = function () {
+            null
+        };
+
+    </script>
 </head>
 
 <body>
@@ -373,6 +383,7 @@
     {{-- <script src="{{asset('assets/js/demo.js"')}}"></script> --}}
     <script>
         $(document).ready(function () {
+
             $("#provinsi").select2({
                 placeholder: "Pilih Provinsi",
             });

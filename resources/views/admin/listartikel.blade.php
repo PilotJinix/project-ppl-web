@@ -21,7 +21,7 @@
                     </li>
                 </ul>
                 <a href="{{route('admin.new-artikel')}}">
-                    <button class="btn btn-primary mb-3">Buat Artikel Baru</button>
+                    <button class="btn btn-primary mb-3">Tambah Artikel Baru</button>
                 </a>
             </div>
         </div>

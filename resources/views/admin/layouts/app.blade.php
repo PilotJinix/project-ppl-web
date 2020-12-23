@@ -223,7 +223,7 @@
                                 @else
                             <li>
                                 @endif
-                                <a href="{{route('admin.new-artikel')}}">Artikel Baru</a>
+                                <a href="{{route('admin.new-artikel')}}">Tambah Artikel Baru</a>
                             </li>
                         </ul>
                     </li>
