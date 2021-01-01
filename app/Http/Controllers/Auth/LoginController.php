@@ -15,7 +15,7 @@ class LoginController extends Controller
     {
       return view('auth.login');
     }
-    
+
     public function authenticate(Request $request)
     {
         $request->validate([
@@ -56,6 +56,6 @@ class LoginController extends Controller
 
       /** Get information product from produk*/
       $product = DB::table('produk')->orderBy('stok','desc')->limit(16)->get();
-      return view('home', compact('akun','product','riwayat_pembelian'));	
+      return view('home', compact('akun','product','riwayat_pembelian'));
     }
 }

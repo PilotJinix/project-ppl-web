@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c648e688-340e-439b-aed1-24e3bd2a9f1e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/assets/images/products/1608712551_timun.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/images/struk/1608712680_1608712551_timun.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/struk/WhatsApp Image 2020-12-23 at 13.23.16.jpeg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/register.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -153,7 +154,17 @@
       <workItem from="1608657004315" duration="3710000" />
       <workItem from="1608695839716" duration="4084000" />
       <workItem from="1608712237865" duration="730000" />
-      <workItem from="1608722270277" duration="728000" />
+      <workItem from="1608722270277" duration="2077000" />
+      <workItem from="1608738117706" duration="159000" />
+      <workItem from="1608756349265" duration="617000" />
+      <workItem from="1608783666207" duration="8080000" />
+      <workItem from="1608962084975" duration="13608000" />
+      <workItem from="1609148823573" duration="4053000" />
+      <workItem from="1609176924262" duration="2696000" />
+      <workItem from="1609208365909" duration="3526000" />
+      <workItem from="1609261452696" duration="4188000" />
+      <workItem from="1609300502992" duration="2462000" />
+      <workItem from="1609491900262" duration="597000" />
     </task>
     <servers />
   </component>
