@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c648e688-340e-439b-aed1-24e3bd2a9f1e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/assets/images/struk/WhatsApp Image 2020-12-23 at 13.23.16.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/blog/1609738774_jeruk.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/BlogController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/BlogController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/auth/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/register.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -164,7 +164,13 @@
       <workItem from="1609208365909" duration="3526000" />
       <workItem from="1609261452696" duration="4188000" />
       <workItem from="1609300502992" duration="2462000" />
-      <workItem from="1609491900262" duration="597000" />
+      <workItem from="1609491900262" duration="12662000" />
+      <workItem from="1609599904001" duration="2135000" />
+      <workItem from="1609604835918" duration="3248000" />
+      <workItem from="1609686755079" duration="3525000" />
+      <workItem from="1609705753917" duration="7326000" />
+      <workItem from="1609751123739" duration="3436000" />
+      <workItem from="1609762756954" duration="6751000" />
     </task>
     <servers />
   </component>

@@ -45,7 +45,7 @@
                     <h2>Buat Akun</h2>
                     <p>Agar lebih luar untuk berselancar</p>
                 </header>
-                <form class="form form-1" method="POST" action="{!! route('createe') !!}">
+                <form class="form form-1" method="POST" action="{!! route('create') !!}">
                     @csrf
                     <div class="row row-sm">
                         <div class="col-12">
